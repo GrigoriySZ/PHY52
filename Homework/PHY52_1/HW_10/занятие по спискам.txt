@@ -1,0 +1,52 @@
+class Animal:
+    def make_sound(self):
+        pass
+
+class Dog(Animal):
+    def make_sound(self):
+        print("гав-гав")
+
+class Cat(Animal):
+    def make_sound(self):
+        print("мяу")
+
+def function(a: Animal):
+    a.make_sound()
+
+#принцип подстановки Лисков (LSP)
+#функция должна работать с подтипами базового типа
+#не зная об этом
+#принцип разделения интерфейсов (ISP)
+#много специализированных интерфесов - лучше чем один
+#общего назначения
+
+# параллельное программирование (асинхорнное)
+#API (публичный интерфейс приложения)
+
+
+# c = Cat()
+# function(c)
+#c.make_sound()
+
+import requests as rq
+import bs4
+import random
+#pip install requests
+response = rq.get("https://nukadeti.ru/skazki")
+links = []
+if response.status_code == 200:
+    soup = bs4.BeautifulSoup(response.text, "html.parser")
+    tags = soup.find_all("a", class_="title")
+    for tag in tags:
+        links.append("https://nukadeti.ru" + tag.get("href"))
+
+def getTale(refs: list[str]):
+    ref = random.choice(refs)
+    resp = rq.get(ref)
+    soup_tale = bs4.BeautifulSoup(resp.text, "html.parser")
+    header = soup_tale.find("h1")
+    text = soup_tale.find("div", class_="tale-text").text
+    return {"заголовок": header, "сказка": text}
+
+print(getTale(links))
+    

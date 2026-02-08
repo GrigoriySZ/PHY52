@@ -1,0 +1,73 @@
+ 
+CREATE TABLE Faculties (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Financing REAL NOT NULL CHECK (Financing >= 0) DEFAULT 0,
+    Name TEXT NOT NULL UNIQUE
+);
+
+ 
+CREATE TABLE Departments (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Financing REAL NOT NULL CHECK (Financing >= 0) DEFAULT 0,
+    Name TEXT NOT NULL UNIQUE,
+    FacultyId INTEGER NOT NULL,
+    FOREIGN KEY (FacultyId) REFERENCES Faculties(Id)
+);
+
+ 
+CREATE TABLE Groups (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL UNIQUE,
+    Year INTEGER NOT NULL CHECK (Year BETWEEN 1 AND 5),
+    DepartmentId INTEGER NOT NULL,
+    FOREIGN KEY (DepartmentId) REFERENCES Departments(Id)
+);
+
+ 
+CREATE TABLE Curators (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL CHECK (Name <> ''),
+    Surname TEXT NOT NULL CHECK (Surname <> '')
+);
+
+ 
+CREATE TABLE GroupsCurators (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    CuratorId INTEGER NOT NULL,
+    GroupId INTEGER NOT NULL,
+    FOREIGN KEY (CuratorId) REFERENCES Curators(Id),
+    FOREIGN KEY (GroupId) REFERENCES Groups(Id)
+);
+
+ 
+CREATE TABLE Subjects (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL UNIQUE CHECK (Name <> '')
+);
+
+ 
+CREATE TABLE Teachers (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL CHECK (Name <> ''),
+    Surname TEXT NOT NULL CHECK (Surname <> ''),
+    Salary REAL NOT NULL CHECK (Salary > 0)
+);
+
+ 
+CREATE TABLE Lectures (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    LectureRoom TEXT NOT NULL CHECK (LectureRoom <> ''),
+    SubjectId INTEGER NOT NULL,
+    TeacherId INTEGER NOT NULL,
+    FOREIGN KEY (SubjectId) REFERENCES Subjects(Id),
+    FOREIGN KEY (TeacherId) REFERENCES Teachers(Id)
+);
+
+ 
+CREATE TABLE GroupsLectures (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    GroupId INTEGER NOT NULL,
+    LectureId INTEGER NOT NULL,
+    FOREIGN KEY (GroupId) REFERENCES Groups(Id),
+    FOREIGN KEY (LectureId) REFERENCES Lectures(Id)
+);

@@ -1,0 +1,13 @@
+2026-01-02 21:07:05,699 - INFO: Вызов add_task в TaskManager c аргументами args=(), kwargs={}
+2026-01-02 21:07:07,827 - INFO: Вызов add_task в TaskManager вернул результат Sdf
+2026-01-02 21:07:13,681 - INFO: Вызов add_task в TaskManager c аргументами args=(), kwargs={}
+2026-01-02 21:07:15,770 - INFO: Вызов add_task в TaskManager вернул результат Qqqe
+2026-01-02 21:07:26,619 - INFO: Вызов complete_task в TaskManager c аргументами args=(), kwargs={}
+2026-01-02 21:07:31,097 - INFO: Вызов complete_task в TaskManager вернул результат False
+2026-01-02 21:07:36,349 - INFO: Вызов complete_task в TaskManager c аргументами args=(), kwargs={}
+2026-01-02 21:07:42,740 - INFO: Вызов complete_task в TaskManager вернул результат Qqqe
+2026-01-02 21:07:49,019 - INFO: Вызов undo_task в TaskManager c аргументами args=(), kwargs={}
+2026-01-02 21:07:49,019 - INFO: Вызов undo_task в TaskManager вернул результат False
+2026-01-02 21:40:18,930 - INFO: Вызов add_task в TaskManager c аргументами args=(), kwargs={}
+2026-01-02 21:40:23,596 - INFO: Вызов add_task в TaskManager вернул результат: False
+2026-01-02 21:41:54,150 - INFO: Вызов add_task в TaskManager c аргументами args=(), kwargs={}

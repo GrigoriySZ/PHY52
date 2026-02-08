@@ -1,0 +1,65 @@
+#простая условная констркция
+# a = 5
+# if a > 2:
+#     print("+")
+# else:
+#     print("-")
+# print("2")
+
+# speed = int(input("введите скорость ежа"))
+# #if 0 < speed < 10:
+# if speed > 0 and speed < 10: 
+#     print("ёж сельский")
+# elif (speed >= 10 and speed < 20):
+#     print("ёж городской")
+# elif (speed >= 20) and (speed < 30):
+#     print("ёж столичный")
+# elif speed >= 30:
+#     print("ёж скоростной")
+# else:
+#     print("не верные данные")
+#and - и, or - или
+#list - список
+# number_list = [5, 4, 15, 2, 0, -3]
+# #вывод длины списка
+# print(len(number_list)) 
+# #отрицательная индексация
+# print(number_list[len(number_list) - 1])
+# print(number_list[-1])
+# #индексация
+# number_list[0] = 42
+# #добавление
+# number_list.append(7)
+# #удаление элементов
+# #по значению
+# number_list.remove(42)
+# #по индексу
+# number_list.pop(1)
+# #проверка на наличие индекса
+# remove_index = 11
+# if remove_index < len(number_list) - 1:
+#     number_list.pop(remove_index)
+# #сортировка
+# number_list.sort()
+# #переворот
+# number_list.reverse()
+# print(number_list)
+
+score = 0
+
+answer = input("Столица России")
+if answer.lower() == "москва":
+    score = score + 1
+    #score += 1
+
+answer = input("Какой сейчас год")
+if answer == "2025":
+    score += 1
+
+print(score)
+
+
+
+
+
+

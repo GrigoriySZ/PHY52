@@ -1,0 +1,53 @@
+#\n - новая строка
+#\t - неразрывный пробел
+#\" - вставить кавычку
+#\\ - вставить слэш
+# print("привет\\", "\"пока\"", sep=";", end="\n")
+#цикл с условием
+# count = 0
+# while count < 10:
+#     print(count)
+#     count += 1
+# answer = input("введи слово баклажан\n")
+# while answer != "баклажан":
+#     answer = input("я же просил ввести \"баклажан\"\n")
+#для каждого i в диапазоне до 10
+#range(5) 0, 1, 2, 3, 4;    i = 0, i < 5, i += 1
+#range(5, 10)               i = 5, i < 10, i += 1
+#range(5, 10, 2)            i = 5, i < 10, i += 2
+# for i in range(10, 0, -1):
+#     print(i)
+# numbers = [4, 0, -3, 1, 12, 7, 2]
+# summ = 0
+# #способ через индексы
+# for index in range(0, len(numbers), 1):
+#     summ += numbers[index]
+#     #print(index, summ)
+# print(summ / len(numbers))
+# #способ перебора
+# summ = 0
+# for elemen in numbers:
+#     summ += elemen
+# print(summ/ len(numbers))
+# линейный поиск
+# elements = [7, 5, 25, 13, 1, 42]
+# max_element = elements[0]
+# for i in range(1, len(elements)):
+#     if elements[i] > max_element:
+#         max_element = elements[i]
+# print(max_element)
+
+questions = [
+    "Сколько иголок у ежа",
+    "Какой язык мы изучаем?"
+    ]
+right_answers = [
+    "101",
+    "python"
+]
+for index in range(len(questions)):
+    answer = input(questions[index])
+    if answer == right_answers[index]:
+        print("вы ответили верно")
+    else:
+        print("вы ошиблись")

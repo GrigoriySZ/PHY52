@@ -1,0 +1,113 @@
+#break
+# var = 6
+# while var > 0:
+#     if var == 3:
+#         break
+#     print(var)
+#     var -= 2
+# test_list = [5, 2, 13, 0, 8, 4]
+# find_number = 0
+# #для каждого i в диапзоне
+# for i in range(0, len(test_list)):
+#     print(i)
+#     if test_list[i] == find_number:
+#         print(f"искомое число {find_number} было найдено под индексом {i}")
+#         break
+
+# while True:
+#     num = int(input("введи 3 "))
+#     if num == 3:
+#         break
+
+#continue
+# for i in range(1, 10):
+#     if i % 2 == 1:
+#         continue
+#     print(i)
+
+# for i in range(2, 10, 2):
+#     print(i)
+# кортеж - не изменяемый список
+# tuple_test = (5, 6, 2)
+# print(tuple_test[0])
+# print(tuple_test.count(6))
+
+#сложности алгоритмов
+#хеш таблица
+#бинарное дерево
+
+#множество и словарь
+#set
+test_set = {10, 542, 12, 0, 143}
+test_set2 = {10, 5, 2, 143, 7}
+test_set.add(9)
+#удаление по значению
+#test_set.remove()
+#последний добавленный
+#test_set.pop()
+# print(test_set.intersection(test_set2))
+# print(test_set & test_set2)
+# print(test_set.difference(test_set2))
+# print(test_set - test_set2)
+
+#словарь {ключ: значение}
+dict_numbers = {"356-751": "Иван", "284-165": "Василий"}
+dict_numbers["284-165"] = "Ольга"
+print(dict_numbers["284-165"])
+for i in dict_numbers.items():
+    if i[1] == "Иван":
+        print(i[0])
+
+#если данные упорядочены, то лучше взять список
+#если данных много и порядок не важен, то тогда множество
+#если множество не подходит, то словарь
+#list - список
+#set - множество
+#tuple - кортеж
+#dict - словарь
+#преобразование
+test_list = [1, 2, 3]
+s = set(test_set)
+#создание
+lst = list([1, 2, 3])
+st = set([1, 2, 3])
+tp = tuple([1, 2, 3])
+
+
+# test_list = [[1, 2], [6, 7]]
+# print(test_list[1][1])
+# test_list[0].append(5)
+# print(test_list)
+product_list = [
+    {"Название": "Холодильник", "Цена": 35_000, "Вес": 42.7},
+    {"Название": "Микроволновка", "Цена": 5_000, "Вес": 6.4},
+    {"Название": "Телевизор", "Цена": 42_000, "Вес": 5.2},
+    {"Название": "Пылесос", "Цена": 7_800, "Вес": 2.8}
+]
+#вывести названия товаров, которые дороже 8000
+for product in product_list:
+    if product["Цена"] > 8000:
+        print(product["Название"])
+
+#"в" in "Василий".lower()
+#5 in [2, 8, 5]
+#вывести товары, название которых подходит
+for product in product_list:
+    if "ик" in product["Название"].lower():
+        print(f"Товар - {product['Название']}\nЦена - {product['Цена']}")
+
+#print(product_list[2]["Название"])
+#print(product_list[2]["Название"], product_list[2]["Цена"])
+
+temp_data = {
+    "Температура": [-7, -5, -5, -4, -3, -3, -3, -4, -7, -8, -8, -10],
+    "Восход": "09:55",
+    "Текущая температура": -5
+}
+
+summ = 0
+for temp in temp_data["Температура"]:
+    summ += temp
+avg_temp = summ / len(temp_data["Температура"])
+print(f"Средняя температура за день: {avg_temp:.2f}")
+

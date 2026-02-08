@@ -1,0 +1,73 @@
+class Departemnt:
+    def __init__(self, name: str):
+        self.__name = name
+    @property
+    def Name(self):
+        return self.__name
+    @Name.setter
+    def Name(self, new_name: str):
+        self.__name = new_name
+
+class Employer:
+    def __init__(self, fio: str, age: int, salary: int, depart: Departemnt):
+        self.__fio = fio
+        self.__age = age
+        self.__salary = salary
+        self.__depart = depart
+    def get_instace(f: str, i: str, o: str, age: int, salary: int,
+                 depart: Departemnt):
+        return Employer(f+i+o, age, salary, depart)
+
+    #магический метод строкового представления объекта
+    def __str__(self):
+        return f"""ФИО {self.__fio}, 
+        Возраст {self.__age}, 
+        Зарплата {self.__salary}
+        Отдел {self.__depart.Name}"""
+    @property
+    def Department(self):
+        return self.__depart
+    @Department.setter
+    def Department(self, new_depart: Departemnt):
+        self.__depart = new_depart
+
+    def __add__(self, other):
+        if isinstance(other, Employer):
+            res = Employer(self.__fio,
+                        (self.__age + other.__age)// 2,
+                         self.__salary + other.__salary,
+                          other.__depart )
+            return res
+
+#наследование (обобщение)
+#потомок наследет поля и методы родителя
+#extand - расширяет
+
+class Point2d:
+    def __init__(self, x: int, y: int):
+        self.__x = x
+        self.__y = y
+
+class Point3d(Point2d):
+    def __init__(self, x: int, y: int, z: int):
+        super().__init__(x, y)
+        self.__z = z
+
+d1 = Departemnt("Раработка")
+e1 = Employer("Иванов Иван Иванович", 30, 60_000, d1)
+e2 = Employer("", 35, 50_000, d1)
+#вызов статического метода
+e4 = Employer.get_instace("", "", "", 32, 30_900, d1)
+print(e4)
+#e3 = Employer()
+print(e1.Department.Name)
+d1.Name = "Тестирование"
+print(e1.Department.Name)
+#SOLID
+#S - принцип единственной ответственности (один класс - одна задача)
+#O - принцип открытости\закрытости. Классы должны быть открыты 
+# для расширения, но закрыты для изменения
+
+
+#e1.__str__()
+print(e1 + e2)

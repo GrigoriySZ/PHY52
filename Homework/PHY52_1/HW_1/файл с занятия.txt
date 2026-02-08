@@ -1,0 +1,38 @@
+var = 11.6
+#это объявление переменной
+var2 = 15.3
+# print(var / var2)
+# print(var + var2)
+# print(var - var2)
+# print(var * var2)
+#ctrl + /
+#строкой считатется набор сиволов в " "или''
+name = "Павел"
+hello = "Привет"
+#print(hello + " " + name)
+#% это остаток от деления
+#print(var % 2)
+#// - целочислинное деление
+#print(12 // 5)
+#print(hello * 4)
+#b^2 - 4ac
+a = int(input("введите значение a"))
+b = int(input("введите значение b"))
+c = int(input("введите значение c"))
+#print(type(a))
+#функции преобразования типов
+#int()
+#str()
+#float()
+result = b * b - 4 * a * c
+print(result)
+#операторы отношений >, <, ==, !=, >=, <=
+#== это сравнить
+#!= не равно
+if result > 0:
+    print("корня два")
+if result < 0:
+    print("нет корней")
+if result == 0:
+    print("один корень")
+print("программа завершена")
