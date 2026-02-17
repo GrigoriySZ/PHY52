@@ -17,7 +17,7 @@ class Base(DeclarativeBase):
 
 
 order_items = Table(
-    'order_items',  # Название ассициативной таблицы
+    'order_items',  # Название ассоциативной таблицы
     Base.metadata, 
     Column('order_id', ForeignKey('orders.id'), primary_key=True),
     Column('dishes_id', ForeignKey('dishes.id'), primary_key=True)
@@ -64,7 +64,7 @@ Base.metadata.create_all(engine)
 
 def get_free_tables(session: Session):
 
-    # Ищмем столы со статусом заказа 'Принято'
+    # Ищем столы со статусом заказа 'Принято'
     query = select(Order.table_id).where(Order.status == 'принят')
 
     # Отсортировываем столы с принятыми заказами
@@ -121,11 +121,11 @@ if __name__ == '__main__':
     """
     with Session(engine) as session:
 
-        # Созжаем записи для добавления в таблицу tables
+        # Создаем записи для добавления в таблицу tables
         table1 = RestTable(number=1, capacity=2)
         table2 = RestTable(number=2, capacity=4)
         
-        # Созжаем записи для добавления в таблицу orders
+        # Создаем записи для добавления в таблицу orders
         pizza = Dish(name='Маргарита', price=690.0)
         pasta = Dish(name='Карбонара', price=460.0)
         coffee = Dish(name='Капучино', price=280.0)
