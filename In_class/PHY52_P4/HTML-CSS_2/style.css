@@ -1,0 +1,58 @@
+p{
+    /* Подключение шрифтов */
+    /* Большое количество шрифтов можно найти на "https://fonts.google.com/" */
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 32px;
+    font-weight: 500;
+    /* font-style: italic;
+    line-height: 50px;
+    letter-spacing: 10px; */
+    color: #1efa1e;
+    text-decoration: none;
+    /* underline | line-through */
+    text-transform: none;
+    /* uppercase | lowercase | capitalize */
+    text-shadow: 0px 2px 16px rgba(0, 166, 255, 0.567);
+    text-align: justify;
+    /* left | right | center | justify */
+}
+
+/* % - процентное соотношение отностительно родителя
+| em - относительно размера шрифта родительского элемента
+| rem - относительно размеров шрифта корневого элемента
+| vw (view width) - в % относительно ширины видового экрана
+| vh {view height) - в % относительно высоты видового экрана
+*/
+
+#parent{
+    width: 600px;
+    height: 400px;
+    border: 2px solid black;
+    font-size: 25px;
+}
+
+html {
+    font-size: 20px;
+}
+
+#child{
+    width: 40vw;
+    height: 40vh;
+    border: 3px solid red;
+    font-size: 3rem;
+}
+
+body{
+    height: 150vh;
+    background-color: lemonchiffon;
+    background-image: url('bg.jpg');
+    background: url('bg.jpg'), linear-gradient(55deg, red, blue);
+    background-repeat: no-repeat;
+    /* repeat | repeat-x | repeat-y | no-repeat */
+    background-size: auto;
+    /* auto | contain | cover | % | px */
+    background-position: top left;
+    /* top | bottom | left | right | center | px | % */
+    background-attachment: fixed;
+    /* sctoll | fixed */   
+}

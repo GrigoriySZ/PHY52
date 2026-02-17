@@ -1,0 +1,97 @@
+p {
+    background-color: violet;  /* цвет фона */
+}
+
+#element {
+    color: red;  /* цвет текста */
+    /* БЛОЧНАЯ МОДЕЛЬ ЭЛЕМЕНТА */
+    width: 500px;  /* ширина */
+    height: 250px;  /* высота */
+    /* ВНУТРЕННИЕ ОТСТУПЫ */
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    padding-left: 45px;
+    padding: 20px 30px 25px 45px;  /* от top по часовой стрелке */
+    padding: 30px 25px 40px;  /* top left/right bottom */
+    padding: 20px 50px;  /* ось_y ось_x */
+    padding: 25px;  /* одинаковый отступ по всем 4 сторонам */
+    /* ГРАНИЦА ЭЛЕМЕНТА */
+    border-width: 5px;  /* ширина границы */
+    border-color: aqua; /* цвет границы */ 
+    /* ТИПЫ ЗАЛИВКИ */
+    border-style: solid;  /* сплошная */
+    border-style: dashed;  /* пунктирная */
+    border-style: dotted;  /* точками */
+    border-style: double;  /* двойная граница */
+    border: 5px solid aqua;  /* краткая запись */
+    border-top-color: brown;
+    border-bottom-width: 10px;
+    border-radius: 50px;  /* скругление углов */ 
+    border-bottom-left-radius: 0px;  /* выборочное скругление углов */
+    /* ВНЕШНИЙ ОТСТУП */
+    margin: 30px auto;  /* auto - центрируео */
+    box-sizing: border-box;  /* включает в базовый размер элемента padding и border */
+    box-shadow: -10px -20px 15px 0px rgba(0, 0, 0, 0.3);  
+    /* x(+/-) y(+/-) blut spread */
+    /* (R[0-255] G[0-255] B[0-255] alpha[яркость]) */
+    font-size: 35px;
+    color: #ffff00;
+    color: rgb(20, 30, 100);
+    /* слово, HEX-code, rgb, rgba */
+}
+
+img {
+    width: 200px;
+    height: 500px;
+}
+
+.size {
+    font-size: 25px;  /* размер шрифта */
+}
+
+/* по id обращаемся через # */
+/* по class обращаемся через . */
+
+#card {
+    width: 300px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border-width: 1px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
+    padding: 20px;
+}
+
+#card-title {
+    background-color: #fff;
+    font-size: 26px;
+    font-weight: bold;  /* толщина начертания */
+    text-align: center;  /* выравнивание текста внутри элемента */
+}
+
+#card img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+
+#card-price {
+    background-color: #fff;
+    color: grey;
+    font-size: 20px;
+}
+
+#card button {
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: transparent;  /* transparent - прозрачный */
+    background-color: grey;
+    color: white;
+    display: block;
+    margin: auto;
+}
