@@ -1,0 +1,109 @@
+/* ОБЩИЕ НАСТРОЙКИ */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: lightgray;
+    
+}
+
+/* ШАПКА СТРАНИЦЫ */
+header {
+    height: 5vh auto;
+    background-color: rgb(36, 71, 99);
+    box-shadow: 0 2px 5px rgba(37, 57, 77, 0.5);
+    padding: 40px 40px;
+    border-bottom: 2px solid gray;
+    text-align: center;
+}
+
+h1 {
+    color: lightgray;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+main {
+    width: 80%;
+    max-width: 1200px;
+    min-width: 700px;
+    margin: 20px auto;
+}
+
+/* СТИЛЬ КАРТОЧЕК */
+.user-card {
+    background-color:whitesmoke;
+    border: 2px solid rgba(37, 57, 77, 0.5);
+    border-radius: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+img {
+    box-sizing: border-box;
+    vertical-align: middle;
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+}
+
+.content {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    min-width: 30%;
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border-top: 2px solid rgba(40, 60, 75, 0.5);
+    border-radius: 15;
+
+    color: rgb(75, 75, 75);
+}
+
+.content h2 {
+    margin: 10px 0;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.content h3 {
+    font-size: 28px;
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+
+.content p {
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.content a {
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align:center;
+
+    width: 150px;
+    display: grid;
+    padding: 20px 30px;
+    margin: 5px auto;
+
+    background-color: transparent;
+    
+    border: 2px solid rgba(40, 60, 75, 0.5);
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.content a:hover {
+    width: 155px;
+    background-color: lightgray;
+    box-shadow: 0 0 10px rgba(40, 60, 75, 0.5);
+
+}
+
