@@ -1,0 +1,114 @@
+/* ОБЩИЕ СТИЛИ */
+* {
+    box-sizing: border-box;
+    transition: all 0.5s;
+}
+
+/* ГЛАВНВАЯ СТРУКТУРА */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: lightgray;
+    color: black;
+}
+
+/* ШАПКА СТРАНИЦЫ */
+header {
+    height: 10vh;
+    min-height: 80px;
+    max-height: 100px;
+    display: flex;
+    flex-grow: 1;
+    text-align: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin: auto;
+}
+
+/* ОСНОВНОЕ СОДЕРЖАНИЕ */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    flex-basis: 1000px;
+    gap: 20px;
+}
+
+/* КАРТОЧКА ОТЗЫВА */
+.reviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    max-width: 1000px;
+    min-width: 400px;
+    flex-grow: 1;
+    padding: 25px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-shadow: 1px 3px 10px rgba(95, 95, 95, 0.6);
+}
+
+
+
+/* ИНФОРМАЦИЯ ПОЛЬЗОВАТЕЛЯ */
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    display: flex;
+    height: 70px;
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+    background-color: plum;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0px 20px;
+    font-size: 20px;
+}
+
+.user-name {
+    margin: 0;
+}
+
+/* ОЦЕНКА ПОЛЬЗОВАТЕЛЯ */
+.rating {
+    display: flex;
+    gap: 1px;
+}
+
+.star-checked {
+    margin: 0;
+    color: gold;
+}
+
+.star-unchecked {
+    margin: 0;
+    color: gray;
+}
+
+/* СОДЕРЖАНИЕ ОТЗЫВА */
+.reviews p {
+    display: flex;
+    margin: 0;
+}
