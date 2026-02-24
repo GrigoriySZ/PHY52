@@ -1,0 +1,133 @@
+/* ОБЩИЕ НАСТРОЙКИ */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: lightgray;
+}
+
+/* ШАПКА СТРАНИЦЫ */
+header {
+    box-sizing: border-box;
+    background-color: rgb(84, 187, 221);
+    border-bottom: 1px solid darkblue;
+    height: 80px;
+    padding: 20px 30px;
+}
+
+
+/* ОСНОВНАЯ ЧАСТЬ */
+main {
+    width: 80%;
+    max-width: 1600px;
+    min-width: 400px;
+    margin: 50px auto;
+}
+
+/* КАРТОЧКИ КУРОРТОВ */
+.travel-card {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 350px;
+    margin: 10px;
+    padding-top: 175px;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    opacity: 0.5;
+    transition: 0.5s;
+    
+    background-position: top;
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+.travel-card:hover {
+    opacity: 1;
+}
+
+/* ФОН КАРТОЧЕК */
+#abhazia {
+    background-image: url(./img/abhazia.jpg);
+}
+
+#turkey {
+    background-image: url(./img/turkey.jpg);
+}
+
+#armenia {
+    background-image: url(./img/armenia.jpg);
+}
+
+/* ТЕКСТОВАЯ ИНФОРМАЦИЯ */
+.content {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid gray;
+}
+
+.content h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 10px;
+    margin-bottom: 5px   
+}
+
+.content p {
+    margin: 0 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.travel-card {
+    font-size: 14px;
+}
+
+/* ИНФОРМАЦИЯ ВРЕМЕНИ */
+.time-info {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    padding-inline-start: 0;
+    width: 55%;
+}
+
+.time-info p {
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.time-info img {
+    width: 10px;
+    background-color: transparent;
+}
+
+/* БЛОК С ЦЕНОЙ */
+.price {
+    display: inline-block;
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid gray;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.price:hover {
+    background-color: rgb(84, 187, 221);
+    box-shadow: 0 3px 5px rgba(73, 73, 73, 0.3);
+}
+
+.price .sum {
+    display: inline;
+    margin: 0;
+    font-size: 12px;
+}
+
+.price strong {
+    font-size: 16px;
+    font-weight: 600;
+}
