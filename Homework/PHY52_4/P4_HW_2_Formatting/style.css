@@ -1,4 +1,8 @@
 /* ОБЩИЕ НАСТРОЙКИ */
+* {
+    transition: 0.5s;
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -10,10 +14,28 @@ header {
     box-sizing: border-box;
     background-color: rgb(84, 187, 221);
     border-bottom: 1px solid darkblue;
-    height: 80px;
-    padding: 20px 30px;
+    height: 100px;
+    padding: 10px 30px;
 }
 
+#logo {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+#logo-name {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    text-decoration: none;
+    vertical-align:25px;
+    font-family: 'Corbel light';
+    color: aliceblue;
+    font-size: 36px;
+    font-weight: 100;
+    letter-spacing: 3px; 
+    padding: 10px;
+}
 
 /* ОСНОВНАЯ ЧАСТЬ */
 main {
@@ -29,12 +51,9 @@ main {
     display: inline-block;
     width: 350px;
     margin: 10px;
-    padding-top: 175px;
     background-color: whitesmoke;
     border-radius: 6px;
     opacity: 0.5;
-    transition: 0.5s;
-    
     background-position: top;
     background-size:contain;
     background-repeat: no-repeat;
@@ -42,19 +61,18 @@ main {
 
 .travel-card:hover {
     opacity: 1;
+    box-shadow: 0 0 10px rgba(73, 73, 73, 0.3);
 }
 
-/* ФОН КАРТОЧЕК */
-#abhazia {
-    background-image: url(./img/abhazia.jpg);
-}
-
-#turkey {
-    background-image: url(./img/turkey.jpg);
-}
-
-#armenia {
-    background-image: url(./img/armenia.jpg);
+/* СТИЛЬ ФОНА  */
+.pic-holder {
+    width: 100%;
+    height: 175px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 /* ТЕКСТОВАЯ ИНФОРМАЦИЯ */
@@ -113,7 +131,6 @@ main {
     font-weight: 600;
     border: 1px solid gray;
     border-radius: 10px;
-    transition: 0.5s;
 }
 
 .price:hover {
