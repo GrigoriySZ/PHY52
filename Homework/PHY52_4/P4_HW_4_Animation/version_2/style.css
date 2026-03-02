@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(35, 35, 35);
+}
+
+main {
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    min-width: 800px;
+    min-height: 400px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    
+}
