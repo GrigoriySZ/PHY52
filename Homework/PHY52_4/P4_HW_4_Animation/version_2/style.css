@@ -1,0 +1,137 @@
+/* ОБЩИЕ НАСТРОЙКИ */
+* {
+    box-sizing: border-box;
+    font-family: "Calibri";
+}
+
+body {
+    background-color: rgb(35, 35, 35);
+}
+
+/* ОСНОВНОЕ ТЕЛО */
+main {
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    min-width: 800px;
+    min-height: 400px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+/* КОНТЕЙНЕР ЧАСОВ */
+.clock {
+    display: flex;
+    width: 500px;
+    height: 160px;
+
+    font-size: 100px;
+    font-weight: 200;
+    color: rgb(0, 220, 0);
+
+    background-color: black;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgb(0, 220, 0);
+
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+
+/* СИМВОЛЫ НА ЧАСАХ */
+.hours,
+.minutes,
+.seconds {
+    display: flex;
+    position: relative;
+    height: 120px;
+    flex-grow: 2;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.separator {
+    font-weight: 700;
+    background-color: black;
+    animation: sep-blink 1.0s 0.0s forwards infinite steps(1);
+}
+
+.tens *,
+.units * {
+    height: 120px;
+    width: 50px;
+}
+
+.hours .tens {
+    animation: tens-hour-switch ;
+}
+
+.hours .units {
+    animation: units-switch 86400.0s 0s infinite steps(3);
+}
+
+.minutes .tens {
+    animation: tens-switch 3600.0s 0s infinite steps(6);
+}
+
+.minutes .units {
+    animation: units-switch 600.0s 0s infinite steps(10);
+}
+
+.seconds .tens {
+    animation: tens-switch 60.0s 0s infinite steps(6);
+}
+
+.seconds .units {
+    animation: units-switch 10.0s 0s infinite steps(10);
+}
+
+@keyframes units-switch {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-1200px);
+    }
+}
+
+@keyframes tens-switch {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-720px);
+    }
+}
+
+@keyframes tens-hour-switch {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-360px);
+    }
+}
+
+@keyframes sep-blink {
+    0% {
+        color: rgba(0, 220, 0);
+    }
+
+    50% { 
+        color: black
+    }
+
+    100% {
+       color: rgba(0, 220, 0);
+    }
+}
