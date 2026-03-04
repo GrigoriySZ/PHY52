@@ -34,6 +34,9 @@ header {
     height: 114px;
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0%;
+    left: 0%;
 }
 
 .header_nav {
@@ -76,3 +79,144 @@ header {
     background: var(--mainLinearColor)
 }
 /* HEADER END */
+
+/* HERO SECTION START */
+#hero {
+    background-image: url('../images/bg3.png'), url('../images/bg1.png');
+    background-repeat: no-repeat;
+    background-position: top right, bottom right;
+    padding-top: 140px;
+}
+
+#hero .wrapper {
+    align-items: flex-start;
+}
+
+.hero_leftBox {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+h1 {
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 64px;
+    line-height: 105%;
+    letter-spacing: -0.5%;
+    color: var(--grayscaleWhiteColor);
+    max-width: 540px;
+}
+
+.hero_leftBox p {
+    font-weight: 300;
+    font-style: Light;  /* Такого стиля нет в CSS */
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    color: var(--grayscaleGrey2Color);
+    max-width: 446px;
+}
+
+.hero_leftBox button {
+    padding: 18px 38px;
+    background: var(--mainLinearColor);
+    font-family: Chakra Petch;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--grayscaleWhiteColor);
+    border: none;
+}
+
+.hero_leftBox button:hover {
+    box-shadow: 0px 0px 10px 0px rgba(151, 71, 255, 0.5);
+}
+/* HERO SECTION END */
+
+/* ABOUT US SECTION START */
+#aboutUs .wrapper {
+    padding: 42px 64px 53px 64px; 
+    background-color: var(--grayscaleBlack50Color);
+    align-items: flex-start;
+
+}
+
+.aboutUs_card {
+    width: 324px;
+}
+
+.aboutUs_card h5 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--grayscaleWhiteColor);
+    margin-top: 52px;
+}
+
+.aboutUs_card p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    color: var(--grayscaleGrey1Color);
+    margin-top: 12px;
+}
+/* ABOUT US SECTION END */
+
+/* SERVICES SECTION START */
+#services {
+    margin-top: 120px;
+}
+
+#services .wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 45px;
+}
+
+.services_topBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.services_topBox_left h3 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 14%;
+    text-transform: uppercase;
+    background: var(--mainLinearColor);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin-top: 12px;
+}
+
+.services_topBox_left h2 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    letter-spacing: -0.5%;
+    color: var(--grayscaleWhiteColor);
+}
+
+.services_topBox_right {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    color: var(--grayscaleGrey2Color);
+    width: 625px;
+}
+
+/* SERVICES SECTION END */
