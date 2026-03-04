@@ -1,0 +1,78 @@
+:root {
+    --mainLinearColor: linear-gradient(90deg, #0CBAF1 0%, #E95CE9 100%);
+    --mainPurple10Color: #CA6AEB;
+    --mainBlueColor: #19B5F1;
+    --grayscaleBlack100Color: #18181B;
+    --grayscaleBlack50Color: #252532;
+    --grayscaleGrey1Color: #B0B0B2;
+    --grayscaleGrey2Color: #D1D1D1;
+    --grayscaleWhiteColor:  #FFFFFF;
+}
+
+*, a {
+    box-sizing: border-box;
+    transition: 0.5s;
+    font-family: "Chakra Petch", sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--grayscaleBlack100Color);
+}
+
+.wrapper {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* HEADRED START */
+header {
+    width: 100%;
+    height: 114px;
+    display: flex;
+    align-items: center;
+}
+
+.header_nav {
+    display: flex;
+    gap: 64px;
+}
+
+.header_nav a {
+    font-weight: 300;
+    font-style: Light;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    color: var(--grayscaleWhiteColor);
+
+}
+
+.header_nav a:hover {
+    font-weight: 500;
+    font-style: Medium;
+}
+
+.header_contact {
+    padding: 12px 24px;
+    border: 1px solid;
+    border-image-source: var(--mainLinearColor); 
+    border-image-slice: 1;
+}
+
+.header_contact a {
+    font-weight: 300;
+    font-style: Light;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    color: var(--grayscaleWhiteColor);
+}
+
+.header_contact:hover {
+    background: var(--mainLinearColor)
+}
+/* HEADER END */
