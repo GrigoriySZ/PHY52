@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+    font-family: "Bitcount Prop Double", monospace;
+}
+
+body {
+    background-color: #1a1a1a;
+    height: 2000px;
+    width: 80%;
+    margin: auto;
+} 
+
+.poster {
+    z-index: 1;
+    position: absolute;
+    height: 400px;
+    width: 500px;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    /* background: linear-gradient(310deg, rgb(104, 52, 116), rgb(225, 0, 255), 
+                              rgb(0, 204, 194), rgb(63, 155, 150), rgb(74, 90, 163)); */
+    background: #0f001b; 
+    background-image: linear-gradient(to bottom right,#0f001b 0%,#3c005b 50%,#0f001b 100%)
+}
+
+.title {
+    z-index: 10;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: 56px;
+    font-weight: 300;
+    color: #4ddfd3;
+    text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 40px #0fa;
+}
+
+.orb {
+    z-index: 100;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    bottom: -5%;
+    right: -5%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #984ddf);
+    box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.5), 0 0 50px 5px rgba(152, 77, 223, 0.7);
+}
+
+.stamp {
+    z-index: 999;
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    margin: 50px;
+    padding: 10px;
+    border: 1px double rgb(82, 14, 146);
+    background-color: #1a1a1a9a;
+    box-shadow: 0 0 30px 5px rgba(152, 77, 223, 0.7);
+    transform: rotate(-13deg);
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    color: #984ddf;
+}
