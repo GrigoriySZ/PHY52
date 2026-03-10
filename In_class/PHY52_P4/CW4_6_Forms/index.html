@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Два основных атрибута тэга form:
+    action - действие после отправки данных
+    method - метод отправки
+     -->
+    <!-- 2 метода HTTP протокола: GET POST -->
+    <!-- GET-отправляются в открытом виде
+    https://example.com?p1=val1&p2=val2&p3=val3
+    POST - HTTP протокол -->
+    <!-- Если хотим защищить данные при отправки, то нужно использовать метод post -->
+    <form action="" method="get">
+        <label for="name">Имя:</label>
+        <!-- Атрибут name - дает название параетра для отправки -->
+        <!-- Атрибут placeholder - выводит текст подсказку к полю ввода
+             до тех пор, пока не будет введен хотя бы один симвод -->
+        <!-- Атрибут required - делает поле обязательным для заполнения -->
+        <!-- Атрибут readonly - ограничивает поле ввода для ввода -->
+        <!-- Атрибут disabled - деактивирует элемент даже для состояния focus -->
+        <!-- Атрибут valuse - значение атрибута по умолчанию -->
+        <!-- <input type="text" name="username" placeholder="Введите своё имя" required readonly disabled value="Значение имени"> -->
+        <input id="name" type="text" name="username" placeholder="Введите своё имя">
+        <!-- Для тэга lable можно прописать привязку в другому после атрибутом for -->
+        <label for="number">Количество приборов</label>
+        <!-- Атрибуты числового инпута:
+         min - минимальная значение для ввода
+         max - максимальное значение для ввода 
+         step - шаг ввода (по умолчанию - 1). Отрицательные и ноль не работают 
+        -->
+        <input id="number" type="number" value="0" min="0" max="10" step ='5' name="number">
+        <!-- Перекрывает все вводимые данные точками -->
+        <input type="password" name="pass">
+        <!-- Проверяет вводимые данные на предмет @ и нескольких символов -->
+        <input type="email" name="email">
+        <!-- Атрибут checked делает chackbox по умолчанию активированным -->
+        <input type="checkbox" name="check" chacked>Отметить
+        <!-- Добавляет поле для ввода даты с календарем -->
+        <input type="date" name="date">
+        <!-- Добавляет поле ввода для времени -->
+        <input type="time" name="time">
+        <!-- Добавляет поле выбора цвета -->
+        <input type="color" name="colot">
+        <!-- Добавляет поле загрузки файлов с компьютера -->
+        <input type="file" name="file">
+        <!-- Добавляет элемент выбора данных (только один варинат) -->
+        <input type="radio" name="pol" value="male">Male
+        <input type="radio" name="pol" value="female">Female
+
+        <!-- Многострочный текст -->
+        <!-- Атрибуты rows и cols задают определенный размер области видимости окна -->
+        <!-- Атрибуты minlenght и maxlenght задают ограничения по длине вводимого текста -->
+        <!-- Атрибут style="resize: none" запрещает изменять габариты поля ввода -->
+        <textarea name="comment" rows="3" cols="15" minlength="10" maxlength="20" style="resize: none;">
+
+        </textarea>
+
+        <!-- Выпадающий список -->
+        <select name="choice">
+            <option>Булочка</option>
+            <option>Пирожок</option>
+            <option>Конфета</option>
+        </select>
+
+        <!-- Отправляет даные -->
+        <button type="submit">Отправить</button>
+        <!-- Очистить все поля формы -->
+        <button type="reset">Очистить</button>
+    </form>
+
+</body>
+
+</html>

@@ -37,6 +37,7 @@ header {
     position: fixed;
     top: 0%;
     left: 0%;
+    z-index: 999;
 }
 
 .header_nav {
@@ -173,11 +174,15 @@ h1 {
 /* SERVICES SECTION START */
 #services {
     margin-top: 120px;
+    background-image: url("../images/bg4.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
 }
 
 #services .wrapper {
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     gap: 45px;
 }
 
@@ -200,6 +205,7 @@ h1 {
     color: transparent;
     -webkit-text-fill-color: transparent;
     margin-top: 12px;
+    display: inline-block;
 }
 
 .services_topBox_left h2 {
@@ -218,5 +224,106 @@ h1 {
     color: var(--grayscaleGrey2Color);
     width: 625px;
 }
+
+.services_bottomBox {
+    display: flex;
+    width: 100%;
+    margin-top: 46px;
+    padding-bottom: 300px;
+    justify-content: space-between;
+}
+
+.services_bottomBox_col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#col2{
+    margin-top: 57px;
+}
+
+#col3 {
+    margin-top: 78px;
+}
+
+.services_bottomBox_col_card {
+    height: 291px;
+    width: 379px;
+    background-color: rgba(37, 37, 50, 0.6);   
+    border: 1px solid;
+    border-image-source: linear-gradient(94.92deg, rgba(255, 255, 255, 0.3) -0.29%, rgba(255, 255, 255, 0) 100%);
+    overflow: hidden;
+    position: relative;
+    border-image-slice: 1;
+}
+
+.services_bottomBox_col_card_bg {
+    padding: 38px 0px 25px 32px;
+}
+
+.services_bottomBox_col_card_bg h5 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: bottom;
+    color: var(--grayscaleWhiteColor);
+    margin-top: 58px;
+}
+
+.services_bottomBox_col_card_bg p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    color: var(--grayscaleGrey1Color);
+    margin-top: 12px;
+    max-width: 308px;
+}
+
+.services_bottomBox_col_card_anim {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 379px;
+    height: 152px;
+    background: linear-gradient(180deg, rgba(37, 37, 50, 0) 0%, rgba(37, 37, 50, 0.91) 53.06%, #252532 100%);
+    text-align: center;
+    transform: translateY(100%);
+    transition: 0.5s ease-in;
+}
+
+@keyframes overlay {
+    0% {
+        transform: translateY(100%)
+    }
+
+    100% {
+        transform: translateY(0%)
+    }
+}   
+
+.services_bottomBox_col_card:hover 
+.services_bottomBox_col_card_anim {
+    transform: translateY(0%);
+}
+
+.services_bottomBox_col_card_anim button {
+    padding: 18px 38px;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--grayscaleWhiteColor);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid;
+    border-image-source: linear-gradient(90deg, #0CBAF1 0%, #E95CE9 100%);
+    border-image-slice: 1;
+    margin-top: 78px;
+}
+
 
 /* SERVICES SECTION END */
