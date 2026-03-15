@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=c, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="order-form">
+        <h1>Настройка тарифа</h1>
+        <!-- BLOCK 1 START -->
+        <div class="step-block">
+            <p class="step-title">Выберите пакет услуг:</p>
+            <div class="tariffs-grid">
+                <!-- CARD 1 START -->
+                <label class="tariffs-card">
+                    <input type="radio" name="tariff" value="100" checked>
+                    <div class="card-content">
+                        <h3>Light</h3>
+                        <p>100 ₽ / чел</p>
+                    </div>
+                </label>
+                <!-- CARD 1 END -->
+
+                <!-- CARD 2 START -->
+                <label class="tariffs-card">
+                    <input type="radio" name="tariff" value="300">
+                    <div class="card-content">
+                        <h3>Pro</h3>
+                        <p>300 ₽ / чел</p>
+                    </div>
+                </label>
+                <!-- CARD 2 END -->
+
+                <!-- CARD 3 START -->
+                <label class="tariffs-card">
+                    <input type="radio" name="tariff" value="1000">
+                    <div class="card-content">
+                        <h3>Elite</h3>
+                        <p>1000 ₽ / чел</p>
+                    </div>
+                </label>
+                <!-- CARD 3 END -->
+            </div>
+            <!-- BOX 1 END -->
+        </div>
+        <!-- BLOCK 1 END -->
+
+        <!-- BLOCK 1 START -->
+        <div class="step-block">
+            <p class="step-title">Количество активных мест</p>
+            <input type="range" min="1" max="20" id="range" value="10">
+            <p>Вы выбрали: <span id="info">0</span> пользователей</p>
+        </div>
+        <!-- BLOCK 2 END -->
+        
+        <!-- BLOCK 3 START -->
+        <div class="step-block">
+            <p class="step-title">Техническое задание</p>
+            <div class="file-wrapper">
+                <input type="file" accept=".pdf">
+                <p>Пожалуйста, прикрепите файл в формате PDF (не более 5МБ)</p>
+            </div>
+        </div>
+        <!-- BLOCK 3 START -->
+    </div>
+</body>
+</html>

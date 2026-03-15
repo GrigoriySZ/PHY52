@@ -1,0 +1,69 @@
+*, a {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+    margin: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+header {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    width: 100%;
+    height: 148px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #CAD4E7;
+}
+
+
+.wrapper nav {
+    display: flex;
+    gap: 178px;
+    align-items: center;
+}
+
+.wrapper a {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+.header_login {
+    padding: 5px 30px;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+main {
+    height: 100vh;
+    background: url(images/sun.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
