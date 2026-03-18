@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- REGISTRATION FORM START -->
+        <form action="" method="post" id="registration-form">
+            <h1>Форма регистрации на DevConf2026</h1>
+            
+            <!-- MAIN INFO BLOCK START -->
+            <div class="form-block" id="main-info">
+                <p class="form-block__title">Основная информация:</p>
+                <div class="form-block__row">
+                    <label for="p-name">ФИО:</label>
+                    <input type="text" name="p-name" id="p-name" placeholder="Ваше ФИО" required>
+                </div>
+                
+                <div class="form-block__row">
+                    <label for="p-email" >Электронная почта:</label>
+                    <input type="email" name="p-email" id="p-email" placeholder="Ваш Email адрес">
+                </div>
+
+                <div class="form-block__row">
+                    <label for="p-phone-number">Номер телефон:</label>
+                    <input type="tel" name="p-phone-number" id="p-phone-number" 
+                        pattern="\+?\d{5,13}" placeholder="Телефон в формате +0(000)00-00-000">
+                </div>
+
+                <div class="form-block__row">
+                    <lable type="arrive-date">Дата прилёта:</lable>
+                    <input type="date" name="arrive-date">
+                </div>
+            </div>
+            <!-- MAIN INFO BLOCK END -->
+
+            <!-- PROFESSION BLOCK START -->
+            <div class="form-block" id="profession-info">
+                <p class="form-title">Профессиональный профиль:</p>
+                <div class="form-block__row">
+                    <label for="select-occupation">Стек технологий:</label>
+                    <select name="select-occupation">
+                        <option value="frontend">Frontend</option>
+                        <option value="backenbd">Backend</option>
+                        <option value="devops">DevOps</option>
+                        <option value="data_science">Data Science</option>
+                    </select>
+                </div>
+
+                <div class="form-block__row">
+                    <label for="" type=""></label>
+                    <input type="" name="">
+                </div>
+
+                <div class="form-block__row">
+                    <label for="" type=""></label>
+                    <input type="" name="">
+                </div>
+
+                <div class="form-block__row">
+                    <label for="" type=""></label>
+                    <input type="" name="">
+                </div>
+            </div>
+            <!-- PROFESSION BLOCK END -->
+
+            <!-- PARTICIPATION OPTIONS BLOCK START -->
+            <div class="form-block" id="p-options-info">
+                <p class="form-title">Опции участника:</p>
+
+            </div>
+            <!-- PARTICIPATION OPTIONS BLOCK END -->
+
+            <!-- SECURITY AND FEEDBACK BLOCK START -->
+            <div class="form-block" id="security-feedback">
+                <p class="form-title">Безопастность и комментарии:</p>
+
+            </div>
+            <!-- SECURITY AND FEEDBACK BLOCK END -->
+
+            <button type="submit">Отправить</button>
+        </form>
+        <!-- REGISTRATION FORM END -->
+    </main>
+</body>
+</html>
