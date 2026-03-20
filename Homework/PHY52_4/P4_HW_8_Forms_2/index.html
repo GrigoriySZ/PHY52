@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <main>
+        <!-- ORDER FORM START -->
+        <form action="" method="post">
+            <h1>Настройки тарифа</h1>
+
+            <!-- TARTIFFS SECTION START -->
+            <section class="form-block form-block-grid" id="tariffs">
+                <h2 class="form-block__title">Выбор тарифа</h2>
+
+                <!-- TARIFF CARD START -->
+                <label for="tariff" class="tariffs__card">
+                    <input type="radio" name="tariff" value="1000" checked>
+                    <div class="tariffs__card__content">
+                        <h3>Open space</h3>
+                        <img src="images/open-space-icon.png">
+                        <p>1000 ₽/день</p>
+                    </div>
+                </label>
+                <!-- TARIFF CARD END -->
+
+                <!-- TARIFF CARD START -->
+                <label for="tariff" class="tariffs__card">
+                    <input type="radio" name="tariff" value="2000">
+                    <div class="tariffs__card__content">
+                        <h3>Private office</h3>
+                        <img src="images/private-office-icon.png">
+                        <p>2000 ₽/день</p>
+                    </div>
+                </label>
+                <!-- TARIFF CARD END -->
+
+                <!-- TARIFF CARD START -->
+                <label for="tariff" class="tariffs__card">
+                    <input type="radio" name="tariff" value="5000">
+                    <div class="tariffs__card__content">
+                        <h3>Meeting room</h3>
+                        <img src="images/meeting-room-icon.png">
+                        <p>5000 ₽/день</p>
+                    </div>
+                </label>
+                <!-- TARIFF CARD END -->
+
+            </section>
+            <!-- TARTIFFS SECTION END -->
+
+
+
+            <button type="submit">Отправить</button>
+        </form>
+        <!-- ORDER FORM END -->
+    </main>
+    
+</body>
+</html>

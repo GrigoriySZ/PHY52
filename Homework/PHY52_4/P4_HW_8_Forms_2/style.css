@@ -1,0 +1,107 @@
+:root {
+    --bg-body-color: #121212;
+    --bg-form-color: rgba(60, 60, 60, 0.5);
+    --bg-card-color: grey;
+    --card-border-color:  rgba(60, 60, 60, 0.5);
+    --hover-shine-gradient: inset 0 0 40px #3c86d6b0, 0 0 50px 5px #007bff;
+    --accent-color: #007bff;
+    --text-color: lightgrey;
+    --grey-text-color: lightgrey;
+}
+
+*, a {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--bg-body-color);
+    min-height: 100vh;
+}
+
+main {
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* FORM STYLE */
+form {
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 40px;
+    border-radius: 10px;
+    background-color: var(--bg-form-color);
+    gap: 40px;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 5%;
+}
+
+.form-block {
+    padding: 50px;
+    border-radius: 40px;
+    background-color: var(--bg-card-color); 
+}
+
+.form-block-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "header header header"
+        "card card card";
+    gap: 20px;
+}
+
+.form-block__title {
+    grid-area: header;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5%;
+}
+
+.tarrifs__card {
+    grid-area: card;
+}
+
+.tariffs__card input[type="radio"] {
+    display: none;
+}
+
+.tariffs__card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    border: 3px solid var(--card-border-color);
+    border-radius: 10px;
+}
+
+.tariffs__card__content h3 {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 5%;
+}
+
+.tariffs__card__content p {
+    font-size: 20px;
+    color: var(--grey-text-color);
+}
