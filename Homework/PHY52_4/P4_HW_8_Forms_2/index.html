@@ -17,13 +17,14 @@
             <h1>Настройки тарифа</h1>
 
             <!-- TARTIFFS SECTION START -->
-            <section class="form-block form-block-grid" id="tariffs">
+            <section class="form-block" id="tariffs-grid">
                 <h2 class="form-block__title">Выбор тарифа</h2>
 
                 <!-- TARIFF CARD START -->
-                <label for="tariff" class="tariffs__card">
-                    <input type="radio" name="tariff" value="1000" checked>
+                <label class="tariffs__card tariffs-grid__card">
+                    <input type="radio" name="tariff" value="1000">
                     <div class="tariffs__card__content">
+                        <div class="tooltip">&iexcl<span>Общее пространство</span></div>
                         <h3>Open space</h3>
                         <img src="images/open-space-icon.png">
                         <p>1000 ₽/день</p>
@@ -32,9 +33,10 @@
                 <!-- TARIFF CARD END -->
 
                 <!-- TARIFF CARD START -->
-                <label for="tariff" class="tariffs__card">
+                <label class="tariffs__card tariffs-grid__card">
                     <input type="radio" name="tariff" value="2000">
                     <div class="tariffs__card__content">
+                        <div class="tooltip">&iexcl<span>Частный офис</span></div>
                         <h3>Private office</h3>
                         <img src="images/private-office-icon.png">
                         <p>2000 ₽/день</p>
@@ -43,9 +45,10 @@
                 <!-- TARIFF CARD END -->
 
                 <!-- TARIFF CARD START -->
-                <label for="tariff" class="tariffs__card">
+                <label class="tariffs__card tariffs-grid__card">
                     <input type="radio" name="tariff" value="5000">
                     <div class="tariffs__card__content">
+                        <div class="tooltip">&iexcl<span>Комната для встреч</span></div>
                         <h3>Meeting room</h3>
                         <img src="images/meeting-room-icon.png">
                         <p>5000 ₽/день</p>
@@ -56,8 +59,65 @@
             </section>
             <!-- TARTIFFS SECTION END -->
 
+            <!-- RENTAL DETAILS SECTION START -->
+            <section class="form-block" id="details-grid">
+                <h2 class="form-block__title">Детали аренды</h2>
+                <div class="details-grid__card">
+                    <label for="rental-date">Дата аренды</label>
+                    <input type="date" name="rental-date">
+                </div>
+                <div class="details-grid__card">
+                    <label for="rental-time">Время начала аренды</label>
+                    <input type="time" name="rental-time">
+                </div>
+                <div class="details-grid__card">
+                    <label for="rental-number">Длительность в часах</label>
+                    <input type="number" name="rental-number" value="3" min="1" max="24">
+                </div>
+            </section>
+            <!-- RENTAL DETAILS SECTION END -->
 
+            <!-- OPTIONS SECTION START -->
+            <section class="form-block" id="options-block">
+                <h2 class="form-block__title">Дополнительные опции</h2>
 
+                <!-- CHECKBOX CARD START -->
+                <label class="checkbox-card">
+                    <input type="checkbox" value="full_access">
+                    <div class="checkbox-card__content">
+                        <p>Доступ 24/7</p>
+                        <p>+1000 ₽/день</p>
+                    </div>
+                </label>
+                <!-- CHECKBOX CARD END -->
+
+                <!-- CHECKBOX CARD START -->
+                <label  class="checkbox-card">
+                    <input type="checkbox" value="parking_space">
+                    <div class="checkbox-card__content">
+                        <p>Парковочное место</p>
+                        <p>+300 ₽/день</p>
+                    </div>
+                </label>
+                <!-- CHECKBOX CARD END -->
+
+                <!-- CHECKBOX CARD START -->
+                <label class="checkbox-card">
+                    <input type="checkbox" value="unimited_coffee">
+                    <div class="checkbox-card__content">
+                        <p>Безлимитный кофе</p>
+                        <p>+100 ₽/день</p>
+                    </div>
+                </label>
+                <!-- CHECKBOX CARD END -->
+
+            </section>
+            <!-- OPTIONS SECTION END -->
+
+            <sectin class="form-block" id="total-section">
+                <h2 class="form-block__title">Итоговая сумма</h2>
+                <p id="total"><span class="accent">0</span> ₽</p>
+            </sectin>
             <button type="submit">Отправить</button>
         </form>
         <!-- ORDER FORM END -->
