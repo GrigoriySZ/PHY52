@@ -8,79 +8,186 @@
 </head>
 <body>
     <main>
+
         <!-- REGISTRATION FORM START -->
         <form action="" method="post" id="registration-form">
-            <h1>Форма регистрации на DevConf2026</h1>
+            <h1>Форма регистрации на <span class="accent-text">DevConf2026</span></h1>
             
-            <!-- MAIN INFO BLOCK START -->
-            <div class="form-block" id="main-info">
-                <p class="form-block__title">Основная информация:</p>
-                <div class="form-block__row">
+            <!-- MAIN INFO SECTION START -->
+            <section class="form-section" id="main-info">
+                <h2 class="form-section__title">Основная информация:</h2>
+
+                <!-- NAME BLOCK START -->
+                <div class="form-block form-block-row">
                     <label for="p-name">ФИО:</label>
                     <input type="text" name="p-name" id="p-name" placeholder="Ваше ФИО" required>
                 </div>
+                <!-- NAME BLOCK END -->
                 
-                <div class="form-block__row">
+                <!-- EMAIL BLOCK START -->
+                <div class="form-block form-block-row">
                     <label for="p-email" >Электронная почта:</label>
                     <input type="email" name="p-email" id="p-email" placeholder="Ваш Email адрес">
                 </div>
+                <!-- EMAIL BLOCK END -->
 
-                <div class="form-block__row">
+                <!-- PHONE BLOCK START -->
+                <div class="form-block form-block-row">
                     <label for="p-phone-number">Номер телефон:</label>
                     <input type="tel" name="p-phone-number" id="p-phone-number" 
-                        pattern="\+?\d{5,13}" placeholder="Телефон в формате +0(000)00-00-000">
+                        pattern="\+?\d{5,13}" placeholder="Телефон в формате +00000000000">
                 </div>
+                <!-- PHONE BLOCK END -->
 
-                <div class="form-block__row">
-                    <lable type="arrive-date">Дата прилёта:</lable>
-                    <input type="date" name="arrive-date">
+                <!-- ARRIVIAL DATE BLOCK START -->
+                <div class="form-block form-block-row">
+                    <label for="arrivial-date">Дата прилёта:</label>
+                    <input type="date" name="arrivial-date" id="arrivial-date">
                 </div>
-            </div>
-            <!-- MAIN INFO BLOCK END -->
+                <!-- ARRIVAL DATE BLOCK END -->
 
-            <!-- PROFESSION BLOCK START -->
-            <div class="form-block" id="profession-info">
-                <p class="form-title">Профессиональный профиль:</p>
-                <div class="form-block__row">
+            </section>
+            <!-- MAIN INFO SECTION END -->
+
+            <!-- PROFESSION SECTION START -->
+            <section class="form-section" id="profession-info">
+                <h2 class="form-title">Профессиональный профиль:</h2>
+
+                <!-- OCCUPATION BLOCK START -->
+                <div class="form-block form-block-row">
                     <label for="select-occupation">Стек технологий:</label>
-                    <select name="select-occupation">
+                    <select name="occupation" id="select-occupation">
+                        <option value="">-- Выберите стек --</option>
                         <option value="frontend">Frontend</option>
-                        <option value="backenbd">Backend</option>
+                        <option value="backend">Backend</option>
                         <option value="devops">DevOps</option>
                         <option value="data_science">Data Science</option>
                     </select>
                 </div>
+                <!-- OCCUPATION BLOCK END -->
 
-                <div class="form-block__row">
-                    <label for="" type=""></label>
-                    <input type="" name="">
+                <!-- EXPERIENCE BLOCK START -->
+                <div class="form-block form-block-row">
+                    <label for="experience">Уровень опыта:</label>
+                    <div class="form-block-line">
+                        <span class="range-border">1</span>
+                        <input type="range" name="experience-range" min="1" max="10" id="experience" value="5">
+                        <span class="range-border">10</span>
+                    </div>
+                </div> 
+                <!-- EXPERIENCE BLOCK END -->
+
+                <!-- PORTFOLIO BLOCK START -->
+                <div class="form-block form-block-row">
+                    <label for="portfolio-link">Личный сайт или портфолио:</label>
+                    <input type="url" name="portfolio-link" id="portfolio-link">
                 </div>
+                <!-- PORTFOLIO BLOCK END -->
 
-                <div class="form-block__row">
-                    <label for="" type=""></label>
-                    <input type="" name="">
+                <!-- CV BLOCK START -->
+                <div class="form-block form-block-row">
+                    <label for="cv-file" type="">Резюме:</label>
+                    <div class="cv-file-content">
+                        <input type="file" name="" id="cv-file" accept=".pdf">
+                        <p>Пожалйста, прикрепте файл в формате PDF</p>
+                    </div>
                 </div>
+                <!-- CV BLOCK END -->
 
-                <div class="form-block__row">
-                    <label for="" type=""></label>
-                    <input type="" name="">
+            </section>
+            <!-- PROFESSION SECTION END -->
+
+            <!-- PARTICIPATION OPTIONS SECTION START -->
+            <section class="form-section" id="p-options-info">
+                <h2 class="form-title">Опции участника:</h2>
+
+                <!-- FORMAT BLOCK START -->
+                <div class="form-block form-block-col">
+                    <h3>Формат участия:</h3>
+
+                    <div class="form-block-line">
+                        <!-- FORMAT RADIO CARD START -->
+                        <label class="format__radio-card">
+                            <input type="radio" name="format" value="offline" checked>
+                            <div class="format__content">Очно
+                            </div>
+                        </label>
+                        <!-- FORMAT RADIO CARD END -->
+
+                        <!-- FORMAT RADIO CARD START -->
+                        <label class="format__radio-card">
+                            <input type="radio" name="format" value="online">
+                            <div class="format__content">
+                                Онлайн
+                            </div>
+                        </label> 
+                        <!-- FORMAT RADIO CARD END -->
+                    </div>
+                    
                 </div>
-            </div>
-            <!-- PROFESSION BLOCK END -->
+                <!-- FORMAT BNLOCK END -->
 
-            <!-- PARTICIPATION OPTIONS BLOCK START -->
-            <div class="form-block" id="p-options-info">
-                <p class="form-title">Опции участника:</p>
+                <!-- ADDITION OPTIONS BLOCK START -->
+                <div class="form-block form-block-col">
+                    <h3>Дополнительно:</h3>
 
-            </div>
-            <!-- PARTICIPATION OPTIONS BLOCK END -->
+                    <div class="form-block-line">
+                        <!-- CHECKBOX CARD START -->
+                        <label class="checkbox-card">
+                            <input type="checkbox" value="hotel">
+                            <div class="checkbox-card__content">Нужен отель</div>
+                        </label>
+                        <!-- CHECKBOX CARD END -->
 
-            <!-- SECURITY AND FEEDBACK BLOCK START -->
-            <div class="form-block" id="security-feedback">
-                <p class="form-title">Безопастность и комментарии:</p>
+                        <!-- CHECKBOX CARD START -->
+                        <label class="checkbox-card">
+                            <input type="checkbox" value="afterparty">
+                            <div class="checkbox-card__content">Хочу на Afterparty</div>
+                        </label>
+                        <!-- CHECKBOX CARD END -->
 
-            </div>
-            <!-- SECURITY AND FEEDBACK BLOCK END -->
+                        <!-- CHECKBOX CARD START -->
+                        <label class="checkbox-card">
+                            <input type="checkbox" value="news">
+                            <div class="checkbox-card__content">Рассылка новостей</div>
+                        </label>
+                        <!-- CHECKBOX CARD END -->
+                    </div>
+                </div>
+                <!-- ADDITION OPTIONS BLOCK END -->
+
+                <!-- MERCH COLOR BLOCK START -->
+                    <div class="form-block form-block-col">
+                        <h3>Предпочитаемый цветь мерча (футболки):</h3>
+                        <label>
+                            <input type="color">
+                        </label>
+                    </div>
+                <!-- MERCH COLOR BLOCK END  -->
+                
+            </section>
+            <!-- PARTICIPATION OPTIONS SECTION END -->
+
+            <!-- SECURITY AND FEEDBACK SECTION START -->
+            <section class="form-section" id="security-feedback">
+                <h2 class="form-title">Безопастность и комментарии:</h2>
+
+                <!-- PASSWORD BLOCK START -->
+                <div class="form-block form-block-row">
+                    <label for="password">Пароль для личного кабинета:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <!-- PASSWORD BLOCK END -->
+
+                <!-- COMMENT BLOCK START -->
+                <div class="form-block form-block-col">
+                    <label for="comment">Комментарий для организаторов</label>
+                    <textarea id="comment" name="comment" rows="5" style="resize: none;"
+                        placeholder="Комментарий для огранизаторов (например, информация о пищевой аллергии)"></textarea>
+                </div>
+                <!-- COMMENT BLOCK END -->
+            </section>
+            <!-- SECURITY AND FEEDBACK SECTION END -->
 
             <button type="submit">Отправить</button>
         </form>
