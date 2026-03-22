@@ -1,12 +1,18 @@
+:root {
+    --accent-color: #4a90e2;
+}
+
 *, a {
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: rgb(80, 80, 80);
+    transition: 0.3s;
 }
 
 body {
-    margin: 0;
-    background-color: lightcyan;
+    background-color: whitesmoke;
 }
 
 main {
@@ -22,13 +28,179 @@ main {
 #registration-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    min-width: 500px;
+    padding: 40px;
+    background-color: lightgray;
+    border-radius: 1.25rem;
+    gap: 20px;
 }
 
-.step-block {
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.accent-text {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.form-section {
     display: flex;
     flex-direction: column;
+    border-top: 3px dashed gray;
+    padding: 20px;
+    gap: 10px;
 }
 
-.step-block label {
-    display: ;
+.form-section__title {
+    font-size: 1.5rem;
+}
+
+.form-block-row {
+    display: grid;
+    grid-template-columns: 30% auto;
+    gap: 20px;
+    align-items: center;
+    
+}
+
+.form-block-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.form-block label {
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.form-block-row label {
+    align-self: center;
+}
+
+.form-block input,
+.form-block select,
+.form-block textarea {
+    padding: 8px 10px;
+    border: 2px solid black;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+    outline: none;
+}
+
+.form-block input:focus,
+.form-block textarea:focus {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 4px 1px var(--accent-color);
+}
+
+.form-block input[type="file"]:focus {
+    box-shadow: none;
+}
+
+.form-block select:focus {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-block p {
+    padding: 0 10px;
+    font-size: 1rem;
+    color: grey;
+}
+
+.form-block-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-block input[type="range"] {
+    accent-color: darkgray;
+}
+
+.form-block input[type="range"]:hover {
+    accent-color: #4a90e2;
+}
+
+.form-block input[type="range"]:focus {
+    box-shadow: none;
+    accent-color: #4a90e2;
+}
+
+.form-block-line input {
+    flex-grow: 1;
+}
+
+input[type="file"] {
+    border: none;
+}
+
+.form-block h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.format__radio-card,
+.checkbox-card {
+    flex-grow: 1;
+    padding: 8px 10px;
+    text-align: center;
+    border: 2px solid darkgrey;
+    border-radius: 0.75rem;
+}
+
+.format__radio-card input,
+.checkbox-card input {
+    display: none;
+}
+
+.format__content,
+.checkbox-card__content {
+    font-size: 1,25rem;
+}
+
+.format__radio-card:hover,
+.checkbox-card:hover {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 4px 1px var(--accent-color);
+}
+
+.format__radio-card:has(input:checked),
+.checkbox-card:has(input:checked) {
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+}
+
+.format__radio-card input:checked + .format__content,
+.checkbox-card input:checked + .checkbox-card__content {
+    color: #FFF;
+}
+
+input[type="color"] {
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+}
+
+form button {
+    align-self: center;
+    padding: 10px 50px;
+    font-size: 1.5rem;
+    border: 2px solid darkgray;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    color: #FFF;
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
 }
