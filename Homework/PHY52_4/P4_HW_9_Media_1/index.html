@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER START -->
+    <header>
+        <div class="wrapper">
+            <p id="logo">LOCO</p>
+            <nav class="header_nav">
+                <a href="#">Home</a>
+                <a href="#">Service</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+            <a href="#modal" id="header_login">Login</a>
+        </div>
+    </header>
+    <!-- HEADER END -->
+
+    <!-- MAIN START -->
+    <main>
+        <div class="wrapper">
+            <!-- LOGIN FORM START -->
+            <div id="modal" class="modal-overlay">
+                <a href="#" id="close">&times;</a>
+                <h2>Login</h2>
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required>
+                        <img src="images/email.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" required>
+                        <img src="images/lock.png">
+                    </div>
+                    <div class="form-links">
+                        <label>
+                            <input type="checkbox">
+                            Remember me
+                        </label>
+                        <a href="#">Forget password?</a>
+                    </div>
+                    <button>Login</button>
+                    <p>Don't have an account?
+                        <a href="#modal2">Register</a>
+                    </p>
+                </form> 
+            </div>
+            <!-- LOGIN FORM END -->
+
+            <!-- REGISTRATION FORM START -->
+            <div id="modal2" class="modal-overlay">
+                <a href="#" id="close">&times;</a>
+                <h2>Registration</h2>
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required>
+                        <img src="images/person.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required>
+                        <img src="images/email.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" required>
+                        <img src="images/lock.png">
+                    </div>
+                    <div class="form-links">
+                        <label>
+                            <input type="checkbox" required>
+                            I agree to the terms and conditions
+                        </label>
+                    </div>
+                    <button>Register</button>
+                    <p>Already have an account?
+                        <a href="#modal">Login</a>
+                    </p>
+                </form>
+            </div>
+            <!-- REGISTRATION FORM END -->
+        </div>
+    </main>
+    <!-- MAIN END -->
+</body>
+</html>

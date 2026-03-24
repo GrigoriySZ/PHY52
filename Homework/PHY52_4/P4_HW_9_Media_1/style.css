@@ -1,0 +1,223 @@
+*, a {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+    margin: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+header {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    width: 100%;
+    height: 148px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #CAD4E7;
+}
+
+
+.wrapper nav {
+    display: flex;
+    gap: 178px;
+    align-items: center;
+}
+
+.wrapper a {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+#header_login {
+    padding: 5px 30px;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFF;
+    transition: 0.3s;
+}
+
+#header_login:hover {
+    background-color: #FFF;
+    color: #000;
+}
+
+main {
+    min-height: 100vh;
+    background: url(images/sun.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#modal,
+#modal2 {
+    z-index: 10;
+    display: none;
+    width: 544px;
+    height: 623px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: -44.37px 44.37px 44.37px 0px #FFFFFF1A inset;
+    box-shadow: 44.37px -44.37px 44.37px 0px #A5A5A51A inset;
+    backdrop-filter: blur(88.73332977294922px);
+    border-radius: 20px;
+    /* border: 2px solid;
+    border-image-source: linear-gradient(166.89deg, #FFFFFF -3.91%, #999999 161.23%);
+    border-image-slice: 1; */
+    box-shadow: 0 0 0 2px #FFf, 0 0 0 3px #999;
+}
+
+#modal:target,
+#modal2:target {
+    display: block;
+}
+
+#close {
+    z-index: 100;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    font-size: 32px;
+    color: #FFF;
+    background-color: #01052B;
+    padding: 11px 13px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    line-height: 15px;
+}
+
+h2 {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #01052B;
+    margin-top: 64px;
+}
+
+form {
+    width: 345px;
+    margin: auto;
+    margin-top: 68px;
+}
+
+input {
+    width: 100%;
+    height: 60px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    font-size: 1.25rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000;
+    display: block;
+    transition: 0.5s;
+}
+
+input:focus {
+    outline: none;
+}
+
+.form-group:focus-within label {
+    transform: scale(0.8) translateY(-40px);
+}
+
+.form-group img {
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+}
+
+input[type="checkbox"] {
+    display: inline;
+    width: auto;
+    height: auto;
+    margin-right: 5px;
+}
+
+.form-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-links a {
+    color: #000;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+form button {
+    margin-top: 48px;
+    padding: 7px 126px;
+    background: linear-gradient(180deg, #00093C 0%, #021270 100%);
+    /* border: 1px solid;
+    border-image-source: linear-gradient(122.92deg, rgba(255, 255, 255, 0.73) 4.82%, rgba(153, 153, 153, 0.2) 125.52%);
+    border-image-slice: 1; */
+    box-shadow: 0.5px 1px 0 1px #FFFFFFBA, -0.7px -1px 0 1px #99999933;
+    border-radius: 10px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+form p {
+    text-align: center;
+    margin-top: 28px;
+}
+
+.modal-overlay form p a {
+    margin-left: 5px;
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+}
