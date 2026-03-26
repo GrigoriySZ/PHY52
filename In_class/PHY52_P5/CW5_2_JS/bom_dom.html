@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM/DOM</title>
+    <style>
+        #div {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="element"></p>
+    <div class="test">DIV 1</div>
+    <div class="test">DIV 2</div>
+    <div class="test">
+        <span>ЭТО SPAN В DIV</span>
+    </div>
+    <p>ПАРАГРАФ БЕЗ ID</p>
+
+    <script>
+        // ПОИСК 
+        // Поиск по уникальному ID
+
+        console.log(document.getElementById('element'));
+
+        // Поиск по селектору
+        console.log(document.querySelector('.test'));  // Вернет первый попавшийся
+        console.log(document.querySelectorAll('p'));  // Вернет NideList с элементами
+        console.log(document.getElementsByTagName('div'));  // Вернет HTMLCollection с элементами
+        console.log(document.getElementsByClassName('test'));  // Вернет HTMLCollection с элементами
+
+        const box = document.getElementById('element');
+        box.innerHTML = '<b>HELLO</b>';
+        box.innerText = '<b>HELLO</b>';
+        box.style.backgroundColor = 'red';
+        box.style.color = 'white';
+        console.log(box.id);
+        box.innerHTML += '<a href="#">LINK</a>';
+
+        const link = document.querySelector('a');
+        // Метод .setAttribute позволяет заменить атрибут элемента, даже если его нет
+        link.setAttribute('href', 'https://ya.ru');
+        link.style.textDecoration = 'none';
+
+        // КЛАССЫ
+
+        // Добавление класса элементу 
+        link.classList.add('href');
+        
+        // Удаление класса элемента
+        link.classList.remove('href');
+        
+        // Задаем id элементку
+        link.id = 'link_id';
+        link.className= 'link_class';
+
+        // Создание элемента
+        const div = document.createElement('div');  // создает в памяти (один единственный)
+        div.id = 'div';
+        // div.style.width = '50px';
+        // div.style.height = '50px';
+        // div.style.background = 'pink';
+        document.querySelector('body').appendChild(div);  // removeChild(); - удаляет элемент
+
+        box.appendChild(div);
+
+        // BOM - browser object model
+        // window - глобальный объект, к которому мы обращаемся
+        // (alert, prompt, confirm, console, setTimeout(), setInterval(), open(), close())
+        // if (window.confirm('Хотел открыть Google?')) {
+        //     // open(url, имя_окна, параметры)
+        //     // параметр _blank - откывает в новой вкладке/окне (по умполчанию)
+        //     window.open('https://www.google.com', '_blank', 'width=500', 'height=500');
+        // }
+        
+        // navigator
+        // userAgent - строка с данными браузера
+        // language - язык интерфейса
+        // online - проверка наличия соединения с интернетом
+        // clipboard - управление буфером обмена
+        // if (navigator.onLine) {
+        //     console.log('Вы онлайн! Ваш язык: ' + navigator.language);
+        // } else {
+        //     console.log('Интернет пропал');
+        // }
+
+        // navigator.clipboard.writeText('BOM BOM BOM').then(()=> {
+        //     console.log('текст скопирова');
+        // });
+        
+        // location - отвечает за адрез текущей страницы (текущий url)
+        // href - URL [https://example.com/blog/post-1]
+        // hostname - домен [example.com]
+        // reload() - перезагрузка текущей страницы
+        // protocol - протокол [https]
+        // pathname - [/blog/post-1]
+
+        // console.log(location.protocol);
+        // console.log(location.pathname);
+        // setTimeout - задержка перед активацией скрипта в мс
+        // setTimeout(()=> {
+        //     location.href = 'https://ya.ru';
+        // }, 5000);
+
+        // history - история в рамках текущей вкладки
+        // .back() - вернуть на одну страницу назад
+        // .forward() - перейти на одну страницу назад
+        // .go(n) - перейти на n количество страниц вперед/назад
+
+        // window.history.back();
+        // window.history.go(-2);
+
+        // screen - физический экран (монитор)
+        // console.log(screen.width, screen.height);
+        // console.log(screen.availWidth, screen.availHeight);
+
+        // 
+        // 
+        // 
+
+        // DOM - dociment object model
+        
+        // Element node - теги <div> <p> <body> и т.д. 
+        // Text node - контент внутри тега
+        // Comment node - комментарии
+        // Attribute node - атрибуты внутри тега 
+        
+
+    </script>
+</body>
+
+</html>
