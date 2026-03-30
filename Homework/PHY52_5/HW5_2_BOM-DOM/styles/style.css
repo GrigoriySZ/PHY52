@@ -1,0 +1,311 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    line-height: 1.5;  /* Высота строки основого такста */
+}
+
+.wrapper {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* HEADER STYLE */
+header {
+    width: 100%;
+    padding: 24px 0;
+}
+
+nav {
+    display: none;
+}
+
+#menu {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+nav a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.btn-contact {
+    display: block;
+    padding: 32px 24px;
+    background-color: #5221E6;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.burger {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 24px;
+    padding: 7px 3px;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background-color: #C4C4C4;
+}
+
+#second {
+    width: 13px;
+    align-self: flex-end;
+}
+
+/* HERO STYLE */
+#hero {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px dashed white; */
+}
+
+.bg {
+    display: none;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 288px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    object-fit: cover;
+    /* transform: translateY(-30%); */
+}
+
+.hero-content {
+    padding: 48px 20px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.grey {
+    color: rgba(255,255,255,0.5);
+}
+
+p {
+    font-size: 18px;
+}
+
+/* EXPERIENCE SECTION STYLE */
+#experience {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 20px;
+    gap: 40px;
+}
+
+.headers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.headers h2 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #8491A0;
+}
+
+.headers h4 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+/* EXPERIENCE CARD STYLE */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.card {
+    width: 100%;
+}
+
+.card .num {
+    font-weight: 400;
+    font-size: 117px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #8491A0;
+}
+
+.card h3 {
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+.card-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #8491A0;
+}
+
+#green {
+    color: #3cc74e;
+}
+
+#blue {
+    color: #609bff;
+}
+
+#pink {
+    color: #e95d90;
+}
+
+/* PHILOSOPHY SECTION STYLE */
+#philosophy {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FFF3E4;
+}
+
+.philosophy-content {
+    box-sizing: border-box;
+    padding: 48px 20px;
+}
+
+.philosophy-content h2 {
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #181823;
+}
+
+.philosophy-content p {
+    margin-bottom: 90px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #5B6876;
+}
+
+.philosophy-content a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-decoration: none;
+    color: #181823;
+    border-bottom: 1px solid #8491A0;
+    cursor: pointer;
+}
+
+.philosophy-img {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.philosophy-img img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    min-width: 360px;
+}
+
+/* SKILLSET SECTION STYLE */
+#skillset {
+    display: flex;
+    flex-direction: column;
+    padding: 64px 20px;
+    gap: 48px;
+}
+
+.skillset-content h2 {
+    margin: 14px 0 16px 0;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+.skillset-content p {
+    margin-bottom: 21px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #8491A0;
+}
+
+.skillset-cards, .skillset-row {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* SKILLSET CARD STYLE */
+.row-card img {
+    height: 32px;
+    width: auto;
+    margin-bottom: 24px;
+    color: #5221E6;
+}
+
+.row-card h4 {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+
+.row-card p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #8491A0;
+}
