@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+
+    <!-- Кнопка с событием приветствия по клику -->
+    <!-- Редкий способ использования событий -->
+    <button onclick="greet(event)">Нажми на меня</button>
+    <button id="property">Через свойство DOM-объекта</button>
+    <button id="listener">Через слушатель событий</button>
+    <a href="https://www.google.com" id="link">ССЫЛКА</a>
+
+    <div id="parent">
+        <p>Вложенный параграф 1</p>
+        <p>Вложенный параграф 2</p>
+        <p>Вложенный параграф 3</p>
+    </div>
+
+<body>
+    
+    <script>
+
+        // ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ В ДОКУМЕНТАЦИИ => event type js
+
+        function greet(event) {
+            alert('Hello');
+            // тип события
+            console.log(event.type);
+            // на котором произошло событие
+            console.log(event.target);
+            // Координаты курсора относительно окна браузера
+            console.log(event.clientX, event.clientY);
+        }
+
+        document.getElementById('link').addEventListener('click', function(event) {
+            event.preventDefault(); // отменяет стандартное действие браузера
+            console.log(event.type);
+        });
+
+        // -- Всплытие и погружение --
+        // Погружение - событие идет сверхну вниз от window до цели(target)
+        // Цель - событие достигло элемента
+        // Всплытие - событие поднимается от элемента вверх к window
+
+        // Делегирование событий вложенным элементам
+        const list = document.getElementById('parent');
+        list.addEventListener('click', function (event) {
+            // tagName элемента прописывается в верхнем регистре
+            if (event.target.tagName === 'P')  {
+                console.log('Нажат парагарф: ', event.target.innerText);
+            };
+        });
+
+        // Событие через свойство DOM-объекта
+        const btn = document.getElementById('property');
+        btn.onclick = function() {
+            console.log('CLICK');
+        };
+
+        // Событие через слушатель событий
+        const btn2 = document.getElementById("listener"); 
+
+        function sayHello() { alert('Это слушатель'); }
+        function logClick() { console.log('лог клика'); }
+
+        // Добавляем ивент лист для кнопки 2 с помощью слушателя
+        // Функция sayHello передается как объект, не вызывается
+        btn2.addEventListener('click', sayHello); 
+        btn2.addEventListener('click', logClick);
+
+        // e, evt, event
+
+        // ОСНОВНЫЕ ТИПЫ СОБЫТИЙ
+        // -- МЫШЬ:
+        // click - клик мышью, 
+        // mousedown - зажатие клавиши мыши,
+        // mouseup - отжатие клавиши мыши, 
+        // mouseover - мышь над объектом (hover), 
+        // mousemove - движение мыши
+        // -- КЛАВИАТУРА:
+        // keydown - нажатие клавиши
+        // keyup - отжатие клавиши
+        // keypress - клавиша нажата
+        // code - код клавиши
+        // key - значение клавиши
+        // -- ФОРМЫ:
+        // submit - отправка данных на сервер при нажатии кнопки 'submit'
+        // focus - поле активно для ввода
+        // input - возникает при вводе каждого символа
+        // change - возникает в момент ухода из фокуса
+        // документ-DOMContentLoaded() - возникает после кагрузки всех элементов DOM
+        // window.addEventListenet('DOMContentLoaded', все-остальные-скрипты);
+    </script>
+
+</body>
+
+</html>
