@@ -1,0 +1,126 @@
+/* ОБЩИЕ СТИЛИ */
+body {
+    width: 100vw;
+    margin: 0;
+    padding: 20px;
+    background-color: #eee;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+h2 {
+    font-size: 32px;
+    padding-bottom: 20px;
+    color: lightsalmon;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* ЗАДАЧА 1 */
+#books-list {
+    font-size: 20px;
+}
+
+#books-list li {
+    z-index: 1;
+    margin-bottom: 5px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.book-title {
+    z-index: 0;
+}
+
+.book-title::before {
+    content: open-quote;
+}
+
+.book-title::after {
+    content: close-quote;
+}
+
+.active {
+    background-color: lightsalmon;
+}
+
+/* ЗАДАЧА 2 */
+.folder {
+    font-size: 16px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.folder:hover {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ЗАДАЧА 3 */
+#like-btn {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: white;
+    background-color: lightskyblue;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#like-btn:hover {
+    background-color: rgb(70, 200, 255);
+}
+
+#like-btn:active {
+    transform: scale(0.95);
+}
+
+#like-btn img {
+    height: 20px;
+    width: auto;
+    filter: invert(100%);
+}
+
+/* ЗАДАЧА 4 */
+.news-container {
+    position: relative;
+    border-bottom: 1px solid #eee;
+}
+
+.news-container h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.news-container p {
+    font-size: 1rem;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+

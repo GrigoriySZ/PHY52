@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+
+        <!-- ЗАДАЧА 1 -->
+        <section id="task-1">
+            <h2>Задача 1</h2>
+            <ol type="1" start="1" id="books-list">
+                <li><span class="book-title">JavaScript for Kids: A Playful Introduction to Programming</span> by Nick Morgan</li>
+                <li><span class="book-title">Eloquent JavaScript: A Modern Introduction to Programming</span> by Marjin Haverbeke</li>
+                <li><span class="book-title">JavaScript: The Good Parts</span> by Douglas Crockford</li>
+                <li>
+                    <span class="book-title">
+                        Programming JavaScript Applications: Robust Web Arcvitecture with Node, HTML5, and Modern JS Libraries
+                    </span> by Eric Elliott
+                </li>
+                <li>
+                    <span class="book-title">
+                        Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript
+                    </span> by David Herman
+                </li>
+                <li><span class="book-title">JavaScript: The Definitive Guide</span> by David Flanagan</li>
+                <li><span class="book-title">You Don't Know JS</span> by Kyle Simpson</li>
+            </ol>
+        </section>
+
+        <!-- ЗАДАЧА 2 -->
+        <section id="task-2">
+            <h2>Задача 2</h2>
+            <ul id="tree">
+                <li><span class="folder">This PC</span>
+                    <ul>
+                        <li> <span class="folder">Local Disk (C:)</span>
+                            <ul>
+                                <li><span>Program Files</span></li>
+                                <li><span>Users</span></li>
+                                <li><span>Windows</span></li>
+                            </ul>
+                        </li>
+                        <li> <span class="folder">Local Disk (D:)</span>
+                            <ul>
+                                <li><span>New Folder 1</span></li>
+                                <li><span>New Folder 2</span></li>
+                                <li><span>New Folder 3</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ЗАДАЧА 3 -->
+        <section id="task-3">
+            <h2>Задача 3</h2>
+            <button onclick="like()" id="like-btn">
+                <img src="images/like.png">
+                Like
+                <span id="like-counter">0</span>
+            </button>
+        </section>
+
+        <!-- ЗАДАЧА 4 -->
+        <section id="task-4">
+            <h2>Задача 4</h2>
+
+            <!-- TEXT CARD START -->
+            <div class="news-container">
+                <h3>What is Lorem Ipsum?</h3>
+                <button class="remove-btn">X [remove]</button>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type 
+                    specimen book. It has survived not only five centuries, but also the leap into 
+                    electronic typesetting, remaining essentially unchanged. It was popularised in 
+                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                    and more recently with desktop publishing software like Aldus PageMaker 
+                    including versions of Lorem Ipsum.
+                </p>
+            </div>
+            <!-- TEXT CARD END -->
+             
+            <!-- TEXT CARD START -->
+            <div class="news-container">
+                <h3>Why do we use it?</h3>
+                <button class="remove-btn">X [remove]</button>
+                <p>
+                    It is a long established fact that a reader will be distracted by the 
+                    readable content of a page when looking at its layout. The point of using 
+                    Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
+                    as opposed to using 'Content here, content here', making it look like 
+                    readable English. Many desktop publishing packages and web page editors now 
+                    use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' 
+                    will uncover many web sites still in their infancy. Various versions have 
+                    evolved over the years, sometimes by accident, sometimes on purpose 
+                    (injected humour and the like).
+                </p>
+            </div>
+            <!-- TEXT CARD END -->
+
+            <!-- TEXT CARD START -->
+            <div class="news-container">
+                <h3>Where does it come from?</h3>
+                <button class="remove-btn">X [remove]</button>
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has 
+                    roots in a piece of classical Latin literature from 45 BC, making it over 
+                    2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
+                    College in Virginia, looked up one of the more obscure Latin words, 
+                    consectetur, from a Lorem Ipsum passage, and going through the cites of the 
+                    word in classical literature, discovered the undoubtable source. Lorem Ipsum 
+                    comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" 
+                    (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+                </p>
+            </div>
+            <!-- TEXT CARD END -->
+        </section>
+
+    </main>
+
+    <script src="script.js">
+
+    </script>
+    
+</body>
+</html>
