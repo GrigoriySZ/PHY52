@@ -50,3 +50,90 @@ section {
     transition: 0.3s;
 }
 
+/* ЗАДАЧА 5 */
+.traffic-light {
+    width: 50px;
+    background: #333;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.lamp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: gray;
+    margin: 10px auto;
+}
+
+.lamp.red {               /*  */
+    background: red;
+}
+
+.lamp.yellow {
+    background: yellow;
+}
+
+.lamp.green {
+    background: green;
+}
+
+/* ЗАДАЧА 6 */
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+td,
+th {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 5px;
+}
+
+th {
+    background: #f2f2f2;
+}
+
+/* ЗАДАЧА 7 */
+#no-select {
+    /* ЗАПРЕД ВЫДЕЛЕНИЯ ДЛЯ ВСЕХ ВОЗМОЖНЫХ БРАУЗЕРОВ */
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+
+/* ЗАДАЧА 8 */
+#task8 {
+    display: none;
+    z-index: 999;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    background: peru;
+    font-size: 24px;
+    margin: auto;
+}
+
+/* ЗАДАЧА 9 */
+#task9 button {
+    width: 100%;
+}
+
+#block-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.block {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #666;
+    cursor: pointer;
+}

@@ -8,6 +8,8 @@
 </head>
 
 <body>
+
+    <button id="task8" onclick="up()">&uarr;</button>
     <!-- ЗАДАЧА 1 -->
     <section id="task1">
         <h2>Задача 1</h2>
@@ -41,7 +43,39 @@
         </div>
     </section>
 
-    <!-- ЗАДАЧА 5 -->
+    
+    <section id="task5">
+        <h2>Задача 5</h2>
+        <div class="traffic-light">
+            <div id="red" class="lamp"></div>
+            <div id="yellow" class="lamp"></div>
+            <div id="green" class="lamp"></div>
+        </div>
+        <button onclick="changeLight()">NEXT</button>
+    </section>
+
+    <!-- ЗАДАЧА 6 -->
+    <section id="task6">
+        <h2>Задача 6</h2>
+        Месяц: <input type="number" id="calMonth" min="1" max="12" value="8">
+        Год: <input type="number" id="calYear" value="2018">
+        <button onclick="calendar()">Generate</button>
+        <div id="calendar-container"></div>
+    </section>
+
+    <!-- ЗАДАЧА 7 -->
+    <section id="task7">
+        <h2>Задача 7</h2>
+        <p id="no-select">Этот текст нельзя выделить или вызвать контекстное меню</p>
+
+    </section>
+
+    <!-- ЗАДАЧА 9 -->
+    <section id="task9">
+        <h2>Задача 9</h2>
+        <button onclick="addBlock()">Add block</button>
+        <div id="block-container"></div>
+    </section>
     <script src="script.js">
         
     </script>

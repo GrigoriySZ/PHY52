@@ -23,7 +23,7 @@ body {
     align-items: center;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 0 10px var(--color);
+    box-shadow: inset 0 0 10px var(--color);
 }
 
 .pad-grid {
@@ -31,4 +31,43 @@ body {
     grid-template-columns: repeat(4, 100px);
     gap: 20px;
     margin-top: 30px;
+}
+
+.pad.active {
+    background-color: var(--color);
+    box-shadow: 0 0 40px var(--color);
+    transform: scale(0.95);
+}
+
+.controls {
+    margin-bottom: 20px;
+    max-width: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.indicator {
+    width: 15px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.indicator.active {
+    background-color: red;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.metronome {
+    display: flex;
+    gap: 15px;
 }

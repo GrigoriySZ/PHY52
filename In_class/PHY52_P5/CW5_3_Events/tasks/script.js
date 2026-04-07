@@ -57,3 +57,85 @@ field.addEventListener('click', (e) => {
     // console.log(rect.right, rect.left);
     // console.log(rect.top, rect.bottom);
 });
+
+// ЗАДАЧА 5
+let currentLight = -1;
+
+
+
+function changeLight() {
+    const lamps = ['red', 'yellow', 'green'];
+    lamps.forEach(id => document.getElementById(id).classList.remove(id));
+    // Циклический сдвиг 
+    currentLight = (currentLight + 1) % lamps.length;
+    const activeId = lamps[currentLight];
+    document.getElementById(activeId).classList.add(activeId);
+}
+
+// ЗАДАЧА 6
+console.log(new Date(2026, 3, 1).getDay());
+function calendar() {
+    const m = document.getElementById('calMonth').value-1;  // Считает с нуля
+    const y = document.getElementById('calYear').value;
+    const container = document.getElementById('calendar-container');
+    
+    const firstDay = new Date(y, m, 1).getDay();  // День недели первого числа
+    // console.log(firstDay);
+    const startDay = firstDay === 0 ? 6 : firstDay - 1; 
+    const daysInMonth = new Date(y, m+1, 0).getDate();
+    console.log(daysInMonth);
+
+    // Создаем шапку
+    let html = '<table> <tr> <th>ПН</th> <th>ВТ</th> <th>СР</th> <th>ЧТ</th> <th>ПТ</th> <th>СБ</th> <th>ВС</th> </tr> <tr>';
+
+    // Добавляем пустые ячейки
+    for(let i = 0; i < startDay; i++) html += '<td></td>';
+
+    // Заполняем числами
+    for (let day = 1; day <= daysInMonth; day++) {
+        if ((startDay + day -1) % 7 === 0 && day > 1) html += '</tr><tr>'; 
+        html += `<td>${day}</td>`;
+    }
+
+    let fill = (startDay + daysInMonth) % 7;
+    for(day = startDay; day < fill-1; day++) html += '<td></td>';
+
+    html += '</tr></table>';
+    container.innerHTML = html;
+}
+
+// ЗАДАЧА 7
+const task7 = document.getElementById('task7');
+task7.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+})
+
+// ЗАДАЧА 8
+window.addEventListener('scroll', () => {
+    const btnScroll = document.getElementById('task8');
+    if (window.scrollY > 100) {
+        btnScroll.style.display = 'block';
+    } else {
+        btnScroll.style.display = 'none';
+    }
+})
+
+function up() {
+    window.scrollTo({ top:0, behavior: 'smooth' });
+}
+
+// ЗАДАЧА 9
+function addBlock() {
+    const container = document.getElementById('block-container');
+
+    let block = document.createElement('div');
+    block.classList.add('block');
+    let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    block.style.backgroundColor = randomColor;
+    block.onclick = function () {
+        // container.removeChild(block);
+        block.style.opacity = '0';
+        block.style.cursor = 'auto';
+    }
+    container.appendChild(block);
+}

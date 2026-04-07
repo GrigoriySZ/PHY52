@@ -5,29 +5,36 @@
     <title>Neon Beats - Drum Machine</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h1>NEON BEATS</h1>
-    <div class="controls">
-        <button id="recBtn">Record</button>
-        <button id="stopBtn">Stop</button>
-        <button id="playBtn">Play</button>
-        <div id="recIndicator" class="indicator"></div>
-        <input type="range" id="volumeSlider" min="0" max="100" step="10" value="50">
-        <span>Volume</span>
+    <div class="container">
+        <h1>NEON BEATS</h1>
+        <div class="controls">
+            <button id="recBtn">Record</button>
+            <button id="stopBtn">Stop</button>
+            <button id="playBtn">Play</button>
+            <div id="recIndicator" class="indicator"></div>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+            <span>Volume</span>
+            <div class="metronome">
+                <span>Metronome: </span>
+                <button id="metronomeBtn" value="off">ON / OFF</button>
+                <input id="bpmCount" type="number" min="60" max="360" value="120">BPM
+            </div>
+        </div>
+        <div class="pad-grid">
+            <div class="pad" style="--color: #ff0055;" data-key="A">A</div>
+            <div class="pad" style="--color: #00fbff;" data-key="S">S</div>
+            <div class="pad" style="--color: #72ff00;" data-key="D">D</div>
+            <div class="pad" style="--color: #ffbe00;" data-key="F">F</div>
+            <div class="pad" style="--color: #9b00ff;" data-key="G">G</div>
+            <div class="pad" style="--color: #ff6a00;" data-key="H">H</div>
+            <div class="pad" style="--color: #007bff;" data-key="J">J</div>
+            <div class="pad" style="--color: #ffffff;" data-key="K">K</div>
+        </div>
     </div>
-    <div class="pad-grid">
-        <div class="pad" style="--color: #ff0055;" data-key="A">A</div>
-        <div class="pad" style="--color: #00fbff;" data-key="S">S</div>
-        <div class="pad" style="--color: #72ff00;" data-key="D">D</div>
-        <div class="pad" style="--color: #ffbe00;" data-key="F">F</div>
-        <div class="pad" style="--color: #9b00ff;" data-key="G">G</div>
-        <div class="pad" style="--color: #ff6a00;" data-key="H">H</div>
-        <div class="pad" style="--color: #007bff;" data-key="J">J</div>
-        <div class="pad" style="--color: #ffffff;" data-key="K">K</div>
-    </div>
-</div>
     <script src="script.js"></script>
 </body>
+
 </html>

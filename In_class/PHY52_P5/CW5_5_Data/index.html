@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theory</title>
+
+    <style>
+        .fruit-card {
+            display: inline-block;
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .fruit-card:hover {
+            transform: scale(1.1); 
+            border-color: orange;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Дата атрибуты позволяют задать определенные данные элементам -->
+    <!-- Дата атрибуты пишутся date-... -->
+
+    <h1>Витрина</h1>
+    <div class="fruit-card" data-fruit-name="Банан" data-price="350">
+        🍌Банан
+    </div>
+    <div class="fruit-card" data-fruit-name="Виноград" data-price="1200">
+        🍇Виногра
+    </div>
+
+    <script>
+        const entryTime = Date.now();
+
+        // .style.bachgroudColor - регистр camelCase
+        const cards = document.querySelectorAll('.fruit-card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const name = card.dataset.fruitName;
+                const price = card.dataset.price;
+
+                const timeSpent = Math.floor((Date.now()-entryTime) / 1000);
+
+                // Добавляем звук при клике
+                const bell = new Audio('sounds/F.wav');
+                bell.volume = 0.5;
+                bell.play();
+
+                // Выводим табличку с информацией при клике по карточке
+                alert(`${name} за ${price} руб. Прошло ${timeSpent} секунд.`);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
