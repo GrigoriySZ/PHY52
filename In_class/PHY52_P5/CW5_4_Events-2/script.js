@@ -13,18 +13,21 @@ const recBtn = document.getElementById('recBtn');
 const stopBtn = document.getElementById('stopBtn');
 const playBtn = document.getElementById('playBtn');
 const recIndicator = document.getElementById('recIndicator');
-const metronomeBtn = document.getElementById('metronomeBtn');
-const bpmCounter = dociment.getElementById('bpmCount');
+const mtmBtn = document.getElementById('mtmBtn');
+const bpmCounter = document.getElementById('bpmCounter');
+const mtmVolumeSlider = document.getElementById('mtmVolumeSlider')
+const mtmPlay = document.getElementById('mtmPlay');
+const mtmStop = document.getElementById('mtmStop');
 
 // Инициализируем переменные 
 let recordedSequence = [];
 let isRecording = false;
 let startTime = 0;
 let currentVolume = 0.5;
-let metronomIsActive = false;
-let bpmCount = 120;
-
-// setinterval JS
+let mtmIsPlaying = false;
+let currentBpm = 120;
+let mtmCurrnetVolume = 0.5;
+let intervalId
 
 // Функция проигрывания звука
 function playSound(key) {
@@ -97,13 +100,52 @@ playBtn.addEventListener('click', () => {
     });
 });
 
-metronomeBtn.addEventListener('click', () => {
-    
-    if (!metronomIsActive) {
-        metronomIsActive = true;
-        const audio = new Audio('sounds/click.wav');
-        audio.volume = currentVolume;
-        audio.play()
+bpmCounter.addEventListener('input', (e) => {
+    currentBpm = e.target.value;
+    console.log(currentBpm);
+});
 
+mtmVolumeSlider.addEventListener('input', (e) => {
+    mtmCurrnetVolume = e.target.value;
+});
+
+mtmBtn.addEventListener('click', () => {
+    
+    // Инициализируем звук метронома
+    const mtmAudio = new Audio('sounds/click.mp3');
+    // const mtmPlay = document.getElementById('mtmPlay');
+    // const mtmStop = document.getElementById('mtmStop');
+    
+    if (!mtmIsPlaying) {
+        
+        // Менямем цвет кнопки
+        mtmStop.classList.remove('active');
+        mtmPlay.classList.add('active');
+
+        // Запускаем звук
+        mtmAudio.play();
+
+        // Считаем частоту ударов 
+        let intervalMs = (60 / currentBpm) * 1000;
+
+        // Задаем воспроизведение с интервалом 
+        intervalId = setInterval(() => {
+            mtmAudio.volume = mtmCurrnetVolume;
+            mtmAudio.currentTime = 0;
+            mtmAudio.play();
+        }, intervalMs);
+
+        mtmIsPlaying = true;
+    } else {
+
+        // Изменяем цвет кнопки
+        mtmPlay.classList.remove('active');
+        mtmStop.classList.add('active');
+
+        // Останавливаем цикл
+        clearInterval(intervalId);
+        mtmAudio.pause();
+        mtmAudio.currentTime = 0;
+        mtmIsPlaying = false;
     }
-})
+});

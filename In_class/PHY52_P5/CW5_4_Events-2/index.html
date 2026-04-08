@@ -18,9 +18,11 @@
             <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
             <span>Volume</span>
             <div class="metronome">
-                <span>Metronome: </span>
-                <button id="metronomeBtn" value="off">ON / OFF</button>
-                <input id="bpmCount" type="number" min="60" max="360" value="120">BPM
+                <span>Metronome:</span>
+                <button id="mtmBtn"><span id='mtmPlay'>ON</span> <span id='mtmStop' class="active">OFF</span></button>
+                <input type="number" id="bpmCounter"  min="40" max="200" value="120">BPM
+                <input type="range" id="mtmVolumeSlider" min="0" max="1" step="0.1" value="0.5">
+                <span>Volume</span>
             </div>
         </div>
         <div class="pad-grid">
