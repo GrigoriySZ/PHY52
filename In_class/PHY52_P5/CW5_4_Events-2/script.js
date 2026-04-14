@@ -149,3 +149,8 @@ mtmBtn.addEventListener('click', () => {
         mtmIsPlaying = false;
     }
 });
+
+let i = 0;
+for (; i < 3;) {
+    console.log(i++);
+}
