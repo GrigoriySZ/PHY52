@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage tasks</title>
+    <style>
+        body {
+            transition: 0.3s;
+            padding: 20px;
+        }
+
+        .dark {
+            background-color: #333;
+            color: white;
+        }
+
+        .light {
+            background-color: #fff;
+            color: black;
+        }
+
+        section {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            max-width: 300px;
+            display: block;
+        }
+
+        #cookie-banner {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #ffeb33;
+            color: black;
+            padding: 15px;
+            text-align: center;
+            border-top: 2px solid #fbc02d;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <main>
+        <!-- ЗАДАЧА 1 -->
+        <section id="task1">
+            <h2>1. Тема сайта</h2>
+            <button id="theme-toggle">Сменить тему</button>
+        </section>
+
+        <!-- ЗАДАЧА 2 -->
+        <section id="task2">
+            <h2>2. Форма заказа</h2>
+            <form id="order-form">
+                <div>
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="userName">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="userEmail">
+                </div>
+                <div>
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="userMessage"></textarea>
+                </div>
+                <button type="submit">Отправить заказ</button>
+            </form>
+        </section>
+
+        <!-- ЗАДАЧА 3 -->
+        <section id="task3">
+            <h2>3. Управление куки</h2>
+            <button id="reser-cookie">Сбросить настройки куки</button>
+        </section>
+        <div id="cookie-banner">
+            Мы используем куки. Принять?
+            <button id="accept-cookie">Принять</button>
+        </div>
+    </main>
+
+    <script>
+        // ЗАДАЧА 1
+        const themeBtn = document.getElementById('theme-toggle');
+
+        function applyTheme(theme) {
+            document.body.className = theme;
+            localStorage.setItem('siteTheme', theme);
+        }
+
+        const savedTheme = localStorage.getItem('siteTheme') || 'light';
+        applyTheme(savedTheme);
+
+        themeBtn.addEventListener('click', () => {
+            const newTheme = document.body.classList.contains('light') ? 'dark' : 'light';
+            applyTheme(newTheme);
+        })
+
+        // ЗАДАЧА 2
+        const orderForm = document.getElementById('order-form');
+        const formFields = orderForm.querySelectorAll('input, textarea');
+
+        orderForm.addEventListener('input', (e) => {
+            sessionStorage.setItem(e.target.id, e.target.value); 
+        });
+
+        formFields.forEach(field => {
+            const savedValue = sessionStorage.getItem(field.id);
+            if (savedValue) {
+                field.value = savedValue;
+            }
+        });
+
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('форма оправлена');
+            formFields.forEach(field => {
+                sessionStorage.removeItem(field.id);
+                field.value= '';
+            });
+        });
+
+        // ЗАДАЧА 3
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookie');
+        const resetBtn = document.getElementById('reser-cookie');
+
+        function getCookieValue(name) {
+            // Получаем все куки 
+            let allCookie = document.cookie;
+            let cookieArray = allCookie.split('; ');
+            for (let i = 0; i < cookieArray.length; i++) {
+                let parts = cookieArray[i].split('=');
+                if(parts [0] === name) {
+                    return parts[1];
+                }
+            }
+            return undefined;
+        }
+
+        if (!getCookieValue('userAccepted')) {
+            banner.style.display = 'block';
+        } 
+
+        acceptBtn.addEventListener('click', () => {
+            document.cookie = 'userAccepted=true; max-age=30; path=/';
+            banner.style.display = 'none';
+        });
+
+        resetBtn.addEventListener('click', () => {
+            document.cookie = 'userAccepted=true; max-age=-1; path=/';
+            alert('Настройки брошены');
+        })
+    </script>
+</body>
+
+</html>

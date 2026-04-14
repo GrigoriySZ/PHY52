@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация | CryptoTracker Pro</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/neon_green.css" id="theme-style">
+</head>
+
+<body>
+    <div class="container auth-container">
+        <div class="card auth-card">
+            <h2>Вход в систему</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <lable for="apiKey">API ключ</lable>
+                    <input type="password" id="apiKey" required>
+                </div>
+                <div class="form-group">
+                    <lable for="themeSelect">Тема</lable>
+                    <select id="themeSelect">
+                        <option value="neon_green">Neon Green</option>
+                        <option value="gold">Gold</option>
+                        <option value="cyberpunk">Cyberpunk</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <lable for="periodSelect">Период обновления данных</lable>
+                    <select id="periodSelect">
+                        <option value="5">Каждые 5 секунд</option>
+                        <option value="10">Каждые 10 секунд</option>
+                        <option value="30">Каждые 30 секунд</option>
+                    </select>
+                </div>
+                <fieldset class="portfolio-group">
+                    <label><input type="checkbox" id="assetBTC" value="BTC">Bitcoin (BTC)</label>
+                    <label><input type="checkbox" id="assetETH" value="ETH">Ethereum (ETH)</label>
+                    <label><input type="checkbox" id="assetSOL" value="SOL">Solana (SOL)</label>
+                </fieldset>
+                <button type="submit" class="btn-primary full-width">Начать сессию</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>

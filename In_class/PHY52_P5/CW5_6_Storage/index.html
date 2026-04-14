@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хранение данных</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <script>
+        // Cookie (= ~4kb) - хранилище данных на сервере
+        // Cookie могут жить бесконечно. Время хранение настраивается
+        // Local storage (= ~10mb) - длительное хранение данных даже при закрытии вкладок
+        // Session srotage (= ~5mb) - хранение данных в течении одной сессии (до закрытии вкладки)
+
+        // sessionStorage, localStorage - Могут хранить только строку
+        // setItem(key, value) - сохранить
+        // getItem(key) - сохранить
+        // removeItem(key) - удалить конкретный элемент
+        // clear() - очистить всё хранилище
+
+        // localStorage.setItem('username', 'Greg');
+        // localStorage.setItem('theme', 'dark');
+        // console.log(localStorage.getItem('username'));
+
+        // localStorage.removeItem('username');
+        // localStorage.clear();
+
+        // const userProfile = {id: 1, name: 'Dmitry'}; 
+
+        // JSON.stringify() - сериализация, перевод объекта в JSON
+        localStorage.setItem('profile', JSON.stringify(userProfile));
+        
+        // JSON.parse() - десериализация, перевод строки(JSON) в объект
+        const saveProfile = JSON.parse(localStorage.getItem('profile'));
+        console.log(saveProfile);
+        console.log(saveProfile.name);
+
+        // Cookie
+        // Установка куки (ключ=значение)
+        document.cookie = "user=Ivan"; 
+
+        // Установка со сроком жизни в секундах
+        // max-age - срок жизни, expires - дата уничтожения куки
+        // document.cookie = "session_id=abc123; max-age=60; path=/";
+
+        // Чтение куки
+        console.log(document.cookie);
+
+    </script>
+</body>
+
+</html>

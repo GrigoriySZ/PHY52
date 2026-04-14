@@ -1,0 +1,38 @@
+:root {
+    --bg-color: #040805;
+    --text-color: #e0ffe0;
+    --text-muted: #88cc88;
+    --accent-color: #00ff66;
+    --card-bg: #0a140a;
+    --border-color: #1a3320;
+    --input-bg: #0d1a0d;
+    --input-border: #1a4d22;
+}
+
+.card,
+input,
+select,
+button,
+.btn-primary,
+.btn-secondary,
+.portfolio-group,
+.status-badge,
+.stat-box {
+    border-color: rgba(0, 255, 102, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 255, 102, 0.08);
+}
+
+.chart-bar {
+    background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
+}
+
+.portfolio-group legend,
+.stat-box span {
+    color: #00ff66;
+}
+
+.status-badge {
+    border-color: #00ff66;
+    color: #00ff66;
+    background: rgba(0, 255, 102, 0.1);
+}

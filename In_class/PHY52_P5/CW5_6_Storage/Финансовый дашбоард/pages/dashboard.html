@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дашборд | CryptoTracker Pro</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/neon_green.css" id="theme-style">
+</head>
+
+<body>
+
+    <!-- HEADER START -->
+    <header>
+        <div class="container header-flex">
+            <h2>CryptoTracker Pro</h2>
+            <button id="logoutBtn" class="btn-secondary">Выйти</button>
+        </div>
+    </header>
+
+    <!-- MAIN START -->
+    <main class="container">
+        <div class="card controls-card">
+
+            <!-- ROW CONTROLS START -->
+            <div class="controls-row">
+
+                <!-- THEME SELECT -->
+                <div class="controls-group">
+                   <lable for="dashThemeSelect">Тема интерфейса</lable>
+                    <select id="dashThemeSelect">
+                        <option value="neon_green">Neon Green</option>
+                        <option value="gold">Gold</option>
+                        <option value="cyberpunk">Cyberpunk</option>
+                    </select>
+                </div>
+
+                <!-- PERIOD SELECT -->
+                <div class="controls-group">
+                    <lable for="dashPeriodSelect">Период обновления данных</lable>
+                    <select id="dashPeriodSelect">
+                        <option value="5">Каждые 5 секунд</option>
+                        <option value="10">Каждые 10 секунд</option>
+                        <option value="30">Каждые 30 секунд</option>
+                    </select>
+                </div>
+
+            </div>
+            <!-- ROW CONTROLS END -->
+
+        </div>
+
+        <h3 class="section-title">Ваш профиль</h3>
+        <div id="assetsContainer" class="grid-3">
+            <!-- РЕНДЕР ЧЕРЕЗ JS -->
+        </div>
+
+        <!-- GRAPH CARD -->
+        <div class="card chart-card">
+            <h3>Визуализация активности</h3>
+            <div id="mockChart" class="chart-placeholder">
+                <div class="chart-bar" style="height: 40%"></div>
+                <div class="chart-bar" style="height: 60%"></div>
+                <div class="chart-bar" style="height: 30%"></div>
+                <div class="chart-bar" style="height: 55%"></div>
+                <div class="chart-bar" style="height: 80%"></div>
+            </div>
+        </div>
+    </main>
+   
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>

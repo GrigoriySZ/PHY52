@@ -1,0 +1,53 @@
+:root {
+    --bg-color: #0a0014;
+    --text-color: #e6d9ff;
+    --text-muted: #b099e0;
+    --accent-color: #00f0ff;
+    --card-bg: #120024;
+    --border-color: #2a0050;
+    --input-bg: #16002a;
+    --input-border: #3a0066;
+    --glow-sec: #ff00ff;
+}
+
+.card {
+    border-left: 4px solid var(--accent-color);
+}
+
+.card,
+input,
+select,
+button,
+.btn-primary,
+.btn-secondary,
+.portfolio-group,
+.status-badge,
+.stat-box {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.1);
+}
+
+.chart-bar {
+    background: linear-gradient(180deg, #ff00ff 0%, #b000b0 100%);
+}
+
+.portfolio-group legend,
+.stat-box span {
+    color: #00f0ff;
+}
+
+.btn-primary {
+    background: #ff00ff;
+    color: #fff;
+}
+
+.status-badge {
+    border-color: #00f0ff;
+    color: #00f0ff;
+    background: rgba(0, 240, 255, 0.1);
+}
+
+.btn-secondary {
+    border-color: #ff00ff;
+    color: #ff00ff;
+}
