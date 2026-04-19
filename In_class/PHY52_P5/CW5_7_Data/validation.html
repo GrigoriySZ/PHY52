@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        .invalid {
+            border-color: red;
+            box-shadow: 0 0 10px rgba(255,0,0,0.3);
+        }
+
+        .valid {
+            border-color: green;
+            box-shadow: 0 0 10px rgba(0, 128, 0, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- <input type="email" id="email" placeholder="Ваш email">
+    <div id="emailError" style="color: red; display: none;">
+        Некорректный email
+    </div> -->
+
+    <!-- <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select> -->
+
+    <input type="text" id="name" placeholder="Enter name">
+    <div class="errorMess" data-for="name"></div>
+    <input type="password" id="pass" placeholder="Enter password">
+    <div class="errorMess" data-for="pass"></div>
+
+    <script>
+        // Событие формы: submit
+        // Перехватываем данные при отправки данных из формы
+        // при помощи preventDefault();
+
+        // События полей: 
+        // inpit - улавливает любые изменения;
+        // change - изменение зафиксированы;
+        // focus() - пользователь зашел в поле;
+        // blur() - пользователь покинул поле; - тольк для form 
+
+        // const emailInput = document.getElementById('email');
+        // const emailError = document.getElementById('emailError');
+
+        // emailInput.style.outline = 'none';
+
+        // emailInput.addEventListener('blur', () => {
+        //     const value = emailInput.value;
+        //     if (!value.includes('@')) {
+        //         emailInput.style.borderColor = 'red';
+        //         emailError.style.display = 'block';
+        //     } else {
+        //         emailInput.style.borderColor = 'green';
+        //         emailError.style.display = 'none';
+        //     }
+        // });
+
+        // emailInput.addEventListener('input', () => {
+        //     const value = emailInput.value;
+        //     if (value.includes('@')) {
+        //         emailInput.style.borderColor = 'green';
+        //         emailError.style.display = 'none';
+        //     } else {
+        //         emailInput.style.borderColor = '#ccc';
+        //     }
+        // });
+
+        // ВАЛИДАЦИЯ 
+
+        // 1) Встроенные (required, type="email", type="url", minlenght, maxlength, pattern);
+        // 2) Кастомная валидация (функции-валидаторы)
+        // 
+
+        function validateName(name) {
+            const trimName = name.trim();
+            if (trimName === '') {
+                return {isValid: false, error: 'Имя не может быть пустым'};
+            }
+
+            if (trimName.length < 2) {
+                return { isValid: false, error: 'Имя должно быть длиннее 2х символов'}
+            }
+
+            if (!/^[a-zA-Zа-яА-Я\s]+$/.test(trimName)) {
+                return { isValid: false, error: 'Имя может содержать только буквы'}
+            }
+
+            return { isValid: true, error: null};
+        }
+
+        function validatePassword(pass) {
+            if (pass.length < 8) {
+                return { isValid: false, error: 'Пароль должен быть длиннее 8 символов'};
+            }
+
+            if (!/\d/.test(pass)) {
+                return { isValid: false, error: 'Пароль должен содержать хотя бы одну цифру'};
+            }
+
+            if (!/[A-Z]/) {
+                return { isValid: false, error: 'Пароль должен содержать хотя бы одну заглавную букву'};
+            }
+
+            if (!/[!@$%^_\-&*]/) {
+                return { isValid: false, error: 'Пароль должен содержать хотя бы один специальный символ (!@$%^_-&*)'};
+            }
+
+            return { isValid: true, error: null};
+        }
+
+        function showError(inputElement, errorMess) {
+            const errorContainer = document.querySelector(`.errorMess[data-for="${inputElement.id}"]`);
+            if (errorContainer) {
+                errorContainer.textContent = errorMess;
+                errorContainer.style.display = 'block';
+            }
+
+            inputElement.classList.add('invalid');
+            inputElement.classList.remove('valid');
+
+        }
+
+        function hideError(inputElement) {
+            const errorContainer = document.querySelector(`.errorMess[data-for="${inputElement.id}"]`);
+            if (errorContainer) {
+                errorContainer.textContent = '';
+                errorContainer.style.display = 'none';
+            }
+
+            inputElement.classList.add('valid');
+            inputElement.classList.remove('invalid');
+        }
+
+
+        const inputElements = document.querySelectorAll('input');
+        let validateRes;
+
+        inputElements.forEach(input => {
+            input.style.outline = 'none';
+            input.addEventListener('input', (e) => {
+                if (e.target.id === 'name') {
+                    validateRes = validateName(e.target.value);
+                }
+
+                if (e.target.id === 'pass') {
+                    validateRes = validatePassword(e.target.value);
+                }
+                if (validateRes.isValid === true) {
+                    hideError(e.target);
+                } else {
+                    
+                    showError(e.target, validateRes.error);
+                }
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

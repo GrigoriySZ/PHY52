@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormData</title>
+</head>
+
+<body>
+    <!-- multipart/form-data - способ упаковки данных -->
+    <!-- содержимое формы разбивается на несколько частей -->
+    <!-- Boundary(граница) - разные блоки текста разделены специальной печатью -->
+
+    <form id="userForm" action="">
+        <input type="text" name="userName"><br><br>
+        <input type="file" name="avatar" accept="image/*"><br>
+        <button type="submit">Посмотреть FormData</button>
+    </form>
+    <div id="res" style="margin-top: 20px;">
+        <div id="output">Здесь будут данные</div>
+    </div>
+
+
+    <script>
+        // FormData - собирает все данные 
+        // FormData {
+            // .append(name, value) - добавление нового значения
+            // .set(name, value) - перезапись значения по ключу
+            // .delete(name) - удалению по ключу
+            // .get(name) - получение по ключу
+            // .has(name) - проверка наличия по ключу
+        // }
+
+        const form = document.getElementById('userForm');
+        const output = document.getElementById('output');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            formData.append('date: ', new Date().toLocaleDateString());
+            output.innerHTML = '';
+
+            for (let [key, value] of formData.entries()) {
+                if (value instanceof File && value.name) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        output.innerHTML += `
+                            <p>${key}</p>
+                            <img src="${e.target.result}">
+                        `;
+                    }
+                    reader.readAsDataURL(value);
+                } else {
+                    output.innerHTML += `<p>${key}:${value}</p>`;
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

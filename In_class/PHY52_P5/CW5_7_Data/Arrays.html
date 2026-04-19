@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <main>
+        <button class="btn">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+
+    </main>
+
+    <script>
+        // Живые коллекции:
+        // .getElementsByClassName()
+        // .getElementByTagName()
+        // .childNodes
+        // .parentNode.childer
+
+        const btns = document.getElementsByClassName('btn');
+        console.log(btns);
+        console.log(btns.length);  // 3
+
+        // Array.from(btns).forEach(item => {item.remove()});
+
+        // Хорошо работает с живой коллекцией
+        while (btns.length > 0) {
+            btns[0].remove();
+        }
+
+        // // Пропускает элементы из-за смещения индекса
+
+        // console.log(btns);
+        // console.log(btns.length);
+
+        // Статичные коллекции:
+
+        //  for (i of items) {};
+        //  for (let i = 0; i <items.length; i++);
+        //  forEach
+
+        // .querySelector();
+        // .querySelectorAll();
+
+        // const btns = document.querySelectorAll('.btn');
+        // console.log(btns);
+        // console.log(btns.length);
+
+        // btns[0].remove();
+        // console.log(btns);
+        // console.log(btns.length);
+        // console.log(btns[0]);
+
+        // Цикл for
+
+        //  for (let btn of btns) {
+        //     btn.remove();
+        // }
+
+        // console.log(btns);
+        // console.log(btns.length);
+
+        const newBtn = document.createElement('button');
+        newBtn.className = 'btn';
+        newBtn.innerText = '4';
+        document.body.appendChild(newBtn);
+        console.log(btns);
+        console.log(btns.length);
+
+        const updateBtns = document.querySelectorAll('.btn');
+        console.log(updateBtns);
+        console.log(updateBtns.length);
+
+    </script>
+
+</body>
+
+</html>
