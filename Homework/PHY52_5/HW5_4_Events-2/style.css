@@ -1,112 +1,265 @@
 :root {
-    --accent-color: #ff8725;
-    --main-background-color: #fff;
-    --control-panel-backgroud-color: #aaa;
-    --card-background-color: #cacaca;
-    --focus-background-color: #9b9a9abf;
+    /* COLORS */
+    --accent-color: #2b9ce7;
+    --accent-bg-color: #95d5ffb9;
+    --main-bg-color: #fff;
+    --control-panel-bg-color: #c5c5c5;
+    --control-panel-border-color: #d8d8d8;
+    --control-section-bg-color: #e2e2e2;
+    --main-font-color: #000;
+    --card-bg-color: #cacaca;
+    --card-border-color: #cacaca;
+    --card-text-color-white: #fff;
+    --card-text-color-grey: #808080;
+    --card-text-color-black: #000;
+    --focus-bg-color: #9b9a9abf;
     --action-button-bg-color: #cacaca;
     --action-icon-color: #808080bf;
+
+    /* DIMENSIONS */
+    --objects-space: 20px;
+    --title-margin: 10px;
 }
 
-* {
+/* COMMON STYLE */
+*, a, button {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     width: 100vw;
-    background-color: var(--main-background-color);
+    background-color: var(--main-bg-color);
 }
 
 main {
-    position: relative;
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-areas: "control preview";
+    display: flex;
+    padding: var(--objects-space);
+    gap: var(--objects-space);
 }
 
+/* SIDE CONTROL PANEL */
 #control-panel {
-    grid-area: control;
-    height: 100vh;
-    padding: 20px;
-    background-color: var(--control-panel-backgroud-color);
+    height: calc(100vh - var(--objects-space)*2);
+    max-width: 420px;
+    width: 40%;
+    padding: 10px;
+    background-color: var(--control-panel-bg-color);
+    border-radius: 30px;
 }
 
-#preview-panel {
-    grid-area: preview;
+.control-panel-warpper {
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    height: 100%;
+    gap: 20px;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+}
+
+.control-panel-warpper::-webkit-scrollbar {
+    display: none;
+}
+
+.control-panel-warpper h2 {
+    font-size: 1.5rem;
+    color: var(--main-font-color);
+    text-align: center;
+    margin-bottom: var(--title-margin);
+}
+
+/* CONTROL PANEL SECTIONS */
+.control-section {
+    padding: 20px;
+    background-color: var(--control-section-bg-color);
+    border-radius: 20px;
+}
+
+/* PREWIEW PANEL */
+#preview-panel {
+    width: 100%;
+}
+
+/* PRODUCT CARD */
+.card-conatainer {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 350px auto;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+        "image info"
+        "image actions"
+        "description description"
+        "tags tags";
+    column-gap: 20px;
+    row-gap: var(--objects-space);
+    max-width: 800px;
+}
+
+/* IMAGE CONTAINER */
+.card-img-container {
+    display: flex;
+    grid-area: image;
     justify-content: center;
     align-items: center;
 }
 
-.card-conatainer {
-    display: flex;
-    flex-shrink: 0;
-    width: 300px;
-    height: 500px;
-    border: 1px solid var(--card-background-color);
-    border-radius: 10px;
-}
-
-.card-img-container {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px 10px 0 0;
-}
-
 .card-img-container img {
-    width: 80%;
+    width: 100%;
     height: auto;
     object-fit: contain;
+    border-radius: 20px;
 }
 
-.actions {
-    position: absolute;
-    display: none;
-    gap:0;
+/* PRODUCT INFO */
+.product-info {
+    min-width: 280px;
     width: 100%;
-    justify-content: stretch;
-    bottom: 0;
-    transition: 0.5s;
 }
 
-.card-img-container:hover .actions {
+.product-title {
+    font-size: 1.75rem;
+    margin-bottom: var(--title-margin);
+}
+
+/* ABOUT PRODUCT */
+#about-product {
+    margin-bottom: var(--objects-space);
+}
+
+.block-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--title-margin);
+}
+
+.product-spec {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.spec-row {
+    display: flex;
+    padding-bottom: 10px;
+    width: 100%;
+    gap: 10px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--card-border-color);
+}
+
+.spec-name {
+    width: 50%;
+    font-size: 1rem;
+    color: var(--card-text-color-grey);
+}
+
+.spec-content {
+    width: 50%;
+    font-size: 1rem;
+    color: var(--card-text-color-black);
+}
+
+/* PRODUCT PRICE */
+.produect-price {
+    display: inline-flex;
+    padding: 10px 15px;
+    background-color: var(--accent-color);
+    font-size: 1.5rem;
+    gap: 5px;
+    font-weight: bold;
+    color: var(--card-text-color-white);
+    letter-spacing: 1px;
+    border-radius: 1rem;
+} 
+
+.currancy {
+    align-self: flex-end;
+    font-size: 1.4rem;
+}
+
+/* ACTION BUTTONS */
+.actions {
+    grid-area: actions;
+    align-self: end;
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    gap: 10px;
+    transition: 0.5s;
 }
 
 .action-btn {
     display: flex;
+    gap: 10px;
+    padding: 8px;
+    height: 45px;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    padding: 5px;
-    height: 30px;
-    width: 100px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 150px;
     border: none;
-    border-radius: 0;
-    transition: 0.3s;
+    border-radius: 10px;
     color: var(--action-button-bg-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.action-name {
+    display: none;
+    transition: 0.5s;
 }
 
 .action-btn:hover {
-    background-color: var(--focus-background-color);
+    background-color: var(--accent-color);
 }
 
 .action-icon {
     stroke: var(--action-icon-color);
     height: 100%;
     width: auto;
+    cursor: pointer;
 }
 
 .action-btn:hover .action-icon {
-    stroke: var(--accent-color);
+    stroke: var(--card-text-color-white);
+}
+
+.action-btn:hover .action-name {
+    display: block;
+    color: var(--card-text-color-white);
 }
 
 .action-btn:hover .wishlist-counter {
-    color: var(--accent-color);
+    color: var(--card-text-color-white);
 }
 
+/* PRODUCT DESCRTIPTION */
+#product-descr {
+    grid-area: description;
+}
+
+#product-descr p {
+    font-size: 1rem;
+    margin-bottom: var(--objects-space);
+}
+
+/* PRODUCT TAGS */
+#product-tags {
+    grid-area: tags;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    padding: 10px;
+    font-weight: bold;
+    color: var(--accent-color);
+    background-color: var(--accent-bg-color);
+    border-radius: 12px;
+}

@@ -13,74 +13,163 @@
 
         <!-- CONTROL PANEL START -->
         <div id="control-panel">
-            <h2>Меню редактирования</h2>
+            <div class="control-panel-warpper">
 
-            <!-- TEXT EDITION SECTION START -->
-            <section id="text-editor">
-                <h3>Редактирование текста</h3>
-                <input type="text">
-            </section>
+                <h2>Меню редактирования</h2>
+                <!-- TEXT EDITION SECTION START -->
+                <section id="text-editor" class="control-section">
+                    <h3>Редактирование текста</h3>
+                    <input type="text">
+                </section>
 
-            <!-- COLOR EDITOR SECTION START -->
-            <section id="color-editor">
-                <h3>Редактирование цвета</h3>
-            </section>
+                <!-- COLOR EDITOR SECTION START -->
+                <section id="color-editor" class="control-section">
+                    <h3>Редактирование цвета</h3>
+                </section>
 
-            <!-- FORMAT EDITOR SECTION START -->
-            <section id="format-editor">
-                <h3>Редактирование вида</h3>
-            </section>
+                <!-- FORMAT EDITOR SECTION START -->
+                <section id="format-editor" class="control-section">
+                    <h3>Редактирование вида</h3>
+                </section>
+            </div>
         </div>
 
         <!-- PREVIEW PANEL START -->
         <div id="preview-panel">
-            <div class="cards-wrap">
 
-                <!-- PRODUCT CARD START -->
-                <div class="card-conatainer">
-                    <div class="card-img-container">
-                        <img src="images/product-pic-1.jpg" alt="мишка">
-                        <div class="actions">
-                            <button id="add-to-cart" class="action-btn">
-                                <svg class="action-icon" viewBox="0 0 24 24" 
-                                        fill="none" stroke="currentColor" stroke-width="2" 
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="9" cy="20" r="1"></circle>
-                                    <circle cx="17" cy="20" r="1"></circle>
-                                    <path d="M3 4H5L7 14H18L20 8H6"  stroke-linecap="round"  stroke-linejoin="round"></path>
-                                </svg>
-                            </button>
-                            <button id="quickview" class="action-btn">
-                                <svg class="action-icon" viewBox="0 0 24 24" 
-                                        fill="none" stroke="currentColor" stroke-width="2" 
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="11" cy="11" r="7"></circle>
-                                    <line x1="20" y1="20" x2="16.65" y2="16.65" stroke-linecap="round"></line>
-                                </svg>
-                            </button>
-                            <button id="wishlist" class="action-btn">
-                                <svg class="action-icon" viewBox="0 0 24 24" 
-                                        fill="none" stroke="currentColor" stroke-width="2" 
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M20 7C20 4.79 18.21 3 16 3C14.5 3 13.18 3.81 12 5.09C10.82 3.81 9.5 3 8 3C5.79 3 4 4.79 4 7C4 12 12 20 12 20C12 20 20 12 20 7Z" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                                <span class="wishlist-counter">0</span>
-                            </button>
+            <!-- PRODUCT CARD START -->
+            <div class="card-conatainer">
+                <div class="card-img-container">
+                    <img src="images/product-pic-1.jpg" alt="мишка">
+                </div>
+                
+                <div class="product-info">
+                    <h3 class="product-title">Маленький плюшевый мишка</h3>
+                    <div id="about-product">
+                        <h4 class="block-title">О товаре</h4>
+
+                        <!-- PRODUCT SPEC START -->
+                        <div class="product-spec">
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Тип</span>
+                                <span class="spec-content">Мягкая игрушка</span>
+                            </div>
+                            <!-- SPEC ROW END -->
+                            
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Вид игрушки</span>
+                                <span class="spec-content">Медведь</span>
+                            </div>
+                            <!-- SPEC ROW END -->
+
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Цвет</span>
+                                <span class="spec-content">Белый</span>
+                            </div>
+                            <!-- SPEC ROW END -->
+
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Материал</span>
+                                <span class="spec-content">Плюш</span>
+                            </div>
+                            <!-- SPEC ROW END -->
                         </div>
+                        <!-- PRODUCT SPEC END -->
                     </div>
-                    
-                    <div class="product-info">
-                        <h3 class="product-title"></h3>
-                        <span class="product-price"></span>
-                        <p class="product-description"></p>
+
+                    <!-- PRODUCT PRICE -->
+                    <div class="produect-price">
+                        <span class="product-cost">1599</span> <span class="currancy" title="Российкий рубль">&#8381;</span>
                     </div>
                 </div>
-                <!-- PRODUCT CARD END -->
 
+                <!-- ACTIONS BUTTONS START -->
+                <div class="actions">
+                    
+                    <!-- ADD TO CART BUTTON -->
+                    <button id="add-to-cart" class="action-btn">
+                        <span class="action-name">Добавить в корзину</span>
+                        <svg class="action-icon" viewBox="0 0 24 24" 
+                                fill="none" stroke="currentColor" stroke-width="2" 
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="20" r="1"></circle>
+                            <circle cx="17" cy="20" r="1"></circle>
+                            <path d="M3 4H5L7 14H18L20 8H6"  stroke-linecap="round"  stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+
+                    <!-- COMPARE BUTTON -->
+                    <button id="compare" class="action-btn">
+                        <span class="action-name">Сравнить товар</span>
+                        <svg class="action-icon" viewBox="0 0 24 24" 
+                                fill="none" stroke="currentColor" stroke-width="2" 
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="20" y1="20" x2="16.65" y2="16.65" stroke-linecap="round"></line>
+                        </svg>
+                    </button>
+
+                    <!-- WISHLIST BUTTON -->
+                    <button id="wishlist" class="action-btn">
+                        <span class="action-name">В избранное</span>
+                        <svg class="action-icon" viewBox="0 0 24 24" 
+                                fill="none" stroke="currentColor" stroke-width="2" 
+                                xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 3a6 6 0 0 1 6 6c0 4.448-2.78 7.705-5.375 9.781a23.6 23.6 0 0 1-4.78 2.94c-.543.25-.732.279-.845.279-.316-.02-.56-.146-.848-.277a23.6 23.6 0 0 1-4.781-2.942C3.777 16.703 1 13.447 1 9a6 6 0 0 1 6-6 6.18 6.18 0 0 1 5 2.568A6.18 6.18 0 0 1 17 3m0" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="wishlist-counter">0</span>
+                    </button>
+                </div>
+                <!-- ACTIONS BUTTONS END -->
+
+                <!-- DESCRIPTION START -->
+                <div id="product-descr">
+                    <h4 class="block-title">Описание</h4>
+                    <p>
+                        Плюшевый медведь, с бантиком , – это не просто игрушка, это воплощение 
+                        тепла и нежности. Его мягкий мех так и манит к объятиям, а трогательная 
+                        брошь в виде пчелки на свитере добавляет образу игривости и очарования.
+                    </p>
+                    <p>
+                        Этот мишка – идеальный компаньон для детей всех возрастов. Он станет 
+                        верным другом во время игр и приключений, утешит в моменты грусти и просто 
+                        подарит хорошее настроение. Благодаря своему милому внешнему виду и приятной 
+                        на ощупь текстуре, он быстро завоюет сердце любого ребенка.
+                    </p>
+                    <p>
+                        Но этот медведь – не только детская игрушка. Он также может стать прекрасным 
+                        дополнением к интерьеру. Поставьте его на полку в гостиной, на кровать в спальне 
+                        или даже на рабочий стол в офисе, и он обязательно привнесет в атмосферу нотку 
+                        уюта и позитива.
+                    </p>
+                    <p>
+                        Он принесет радость и улыбки в любой дом и станет верным другом на долгие годы.
+                    </p>
+                </div>
+                <!-- DESCRIPTION END -->
+
+                <!-- PRODUCT TAGS START -->
+                <div id="product-tags">
+                    <span class="tag">#мишка</span>
+                    <span class="tag">#медведь</span>
+                    <span class="tag">#мягкая_игрушка</span>
+                    <span class="tag">#медведь_игрушка</span>
+                    <span class="tag">#игрушка</span>
+                    <span class="tag">#плюшевая_игрушка</span>
+                </div>
+                <!-- PRODUCT TAGS END -->
             </div>
+            <!-- PRODUCT CARD END -->
+
         </div>
     </main>
+    <!-- MAIN END -->
     
+    <!-- SCRIPTS START -->
     <script src="script.js">
         
     </script>
