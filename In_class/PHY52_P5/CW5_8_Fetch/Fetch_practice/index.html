@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Movie Finder</h1>
+
+        <!-- ФОРМА ДЛЯ ЗАПРОСА К API -->
+        <form id="search-form" class="search-box">
+            <input type="text" id="title-input" placeholder="Введите название" required>
+            <select id="type-input">
+                <option value="movie">Фильм</option>
+                <option value="series">Сериал</option>
+                <option value="episode">Эпизод</option>
+            </select>
+            <button type="submit">Поиск</button>
+        </form>
+        <div id="movie-grid" class="movie-grid"></div>
+        <div id="pagination" class="pagination"></div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- SCRIPT SECTION -->
+    <script src="script.js">
+        
+    </script>
+</body>
+
+</html>

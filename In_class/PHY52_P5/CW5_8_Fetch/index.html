@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch запросы</title>
+</head>
+
+<body>
+
+    <h1>Найдем занятие</h1>
+    <button id="fetchBtn">Получить идею</button>
+    <p id="activity"></p>
+    
+
+    <script>
+        // Fetch - специальный инструмент JS 
+        
+        // Алгоритм:
+        // 1) fetch(url) - отправка запроса
+        // 2) Проверяем ответ (сервер не выдал ошибку) .ok (200-999)
+        // 3) Декодировать данные - превращаем в объект, понятный для JS .json() метод
+        // 4) Проверка ошибок* ( * - опционально)
+
+        // API для теста - https://bored-api.appbrewery.com/random
+
+        // Прокси сервер для обхода блокировок api
+        // После получения разрешения URL нужно вставить перед URL API в fetch
+        // https://cors-anywhere.herokuapp.com
+
+        // Сохраняем элементы 
+        const btn = document.getElementById('fetchBtn');
+        const textElement = document.getElementById('activity');
+
+        async function getActivity() {
+            try {
+
+                // Прелоудер на время получения данных
+                textElement.textContent = 'Загрузка...';
+
+                // Запрос к серверу в переменную
+                const response = await fetch('https://cors-anywhere.herokuapp.com/https://bored-api.appbrewery.com/random');
+                if (!response.ok) {
+                    // response.status - статус код ответа
+                    throw new Error(`Ошибка сервера ${response.status}`);
+                }
+                const data = await response.json();
+                textElement.textContent = data.activity;
+            }
+            catch (error) {
+                console.error('Приизошла ошибка: ', error);
+                textElement.textContent = 'Не удалось получить данные';
+            }
+        }
+
+        btn.addEventListener('click', getActivity);
+
+        // PUT/PATCH - обновление существующих данных;
+        // DELETE - удаление данных 
+        // GET - получить данные
+        // POST - отправить данные
+
+        fetch('https://example.com/api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify({
+                name: 'Ivan',
+                job: 'Developre'
+            })
+        });
+
+    </script>
+</body>
+
+</html>
