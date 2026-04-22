@@ -1,0 +1,154 @@
+:root {
+    --accent: #ff9d00;
+    --accent-hover: #dd8602;
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #f8f8f8;
+    --text-muted: #94a3b8;
+    --modal-overlay: #rgba(0, 0, 0, 0.8);
+    --sidebar-width: 350px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.fav-toggle-btn {
+    background: var(--card-bg);
+    color: var(--accent);
+    border: 2px solid (--accent);
+    padding: 10px 20px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.fav-toggle-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.search-box input, 
+.search-box select {
+    background: var(--card-bg);
+    border: 2px solid #334151;
+    color: var(--text);
+    padding: 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.search-box button {
+    background: var(--accent);
+    border: 2px solid (--accent);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.movie-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ТУТ СТИЛИ ДЛЯ КНОПКИ СЕРДЕЧКО */
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    right: calc(var(--sidebar-width)* -1);
+    top: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    z-index: 2000;
+    transition: 0.5s;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.fav-list {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.modal {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-overlay);
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
