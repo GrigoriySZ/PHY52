@@ -9,7 +9,12 @@
 
 <body>
     <div class="container">
-        <h1>Movie Finder</h1>
+        
+        <!-- HEADER -->
+        <header>
+            <h1>Movie Finder</h1>
+            <button class="fav-toggle-btn" onclick="toggleSidebar()">Избранное (<span id="fav-count">0</span>)</button>
+        </header>
 
         <!-- ФОРМА ДЛЯ ЗАПРОСА К API -->
         <form id="search-form" class="search-box">
@@ -25,13 +30,23 @@
         <div id="pagination" class="pagination"></div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО -->
+    <!-- FAVORITE MOVIES SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Избранное</h3>
+            <button class="remove-fav">&times;</button>
+        </div>
+        <div id="fav-list" class="fav-list">♥</div>
+    </aside>
+
+    <!-- MODAL WINDOW -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div id="modal-body"></div>
         </div>
     </div>
+
 
     <!-- SCRIPT SECTION -->
     <script src="script.js">
