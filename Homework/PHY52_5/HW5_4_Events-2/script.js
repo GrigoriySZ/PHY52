@@ -3,6 +3,7 @@ const titleSetting = document.getElementById('title-setting');
 const descriptionSetting = document.getElementById('description-setting');
 const priceSetting = document.getElementById('price-setting');
 const colorSetting = document.getElementById('color-editor');
+const gridSetting = document.getElementById('grid-editor');
 
 // Созраняем элементы карточки товара
 const productTitle = document.getElementById('product-title');
@@ -13,6 +14,9 @@ const layout = document.getElementById('layout');
 const productImg = document.getElementById('product-img');
 const wishlistBtn = document.getElementById('wishlist');
 const wishlistCounter = document.getElementById('wishlist-counter');
+const productCard = document.getElementById('product-card');
+const gridPositions = document.querySelectorAll('input[name="grid-position"]');
+const gridPositionValuet = Array.from(gridPositions).map(position => position.value)
 
 // Добавляем исходный текст в инпуты панели
 titleSetting.value = productTitle.textContent;
@@ -47,6 +51,16 @@ colorSetting.addEventListener('change', (e) => {
     siteBody.className = theme;
 });
 
+// Добавляем селекторам цветовой темы слушатель событий
+gridSetting.addEventListener('change', (e) => {
+    // Сохраняем значение разметки
+    const grid = e.target.value;
+    // Удалям все прошлые типы разметки
+    gridPositionValuet.forEach(rmClass => productCard.classList.remove(rmClass));
+    productCard.classList.add(grid);
+    
+});
+
 // Добавляем эфект изменения цвета кнопке like
 wishlistBtn.addEventListener('click', () => {
     wishlistBtn.classList.toggle('active');
@@ -71,4 +85,5 @@ productImg.addEventListener('mouseleave', () => {
     productImg.classList.remove('active');
     layout.style.display = 'none';
 });
+
 
