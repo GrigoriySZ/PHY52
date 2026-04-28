@@ -7,80 +7,265 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="theme-2">
     <!-- MAIN START -->
     <main>
+        <div id="layout"></div>
 
         <!-- CONTROL PANEL START -->
         <div id="control-panel">
-            <h2>Меню редактирования</h2>
+            <div class="control-panel-warpper">
+                
+                <h2>Меню редактирования</h2>
+                <!-- TEXT EDITION SECTION START -->
+                <section id="text-editor" class="control-section">
+                    <h3>Редактирование текста</h3>
+                    <div class="config-container">
+                        <label for="title-setting" class="setting-title">Заголовок продукты</label>
+                        <input type="text" name="title-setting" id="title-setting" placeholder="Заголовок товара">
+                    </div>
+                    <div class="config-container">
+                        <label for="description-setting" class="setting-title">Описание продукта</label>
+                        <textarea name="description-setting" id="description-setting" rows="5" placeholder="Описание товара"></textarea>
+                    </div>
+                    <div class="config-container">
+                        <label for="price-setting" class="setting-title">Цена продукта</label>
+                        <input type="number" name="price-setting" id="price-setting" min="0" max="100000000" step="0.01" placeholder="Цена товара">
+                    </div>
+                </section>
 
-            <!-- TEXT EDITION SECTION START -->
-            <section id="text-editor">
-                <h3>Редактирование текста</h3>
-                <input type="text">
-            </section>
+                <!-- COLOR EDITOR SECTION START -->
+                <section id="color-editor" class="control-section">
+                    <h3>Редактирование цвета</h3>
+                    <div class="color-container">
 
-            <!-- COLOR EDITOR SECTION START -->
-            <section id="color-editor">
-                <h3>Редактирование цвета</h3>
-            </section>
+                        <!-- COLOR CARD START -->
+                        <label class="color-card" for="color-theme-1">
+                            <input type="radio" name="color-theme" class="color-theme" id="color-theme-1" value="theme-1" checked>
+                            <div class="color-circle theme-1"
+                                style="background: conic-gradient(
+                                    var(--accent-color) 0 33.33%, 
+                                    var(--accent-bg-color) 33.33% 66.67%,
+                                    var(--price-bg-color) 66.67% 100%);">
+                            </div>
+                        </label>
+                        <!-- COLOR CARD END -->
 
-            <!-- FORMAT EDITOR SECTION START -->
-            <section id="format-editor">
-                <h3>Редактирование вида</h3>
-            </section>
+                        <!-- COLOR CARD START -->
+                        <label class="color-card" for="color-theme-2">
+                            <input type="radio" name="color-theme" class="color-theme" id="color-theme-2" value="theme-2">
+                            <div class="color-circle theme-2"
+                                style="background: conic-gradient(
+                                    var(--accent-color) 0 33.33%, 
+                                    var(--accent-bg-color) 33.33% 66.67%,
+                                    var(--price-bg-color) 66.67% 100%);">
+                            </div>
+                        </label>
+                        <!-- COLOR CARD END -->
+
+                        <!-- COLOR CARD START -->
+                        <label class="color-card" for="color-theme-3">
+                            <input type="radio" name="color-theme" class="color-theme" id="color-theme-3" value="theme-3">
+                            <div class="color-circle theme-3"
+                                style="background: conic-gradient(
+                                    var(--accent-color) 0 33.33%, 
+                                    var(--accent-bg-color) 33.33% 66.67%,
+                                    var(--price-bg-color) 66.67% 100%);">
+                            </div>
+                        </label>
+                        <!-- COLOR CARD END -->
+                    </div>  
+                </section>
+
+                <!-- FORMAT EDITOR SECTION START -->
+                <section id="grid-editor" class="control-section">
+                    <h3>Редактирование вида</h3>
+                    <div class="grid-setting-container">
+
+                        <!-- CHANGE BUTTON START -->
+                        <label class="grid-setting-card" for="grid-position-1">
+                            <input type="radio" name="grid-position" class="grid-position" id="grid-position-1" value="grid-1" checked>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path  d="M11.434,20.936H5.563a2.5,2.5,0,0,1-2.5-2.5V15.5a2.5,2.5,0,0,1,2.5-2.5h5.871a2.5,2.5,0,0,1,2.5,2.5v2.933A2.5,2.5,0,0,1,11.434,20.936ZM5.563,14a1.5,1.5,0,0,0-1.5,1.5v2.933a1.5,1.5,0,0,0,1.5,1.5h5.871a1.5,1.5,0,0,0,1.5-1.5V15.5a1.5,1.5,0,0,0-1.5-1.5Z"/>
+                                            <path  d="M18.435,20.936a2.5,2.5,0,0,1-2.5-2.5V15.5a2.5,2.5,0,0,1,5,0v2.934A2.5,2.5,0,0,1,18.435,20.936Zm0-6.934a1.5,1.5,0,0,0-1.5,1.5v2.934a1.5,1.5,0,0,0,3,0V15.5A1.5,1.5,0,0,0,18.435,14Z"/>
+                                        </g>
+                                    <path  d="M18.435,11H5.563a2.5,2.5,0,0,1-2.5-2.5V5.564a2.5,2.5,0,0,1,2.5-2.5H18.435a2.5,2.5,0,0,1,2.5,2.5V8.5A2.5,2.5,0,0,1,18.435,11ZM5.563,4.064a1.5,1.5,0,0,0-1.5,1.5V8.5a1.5,1.5,0,0,0,1.5,1.5H18.435a1.5,1.5,0,0,0,1.5-1.5V5.564a1.5,1.5,0,0,0-1.5-1.5Z"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </label>
+                        <!-- CHANGE BUTTON END -->
+
+                        <!-- CHANGE BUTTON START -->
+                        <label class="grid-setting-card" for="grid-position-2">
+                            <input type="radio" name="grid-position" class="grid-position" id="grid-position-2" value="grid-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path  d="M8.5,13.933H5.563a2.5,2.5,0,0,1-2.5-2.5V5.563a2.5,2.5,0,0,1,2.5-2.5H8.5a2.5,2.5,0,0,1,2.5,2.5v5.87A2.5,2.5,0,0,1,8.5,13.933ZM5.563,4.063a1.5,1.5,0,0,0-1.5,1.5v5.87a1.5,1.5,0,0,0,1.5,1.5H8.5a1.5,1.5,0,0,0,1.5-1.5V5.563a1.5,1.5,0,0,0-1.5-1.5Z"/>
+                                            <path  d="M8.5,20.935H5.564a2.5,2.5,0,0,1,0-5H8.5a2.5,2.5,0,1,1,0,5Zm-2.934-4a1.5,1.5,0,0,0,0,3H8.5a1.5,1.5,0,1,0,0-3Z"/>
+                                        </g>
+                                        <g>
+                                            <path  d="M18.436,20.935H15.5a2.5,2.5,0,0,1-2.5-2.5v-5.87a2.5,2.5,0,0,1,2.5-2.5h2.934a2.5,2.5,0,0,1,2.5,2.5v5.87A2.5,2.5,0,0,1,18.436,20.935ZM15.5,11.065a1.5,1.5,0,0,0-1.5,1.5v5.87a1.5,1.5,0,0,0,1.5,1.5h2.934a1.5,1.5,0,0,0,1.5-1.5v-5.87a1.5,1.5,0,0,0-1.5-1.5Z"/>
+                                            <path  d="M18.436,8.063H15.5a2.5,2.5,0,0,1,0-5h2.934a2.5,2.5,0,0,1,0,5Zm-2.934-4a1.5,1.5,0,0,0,0,3h2.934a1.5,1.5,0,0,0,0-3Z"/>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </label>
+                        <!-- CHANGE BUTTON END -->
+
+                    </div>
+                </section>
+            </div>
         </div>
 
         <!-- PREVIEW PANEL START -->
         <div id="preview-panel">
-            <div class="cards-wrap">
 
-                <!-- PRODUCT CARD START -->
-                <div class="card-conatainer">
-                    <div class="card-img-container">
-                        <img src="images/product-pic-1.jpg" alt="мишка">
-                        <div class="actions">
-                            <button id="add-to-cart" class="action-btn">
-                                <svg class="action-icon" viewBox="0 0 24 24" 
-                                        fill="none" stroke="currentColor" stroke-width="2" 
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="9" cy="20" r="1"></circle>
-                                    <circle cx="17" cy="20" r="1"></circle>
-                                    <path d="M3 4H5L7 14H18L20 8H6"  stroke-linecap="round"  stroke-linejoin="round"></path>
-                                </svg>
-                            </button>
-                            <button id="quickview" class="action-btn">
-                                <svg class="action-icon" viewBox="0 0 24 24" 
-                                        fill="none" stroke="currentColor" stroke-width="2" 
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="11" cy="11" r="7"></circle>
-                                    <line x1="20" y1="20" x2="16.65" y2="16.65" stroke-linecap="round"></line>
-                                </svg>
-                            </button>
-                            <button id="wishlist" class="action-btn">
-                                <svg class="action-icon" viewBox="0 0 24 24" 
-                                        fill="none" stroke="currentColor" stroke-width="2" 
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M20 7C20 4.79 18.21 3 16 3C14.5 3 13.18 3.81 12 5.09C10.82 3.81 9.5 3 8 3C5.79 3 4 4.79 4 7C4 12 12 20 12 20C12 20 20 12 20 7Z" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                                <span class="wishlist-counter">0</span>
-                            </button>
+            <!-- PRODUCT CARD START -->
+            <div id="product-card" class="card-conatainer grid-1">
+                <div class="card-img-container">
+                    <img id="product-img" src="images/product-pic-1.jpg" alt="мишка">
+                </div>
+                
+                <h3 id="product-title">Маленький плюшевый мишка</h3>
+                <div class="product-info">
+                    <div id="about-product">
+                        <h4 class="block-title">О товаре</h4>
+
+                        <!-- PRODUCT SPEC START -->
+                        <div class="product-spec">
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Тип</span>
+                                <span class="spec-content">Мягкая игрушка</span>
+                            </div>
+                            <!-- SPEC ROW END -->
+                            
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Вид игрушки</span>
+                                <span class="spec-content">Медведь</span>
+                            </div>
+                            <!-- SPEC ROW END -->
+
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Цвет</span>
+                                <span class="spec-content">Белый</span>
+                            </div>
+                            <!-- SPEC ROW END -->
+
+                            <!-- SPEC ROW START -->
+                            <div class="spec-row">
+                                <span class="spec-name">Материал</span>
+                                <span class="spec-content">Плюш</span>
+                            </div>
+                            <!-- SPEC ROW END -->
                         </div>
-                    </div>
-                    
-                    <div class="product-info">
-                        <h3 class="product-title"></h3>
-                        <span class="product-price"></span>
-                        <p class="product-description"></p>
+                        <!-- PRODUCT SPEC END -->
                     </div>
                 </div>
-                <!-- PRODUCT CARD END -->
 
+                <!-- ACTION CONTAINER  -->
+                <div class="action-container">
+                    
+                    <!-- PRODUCT PRICE -->
+                    <div class="product-price">
+                        <span id="product-cost">1599.<span class="subunit">00</span></span><span class="currancy" title="Российкий рубль"> &#8381;</span>
+                    </div>
+
+                    <!-- ACTIONS BUTTONS START -->
+                    <div class="actions">
+                        
+                        <!-- ADD TO CART BUTTON -->
+                        <button id="add-to-cart" class="action-btn">
+                            <span class="action-name">Добавить в корзину</span>
+                            <svg class="action-icon" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" 
+                                    xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="20" r="1"></circle>
+                                <circle cx="17" cy="20" r="1"></circle>
+                                <path d="M3 4H5L7 14H18L20 8H6"  stroke-linecap="round"  stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+
+                        <!-- COMPARE BUTTON -->
+                        <button id="compare" class="action-btn">
+                            <span class="action-name">Сравнить товар</span>
+                            <svg class="action-icon" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" 
+                                    xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="11" cy="11" r="7"></circle>
+                                <line x1="20" y1="20" x2="16.65" y2="16.65" stroke-linecap="round"></line>
+                            </svg>
+                        </button>
+
+                        <!-- WISHLIST BUTTON -->
+                        <button id="wishlist" class="action-btn">
+                            <span class="action-name">В избранное</span>
+                            <svg class="action-icon" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" 
+                                    xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 3a6 6 0 0 1 6 6c0 4.448-2.78 7.705-5.375 9.781a23.6 23.6 0 0 1-4.78 2.94c-.543.25-.732.279-.845.279-.316-.02-.56-.146-.848-.277a23.6 23.6 0 0 1-4.781-2.942C3.777 16.703 1 13.447 1 9a6 6 0 0 1 6-6 6.18 6.18 0 0 1 5 2.568A6.18 6.18 0 0 1 17 3" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span id="wishlist-counter">0</span>
+                        </button>
+                    </div>
+                    <!-- ACTIONS BUTTONS END -->
+                </div>
+                
+                <!-- DESCRIPTION START -->
+                <div id="product-description">
+                    <h4 class="block-title">Описание</h4>
+                    <div id="description-container">
+                        <p>
+                            Плюшевый медведь, с бантиком , – это не просто игрушка, это воплощение 
+                            тепла и нежности. Его мягкий мех так и манит к объятиям, а трогательная 
+                            брошь в виде пчелки на свитере добавляет образу игривости и очарования.
+                        </p>
+                        <p>
+                            Этот мишка – идеальный компаньон для детей всех возрастов. Он станет 
+                            верным другом во время игр и приключений, утешит в моменты грусти и просто 
+                            подарит хорошее настроение. Благодаря своему милому внешнему виду и приятной 
+                            на ощупь текстуре, он быстро завоюет сердце любого ребенка.
+                        </p>
+                        <p>       
+                            Но этот медведь – не только детская игрушка. Он также может стать прекрасным 
+                            дополнением к интерьеру. Поставьте его на полку в гостиной, на кровать в спальне 
+                            или даже на рабочий стол в офисе, и он обязательно привнесет в атмосферу нотку 
+                            уюта и позитива.
+                        </p>
+                        <p> 
+                            Он принесет радость и улыбки в любой дом и станет верным другом на долгие годы.
+                        </p>
+                    </div>
+                </div>
+                <!-- DESCRIPTION END -->
+
+                <!-- PRODUCT TAGS START -->
+                <div id="product-tags">
+                    <span class="tag">#мишка</span>
+                    <span class="tag">#медведь</span>
+                    <span class="tag">#мягкая_игрушка</span>
+                    <span class="tag">#медведь_игрушка</span>
+                    <span class="tag">#игрушка</span>
+                    <span class="tag">#плюшевая_игрушка</span>
+                </div>
+                <!-- PRODUCT TAGS END -->
             </div>
+            <!-- PRODUCT CARD END -->
+
         </div>
     </main>
+    <!-- MAIN END -->
     
+    <!-- SCRIPTS START -->
     <script src="script.js">
         
     </script>
