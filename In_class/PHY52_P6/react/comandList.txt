@@ -1,0 +1,31 @@
+// команда для установки vite глобально
+npm install -g create-vite
+
+// создание React проектов
+create-vite test --template react
+
+-Install with npm and start now? -> no
+
+1) Позволяет локально развернуть React проект
+npm create vite@latest test 
+
+// сразу создаст 
+npm create vite@latest team-dashboard -- --template react
+
+2) Перейти в папаку проекта
+cd nameProject
+
+3) Скачивание всех нужных библиотек
+npm install
+
+// Библиотека React с иконками
+npm install react-icons
+
+4) Запуск проекта на локальном сервере в режиме разработки
+npm run dev
+
+5) // Команда для остановки сервера 
+[ctrl+c] внутри проекта
+
+// После вся работа происходит в папке реакта, из папки проект
+
