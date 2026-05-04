@@ -4,6 +4,8 @@ import avatar1 from './assets/avatar-1.jpg';
 import avatar2 from './assets/avatar-2.jpg';
 import avatar3 from './assets/avatar-3.jpg';
 import Header from './components/Header/Header';
+import SideBar from './components/SideBar/SideBar';
+import Dashboard from './components/Dashboard/Dashboard';
 
 const employeesData = [
   {
@@ -36,11 +38,19 @@ function App() {
 
   };
 
+  const theme = 'light';
+
   return (
-    <>
-      <Header theme='dark' onToggleTheme={toggleTheme} />
-    </>
-  )
+    <div className='app-container'>
+      <SideBar theme={theme} />
+      <div className='main-container'>
+        <Header theme={theme} onToggleTheme={toggleTheme} />
+        <Dashboard employees={employeesData} theme={theme} />
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+// если мы пропи

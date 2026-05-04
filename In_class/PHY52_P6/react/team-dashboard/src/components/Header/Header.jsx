@@ -1,10 +1,9 @@
 import React from "react";
 import styles from './Header.module.css';
-import { HiSun } from "react-icons/hi";
-import { HiMoon } from "react-icons/hi";
+import { HiSun, HiMoon } from "react-icons/hi";
 
 function Header({theme, onToggleTheme}) {
-    const headerClass = theme === 'dark' ? styles.dark-header : styles.light-header;
+    const headerClass = theme === 'dark' ? styles.darkHeader : styles.lightHeader;
 
     return (
         <>

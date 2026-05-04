@@ -1,9 +1,18 @@
-.dark-header {
+.darkHeader, 
+.lightHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+}
+
+.darkHeader {
     background-color: #272727;
     color: white;
 }
 
-.light-header {
+.lightHeader {
     background-color: #eae9e9;
     color: #272727;
+    border-bottom: 1px solid #272727;
 }
