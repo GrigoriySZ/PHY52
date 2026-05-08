@@ -1,0 +1,205 @@
+:root {
+    /* COLORS */
+    --main-bg-color: #e2e8f0;
+    --form-bg-color: #f5f1e6;
+    --border-color: #d2b48c;
+    --text-color: #4b3621;
+    --muted-text-color: #5f5348;
+    --input-bg-color: #faf9f6;
+    --input-border-color: #c2b280;
+    --button-color: #556b2f;
+    --accent-color: #8fbc8f;
+    --shadow-color: #8fbc8f26;
+    --valid-border-color: #5eb644;
+    --valid-shadow-color: #5eb64380;
+    --invalid-border-color: #ce5850;
+    --invalid-shadow-color: #ce585080;
+    /* SPACINGS */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 40px;
+    /* RADIUSES */
+    --radius: 10px;
+    --radius-sm: 6px;
+    /* FONTS */
+    --font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --font-title: Merriweather, sans-serif;
+    /* TRANSIRION */
+    --transition: 0.3s ease-out;
+}
+
+/* COMMON STYLE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--text-color);  
+    font-family: var(--font-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: var(--spacing-xl);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* FORM STYLE */
+#registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--radius);
+    background-color: var(--form-bg-color);
+    padding: var(--spacing-md);
+}
+
+h2, 
+h3 {
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-title);
+    line-height: 1.3;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* INPUT FIELDS STYLE */
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+input[type="text"], 
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--radius-sm);
+    background: var(--input-bg-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    font-family: var(--font-main);
+    letter-spacing: 0.5px;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--shadow-color);
+}
+
+/* CHECKBOXES STYLE */
+.cb-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.addition-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+    background: var(--input-bg-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.addition-info-group legend {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0 var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.addition-info-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.addition-info-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+/* BUTTON STYLE */
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 20px;
+    gap: var(--spacing-xs);
+    background: var(--accent-color);
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    border: 2px solid var(--button-color);
+    background: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    cursor: default;
+    background-color: var(--form-bg-color);
+    border: 2px solid var(--button-color);
+    transform: translateY(0);
+}
+
+/* INPUT STATUS STYLE */
+.valid {
+    background: var(--valid-shadow-color);
+    border-color: var(--valid-border-color);
+    box-shadow: inset 0 0 8px var(--valid-shadow-color);
+}
+
+.invalid {
+    border-color: var(--invalid-border-color);
+    box-shadow: inset 0 0 8px var(--invalid-shadow-color);
+}
