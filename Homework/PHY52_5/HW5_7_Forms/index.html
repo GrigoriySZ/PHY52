@@ -44,7 +44,10 @@
                 <!-- CHECKBOX CONTAINER START -->
                 <div class="cb-container">
                     <fieldset id="user-diet" class="addition-info-group">
-                        <legend class="group-title">Типы питания и диеты:</legend>
+                        <legend class="group-title">
+                            Типы питания и диеты: 
+                            <span class="clue">(минимум 2 шт.)</span>
+                        </legend>
                         <label for="onmivorous-diet">
                             <input type="checkbox" name="user-diet" 
                                     id="onmivorous-diet" 
@@ -85,8 +88,16 @@
 
                 <!-- CHECKBOX CONTAINER START -->
                 <div class="cb-container">
-                    <fieldset id="user-restricts" class="addition-info-group">
-                        <legend class="group-title">Аллергии и ограничения:</legend>
+                    <fieldset id="user-restrict" class="addition-info-group">
+                        <legend class="group-title">
+                            Аллергии и ограничения: 
+                            <span class="clue">(минимум 1 шт.)</span>
+                        </legend>
+                        <label>
+                            <input type="checkbox" name="user-restrict" 
+                                    id="no-restrict" value="none">
+                            Нет пищевой аллергии
+                        </label>
                         <label>
                             <input type="checkbox" name="user-restrict" 
                                     id="peanuts-restrict" value="peanuts">
@@ -112,13 +123,8 @@
                                     id="eggs-restrict" value="eggs">
                             Яйца
                         </label>
-                        <label>
-                            <input type="checkbox" name="user-restrict" 
-                                    id="sugar-restrict" value="sugar">
-                            Сахар
-                        </label>
                     </fieldset>
-                    <div class="error-mess" data-for="user-restricts"></div>
+                    <div class="error-mess" data-for="user-restrict"></div>
                 </div>
                 <!-- CHECKBOX CONTAINER END -->
             
@@ -138,7 +144,12 @@
 
             <!-- FORM GROUP STRAT -->
             <div class="form-group">
-                <label for="about-user">Краткое эссе о себе: </label>
+                <label for="about-user">
+                    Краткое эссе о себе: 
+                    <span class="clue">
+                        (Необходимо: <span id="about-counter">50</span>)
+                    </span>
+                </label>
                 <textarea
                     name="about-user"
                     id="about-user" 
@@ -149,7 +160,10 @@
             </div>
             <!-- FORM GROUP END -->
             
-            <button type="submit">Отправить</button>
+            <button type="submit" disabled>
+                <span id="btnText">Подать заявку</span>
+                <span id="btnSpinner">⌛Отправка</span>
+            </button>
         </form>
         <!-- REGISTRATION FORM END -->
     </div>
