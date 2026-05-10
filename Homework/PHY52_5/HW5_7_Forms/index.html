@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form — Taster Club</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- REGISTRATION FORM START -->
+        <form id="registration-form">
+            <h2 class="form-title">Вступительная анкера в <span class="accent-color">Клуб Дегустаторов</span></h2>
+            
+            <!-- FORM GROUP STRAT -->
+            <h3 class="group-title">Личная информация</h3>
+            <div class="form-group">
+                <label for="user-name">Имя гурмана: </label>
+                <input type="text" name="user-name" 
+                        id="user-name" 
+                        placeholder="Введите ваше имя и фамилию"
+                        autofocus
+                        >
+                <div class="error-mess" data-for="user-name"></div>
+            </div>
+            <!-- FORM GROUP END -->
+            
+            <!-- FORM GROUP STRAT -->
+            <div class="form-group">
+                <label for="user-age">Ваш возраст: </label>
+                <input type="number" name="user-age" 
+                        id="user-age" 
+                        placeholder="Введите ваш возраст (от 18 до 100 лет)"
+                        >
+                <div class="error-mess" data-for="user-age"></div>
+            </div>
+            <!-- FORM GROUP END -->
+                
+            <!-- FORM GROUP START -->
+            <h3 class="section-title">Кулинарные предпочтения</h3>
+            <div class="form-group">
+
+                <!-- CHECKBOX CONTAINER START -->
+                <div class="cb-container">
+                    <fieldset id="user-diet" class="addition-info-group">
+                        <legend class="group-title">
+                            Типы питания и диеты: 
+                            <span class="clue">(минимум 2 шт.)</span>
+                        </legend>
+                        <label for="onmivorous-diet">
+                            <input type="checkbox" name="user-diet" 
+                                    id="onmivorous-diet" 
+                                    value="onmivorous">
+                            Всеядный
+                        </label>
+                        <label for="vegetarian-diet">
+                            <input type="checkbox" name="user-diet" 
+                                    id="vegetarian-diet" 
+                                    value="vegetarian">
+                            Вегетарианское
+                        </label>
+                        <label for="vegan-diet">
+                            <input type="checkbox" name="user-diet" 
+                                    id="vegan-diet" 
+                                    value="vegan">
+                            Веганское
+                        </label>
+                        <label for="pescatarian-diet">
+                            <input type="checkbox" name="user-diet" 
+                                    id="pescatarian-diet" value="pescatarian">
+                            Пескатерианство
+                        </label>
+                        <label for="gluten-free-diet">
+                            <input type="checkbox" name="user-diet" 
+                                    id="gluten-free-diet" value="gluten-free">
+                            Безглютеновое
+                        </label>
+                        <label for="halal-diet">
+                            <input type="checkbox" name="user-diet" 
+                                    id="halal-diet" value="halal">
+                            Халяль
+                        </label>
+                    </fieldset>
+                    <div class="error-mess" data-for="user-diet"></div>
+                </div>
+                <!-- CHECKBOX CONTAINER END -->
+
+                <!-- CHECKBOX CONTAINER START -->
+                <div class="cb-container">
+                    <fieldset id="user-restrict" class="addition-info-group">
+                        <legend class="group-title">
+                            Аллергии и ограничения: 
+                            <span class="clue">(минимум 1 шт.)</span>
+                        </legend>
+                        <label>
+                            <input type="checkbox" name="user-restrict" 
+                                    id="no-restrict" value="none">
+                            Нет пищевой аллергии
+                        </label>
+                        <label>
+                            <input type="checkbox" name="user-restrict" 
+                                    id="peanuts-restrict" value="peanuts">
+                            Арахис
+                        </label>
+                        <label>
+                            <input type="checkbox" name="user-restrict" 
+                                    id="nuts-restrict" value="nuts">
+                            Орехи
+                        </label>
+                        <label>
+                            <input type="checkbox" name="user-restrict" 
+                                    id="shellfish-restrict" value="shellfish">
+                            Морепродукты
+                        </label>
+                        <label>
+                            <input type="checkbox" name="user-restrict" 
+                                    id="soy-restrict" value="soy">
+                            Соя
+                        </label>
+                        <label>
+                            <input type="checkbox" name="user-restrict" 
+                                    id="eggs-restrict" value="eggs">
+                            Яйца
+                        </label>
+                    </fieldset>
+                    <div class="error-mess" data-for="user-restrict"></div>
+                </div>
+                <!-- CHECKBOX CONTAINER END -->
+            
+            </div>
+            <!-- FORM GROUP END -->
+            
+            <!-- FORM GROUP STRAT -->
+            <div class="form-group">
+                <label for="invite-code">Код приглашения: </label>
+                <input type="text" name="invite-code" 
+                        id="invite-code" 
+                        placeholder="Введите код приглашения (Например: FOOD-0000)"
+                        >
+                <div class="error-mess" data-for="invite-code"></div>
+            </div>
+            <!-- FORM GROUP END -->
+
+            <!-- FORM GROUP STRAT -->
+            <div class="form-group">
+                <label for="about-user">
+                    Краткое эссе о себе: 
+                    <span class="clue">
+                        (Необходимо: <span id="about-counter">50</span>)
+                    </span>
+                </label>
+                <textarea
+                    name="about-user"
+                    id="about-user" 
+                    rows="4"
+                    placeholder="Краткое эссе, минимум 50 символов (почему именно вы?)"
+                ></textarea>
+                <div class="error-mess" data-for="about-user"></div>
+            </div>
+            <!-- FORM GROUP END -->
+            
+            <button type="submit" disabled>
+                <span id="btnText">Подать заявку</span>
+                <span id="btnSpinner">⌛Отправка</span>
+            </button>
+        </form>
+        <!-- REGISTRATION FORM END -->
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
