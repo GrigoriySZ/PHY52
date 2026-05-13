@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputUserName = document.getElementById('user-name');
     const inputUserAge = document.getElementById('user-age');
     const fieldsetUserDiet = document.getElementById('user-diet');
-    const fieldsetUserRestrict = document.getElementById('user-restricts');
+    const fieldsetUserRestrict = document.getElementById('user-restrict');
     const inputDietCheckboxes = document.querySelectorAll('#user-diet input');
     const inputRestrictCheckboxes = document.querySelectorAll('#user-restrict input');
     const inputInviteCode = document.getElementById('invite-code');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Определяем количество чекбоксов
         if (cbSet.length <= needChecked) {
-            minLimit = Math.floor(cbSet / 2); 
+            minLimit = Math.floor(cbSet.length / 2); 
         }
 
         if (checkedCbSet.length < minLimit) {
@@ -233,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             isValidFields.userDiet = validateRes.isValid; 
+            console.log(isValidFields);
         });
     });
 
@@ -247,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             isValidFields.userRestricts = validateRes.isValid; 
+            console.log(isValidFields);
         });
     });
 });
