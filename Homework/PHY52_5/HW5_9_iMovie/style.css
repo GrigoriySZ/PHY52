@@ -1,24 +1,27 @@
 :root {
     --accent: #ff9d00;
-    --accent-hover: #dd8602;
     --bg: #0f172a;
     --card-bg: #1e293b;
     --text: #f8f8f8;
     --text-muted: #94a3b8;
-    --modal-overlay: #rgba(0, 0, 0, 0.8);
+    --modal-overlay: rgba(0, 0, 0, 0.8);
     --sidebar-width: 350px;
     --sidebar-bg: rgba(15, 23, 41, 0.70);
+    --radius: 8px;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
 }
 
 body {
     background-color: var(--bg);
     color: var(--text);
+    width: 100vw;
+    height: fit-content;
     margin: 0;
     padding: 40px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,7 +48,7 @@ header {
     border: 2px solid (--accent);
     padding: 10px 20px;
     border: 2px solid var(--accent);
-    border-radius: 8px;
+    border-radius: var(--radius);
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
@@ -56,6 +59,7 @@ header {
     color: #000;
 }
 
+/* SEARTCH STYLE */
 .search-box {
     display: flex;
     justify-content: center;
@@ -69,7 +73,7 @@ header {
     border: 2px solid #334151;
     color: var(--text);
     padding: 12px;
-    border-radius: 8px;
+    border-radius: var(--radius);
     outline: none;
 }
 
@@ -78,12 +82,13 @@ header {
     border: 2px solid (--accent);
     padding: 12px 25px;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius);
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
 }
 
+/* MOVIE CARDS STYLE */
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -94,6 +99,8 @@ header {
     position: relative;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
     background: var(--card-bg);
     padding: 15px;
     border-radius: 12px;
@@ -108,32 +115,66 @@ header {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: var(--radius);
 }
 
-/* ТУТ СТИЛИ ДЛЯ КНОПКИ СЕРДЕЧКО */
-.icon-container svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    stroke: var(--text-muted);
-    stroke-width: 2px;
+/* ACTION BATTONS */
+.action-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    border: 2px solid var(--accent);
+    background-color: var(--card-bg);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s ease-out;
 }
 
-.icon-container:hover svg {
-    stroke: var(--accent-hover);
+.action-btn:hover {
+    background-color: var(--accent);
+    color: var(--card-bg);
 }
 
-button.active .icon-container svg {
+/* MOVIE CARD BUTTONS STYLE */
+.btn-fav-add {
+    right: 20px;
+    top: 20px;
+}
+
+.btn-fav-add.active svg {
     fill: var(--accent);
-    stroke: var(--accent);
 }
 
-button.active .icon-container:hover svg {
-    fill: var(--accent-hover);
-    stroke: var(--accent-hover);
+.btn-fav-add.active:hover svg {
+    fill: var(--card-bg);
+    stroke: var(--card-bg);
 }
 
+.get-details-btn {
+    justify-self: flex-end;
+    width: 100%;
+    margin-top: 12px;
+    padding: 6px;
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.get-details-btn:hover {
+    background-color: var(--accent);
+    color: var(--card-bg);
+}
+
+/* SIDEBAR STYLE */
 .sidebar {
     position: fixed;
     right: calc(var(--sidebar-width)* -1);
@@ -144,7 +185,7 @@ button.active .icon-container:hover svg {
     align-items: center;
     width: var(--sidebar-width);
     height: 100%;
-    padding: 12px;
+    padding: 20px;
     transition: 0.5s;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     background-color: var(--sidebar-bg);
@@ -166,46 +207,63 @@ button.active .icon-container:hover svg {
     text-align: center;
 }
 
-.close-fav,
+/* SIDEBAR BUTTONS */
+.close-fav {
+    right: 15px;
+    top: 15px;
+}
+
+.close-modal {
+    z-index: 9999;
+    right: 15px;
+    top: 15px;
+}
+
 .remove-fav {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    font-size: 1.5rem;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid var(--text-muted);
-    background-color: var(--sidebar-bg);
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: 0.3s ease-out;
+    right: 15px;
+    bottom: 15px;
 }
 
-.close-fav:hover,
-.remove-fav:hover {
-    border-color: var(--text);
-    color: var(--text);
-}
-
+/* FAV ITEMS CONTENT STYLE */
 .fav-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
     overflow-y: auto;
+    scrollbar-color: var(--text-muted) var(--sidebar-bg);
     flex-grow: 1;
+    gap: 10px;
 }
 
 .fav-item {
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: var(--radius);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 5px;
 }
 
+.fav-item img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.fav-item-details {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 30px);
+    font-size: 1rem;
+    gap: 5px;
+    cursor:pointer;
+}
+
+/* MODAL STYLE */
 .modal {
     display: none;
     opacity: 0;
     position: fixed;
-    z-index: 9999;
+    z-index: 999;
     left: 0;
     top: 0;
     width: 100%;
@@ -220,4 +278,94 @@ button.active .icon-container:hover svg {
 .modal.show {
     display: flex;
     opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "poster details"
+        "plot plot";
+    max-width: 800px;
+    max-height: 90vh;
+    padding: 20px;
+    gap: 20px;
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    flex-grow: 0;
+    overflow-y: auto;
+    scrollbar-color: var(--accent) var(--card-bg);
+}
+
+.modal-container img {
+    grid-area: poster;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.modal-details {
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-details h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.modal-details p {
+    font-size: 1rem;
+}
+
+.modal-plot-container {
+    grid-row: span 2;
+    grid-area: plot;
+}
+
+.modal-plot-container h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.modal-plot {
+    font-size: 1rem;
+} 
+
+/* PAGINATION STYLE */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.nav-btn,
+.page-btn {
+    padding: 5px 10px;
+    background-color: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.nav-btn:hover,
+.page-btn:hover {
+    transform: scale(1.2);
+}
+
+.page-btn.active {
+    background-color: var(--accent);
+    color: var(--bg);
+    transform: scale(1.2);
 }

@@ -14,25 +14,50 @@ window.onload = () => {
 const searchForm = document.getElementById('search-form');
 const moviesGrid = document.getElementById('movie-grid');
 const pagination = document.getElementById('pagination');
-const modal = document.getElementById('madal');
+const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
 const closeModal = document.querySelector('.close-modal');
+const favSidebar = document.getElementById('sidebar');
+const closeFav = document.getElementById('close-fav');
 
 let currentSearch = '';
 let currentPage = 1;
 let currentType = '';
 
+// SVG ICONS
 const heartIcon = `
-    <svg stroke="currentColor" fill="currentColor" stroke-width="0" 
-            viewBox="0 0 24 24" height="200px" width="200px" 
+    <svg stroke="currentColor" fill="none" stroke-width="2" 
+            viewBox="0 0 24 24" stroke-linecap="round" 
+            stroke-linejoin="round" height="200px" width="200px" 
             xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 20.408c-.492.308-.903.546-1.192.709-.153.086-.308.17-.463.252h-.002a.75.75 
-                0 0 1-.686 0 16.709 16.709 0 0 1-.465-.252 31.147 31.147 0 0 1-4.803-3.34C3.8 
-                15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 
-                13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 
-                7.06-5.389 9.262A31.146 31.146 0 0 1 14 20.408Z"></path>
+        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 
+                .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 
+                4.05 3 5.5l7 7Z"></path>
     </svg>
 `;
+const heartOffIcon = `
+    <svg stroke="currentColor" fill="none" stroke-width="2" 
+            viewBox="0 0 24 24" stroke-linecap="round" 
+            stroke-linejoin="round" height="200px" width="200px" 
+            xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="22" y2="22"></line>
+        <path d="M16.5 16.5 12 21l-7-7c-1.5-1.45-3-3.2-3-5.5a5.5 5.5 0 0 1 2.14-4.35"></path>
+        <path d="M8.76 3.1c1.15.22 2.13.78 3.24 1.9 1.5-1.5 2.74-2 4.5-2A5.5 5.5 
+                0 0 1 22 8.5c0 2.12-1.3 3.78-2.67 5.17"></path>
+    </svg>
+`;
+const closeIcon = `
+    <svg stroke="currentColor" fill="currentColor" stroke-width="20" 
+            viewBox="0 0 512 512" height="200px" width="200px" 
+            xmlns="http://www.w3.org/2000/svg">
+        <path d="m289.94 256 95-95A24 24 0 0 0 351 127l-95 95-95-95a24 24 0 0 
+                0-34 34l95 95-95 95a24 24 0 1 0 34 34l95-95 95 95a24 24 0 0 0 34-34z">
+        </path>
+    </svg>
+`;
+closeModal.innerHTML = closeIcon;
+closeFav.innerHTML = closeIcon;
+
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -72,22 +97,24 @@ function showMovies (movies) {
         const isFav = favorites.some(f => f.imdbID === movie.imdbID);
         return `
             <div class="movie-card">
-                <button class="btn-fav-add ${isFav ? 'active' : ''}"
+                <button class="btn-fav-add action-btn ${isFav ? 'active' : ''}"
                         onclick="toggleFavorite(
                             '${movie.imdbID}', 
                             '${movie.Title.replace(/'/g, "")}', 
                             '${movie.Year}', 
                             '${movie.Poster}'
                         )">
-                    <div class="icon-container">
-                        ${heartIcon}
-                    </div>
+                    ${heartIcon}
                 </button>
-                <img src="${movie.Poster}">
+                <img 
+                    src="${movie.Poster}"
+                    onerror="this.onerror=null; this.src='./images/poster-placeholder.png';"
+                    alt="Постер"
+                >
                 <div>${movie.Type}</div>
                 <h3>${movie.Title}</h3>
                 <div class="movie-info-text">${movie.Year}</div>
-                <button onclick="getDetails('${movie.imdbID}')">Details</button>
+                <button class="get-details-btn" onclick="getDetails('${movie.imdbID}')">Details</button>
             </div>
         `;}).join('');  // объединяем фильмы при помощи .join();
 }
@@ -106,6 +133,7 @@ function toggleFavorite(id, title, year, poster) {
     const currentTitle = document.getElementById('title-input').value;
     if (currentTitle) {
         const btns = document.querySelectorAll(`button[onclick*="${id}"]`);
+        console.log(btns);
         btns.forEach(btn => {
             const isActive = favorites.some(f => f.imdbID === id);
             btn.classList.toggle('active', isActive);
@@ -118,33 +146,35 @@ function updateFavCount () {
     document.getElementById('fav-count').innerHTML = favorites.length; 
     const list = document.getElementById('fav-list');
     list.innerHTML = favorites.map(m => `
-            <div class="fav-item" onclick="handleFavItem(event, "${m.imdbID}")">
-                <img src="${m.Poster}">
-                <div>
-                    <h4>${m.Title}</h4>
-                    <p>${m.Year}</p>
+            <div class="fav-item">
+                <img 
+                    src="${m.Poster}"
+                    onerror="this.onerror=null; this.src='./images/poster-placeholder.png';"
+                    alt="Постер"
+                >
+                <div class="fav-item-details" onclick="handleFavItem(event, '${m.imdbID}')">
+                    <h4 class="fav-item-title">${m.Title}</h4>
+                    <p class="fav-item-year">(${m.Year})</p>
                 </div>
-                <button class="remove-fav" onclick="removeFav(event, "${m.imdbID}")">&times;</button>
+                <button class="remove-fav action-btn" onclick="removeFav(event, '${m.imdbID}')">${heartOffIcon}</button>
             </div>
         `).join('');
 }
 
 // Функция 
 function handleFavItem (e, id) {
+    e.stopPropagation();
     getDetails(id);
 }
 
 // Функция удаления фильма из избранного
 function removeFav (e, id) {
-    const favItem = document.getElementById(id);
-    console.log(favItem);
-    e.stopPropagation();
-    toggleFavorite(id, favItem);
+    toggleFavorite(id);
 }
 
-// 
+// Функция кнопки для открытия боковой панели
 function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
+    favSidebar.classList.toggle('open');
 }
 
 // Функция устройства пагинации результата
@@ -230,16 +260,24 @@ async function getDetails (id) {
     const movie = await response.json();
     if (movie.Response === 'True') {
         modalBody.innerHTML = `
-        <div>
-            <img src="${movie.Poster}">
-            <div>
-                <h2>${movie.Title}</h2>
+        <div class="modal-container">
+            <img 
+                src="${movie.Poster}" 
+                class="modal-poster"
+                onerror="this.onerror=null; this.src='./images/poster-placeholder.png';"
+                alt="Постер"
+            >
+            <div class="modal-details">
+                <h2 class="modal-title">${movie.Title}</h2>
                 <p>Рейтинг IMDB: ${movie.imdbRating}</p>
                 <p>Дата выхода: ${movie.Released}</p>
                 <p>Жанр: ${movie.Genre}</p>
                 <p>Актеры: ${movie.Actors}</p>
                 <p>Режисcер: ${movie.Director}</p>
-                <p>${movie.Plot}</p>
+            </div>
+            <div class="modal-plot-container">
+                <h4>Описание</h4>
+                <p class="modal-plot">${movie.Plot}</p>
             </div>
         </div>`;
         modal.classList.add('show');
@@ -248,6 +286,6 @@ async function getDetails (id) {
     }
 };
 
-
 closeModal.onclick = () => modal.classList.remove('show');
+closeFav.onclick = () => favSidebar.classList.remove('open');
 window.onclick = (e) => {if (e.target === modal) modal.classList.remove('show');}
