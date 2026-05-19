@@ -1,0 +1,76 @@
+.coffeeMaker {
+    width: 350px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 16px;
+    background: #f4f4f4;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.machine {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.waterTank,
+.beansStorage {
+    width: 60px;
+    height: 200px;
+    border: 3px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: #ddd;
+}
+
+.waterLevel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #4da6ff;
+    transition: height 0.5s linear;
+}
+
+.beansLevel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #413832;
+    transition: height 0.5s linear;
+}
+
+.info {
+    text-align: left;
+}
+
+.controlPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.controlBtn {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #6b4f3b;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.controlBtn:hover {
+    background: #8b674d;
+    box-shadow: -10px 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.controlBtn:disabled {
+    background: grey;
+    cursor: default;
+}
