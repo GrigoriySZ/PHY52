@@ -1,0 +1,116 @@
+:root {
+    /* COLORS */
+    --main-bg-color: #f4f4f4;
+    --main-text-color: #333;
+    --storage-bg-color: #d1d1d1;
+    --storage-border-color: #333;
+    --water-color: #4da6ff;
+    --beans-color: #413832;
+    --buttons-bg-color: #6b4f3b;
+    --buttons-bg-color-focused: #8b674d;
+    --buttons-bg-color-disabled: #808080;
+    --buttons-text-color: #fff;
+}
+
+.coffeeMaker {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 16px;
+    background: var(--main-bg-color);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.coffeeMaker h1 {
+    font-size: 2.4rem;
+    color: var(--main-text-color);
+}
+
+.machine {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.waterTank,
+.beansStorage {
+    width: 60px;
+    height: 200px;
+    border: 3px solid var(--storage-border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: var(--storage-bg-color);
+    box-shadow: inset 2px 0 0 var(--storage-bg-color), inset 5px 0 0 #ffffffcc;
+}
+
+.waterLevel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--water-color);
+    box-shadow: inset 2px 0 0 var(--water-color), inset 5px 0 0  #ffffffcc;
+    border-radius: 0 0 8px 8px;
+    transition: height 0.5s linear;
+}
+
+.beansLevel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--beans-color);
+    background-image: url("../../assets/beansPattern.svg");
+    background-repeat: repeat;
+    background-size: 22px;
+    box-shadow: inset 2px 0 0 var(--beans-color), inset 5px 0 0 #ffffffcc;
+    border-radius: 0 0 8px 8px;
+    transition: height 0.5s linear;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 150px;
+    gap: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.controlPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.controlBtn {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--buttons-bg-color);
+    color: var(--buttons-text-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.controlBtn:hover {
+    background: var(--buttons-bg-color-focused);
+    box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.15);
+}
+
+.controlBtn:disabled {
+    background: var(--buttons-bg-color-disabled);
+    cursor: default;
+}
