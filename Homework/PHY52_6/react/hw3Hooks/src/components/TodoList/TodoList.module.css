@@ -1,0 +1,97 @@
+:root {
+    /* COLORS */
+    --accent-color: #50afe6;
+    --accent-bg-color: #3d3b4e;
+    --main-bg-color: #2a2936;
+    --text-color: #fff;
+    --border-color: #ccc;
+    /* FONTS */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* DIMENTIONS */
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+.listContainer {
+    padding: 20px;
+    border-radius: var(--border-radius-lg);
+    background: var(--main-bg-color);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+#listTitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.newTaskContainer {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.newTaskInput {
+    padding: 10px;
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--main-bg-color);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    outline: none;
+    transition: 
+        border-color 0.2s ease-out, 
+        background-color 0.3s ease-out;
+}
+
+.newTaskInput:focus {
+    border-color: var(--accent-color);
+    background-color: var(--accent-bg-color);
+}
+
+.newTaskBtn {
+    padding: 10px;
+    background: var(--main-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    cursor: pointer;
+    transition: 
+        background-color 0.2s ease-out,
+        border-color 0.3s linear,
+        color 0.3s ease-out; 
+}
+
+.newTaskBtn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+.tasksCounter {
+    margin-bottom: 10px;
+    text-align: end;
+    font-size: 0.9rem;
+}
+
+.currentTasksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1rem;
+}

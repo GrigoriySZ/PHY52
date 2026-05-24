@@ -1,0 +1,84 @@
+:root {
+    /* COLORS */
+    --accent-color: #50afe6;
+    --main-bg-color: #2a2936;
+    --text-color: #fff;
+    --muted-text-color: #6b697a;
+    --border-color: #ccc;
+    --muted-border-color: #6b697a;
+    /* FONTS */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* DIMENTIONS */
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+.listElement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    transition: transform 0.3s ease-in-out;
+}
+
+.listElement:has(.elementCheckbox.elementCheckbox:checked) {
+    border-color: var(--muted-border-color);
+}
+
+.listElement:hover {
+    transform: scale(1.02);
+}
+
+.elementCheckbox {
+    width: 18px;
+    height: 18px;
+    background: var(--main-bg-color);
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.elementText {
+    flex-grow: 1;
+    text-align: start;
+    word-break: break-all;
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 200;
+    transition: text-decoration 0.5s linear,
+    color 0.3s ease-out;
+}
+
+.elementCheckbox:checked+.elementText{
+    text-decoration: line-through;
+    color: var(--muted-text-color);
+}
+
+.elementDelBtn {
+    padding: 8px;
+    background-color: var(--main-bg-color);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease-out,
+        color 0.2s linear,
+        font-weignt 0.3s linear;
+}
+
+.elementDelBtn:hover {
+    color: var(--text-color);
+    background-color: var(--accent-color);
+}
