@@ -7,103 +7,96 @@ import { LuMilk } from "react-icons/lu";
 import { BiCoffee, BiCoffeeTogo } from "react-icons/bi";
 
 function CoffeeMaker() {
-    // Инициализуем состояния
-    const [water, setWater] = useState(40);  // Количество воды в %
-    const [beans, setBeans] = useState(80);  // Количество зерен в г
-    const [milk, setMilk] = useState(500);  // Количество молока в мл
-    const [coffeeType, setCoffeeType] = useState(''); // Тип отвариваемого кофе
+    // Инициализуем состояния ресурсов
+    const [water, setWater] = useState(60);  // Количество воды в %
+    const [beans, setBeans] = useState(120);  // Количество зерен в г
+    const [milk, setMilk] = useState(600);  // Количество молока в мл
+
+    // Выбор типа отвариваемого кофе
+    const [coffeeType, setCoffeeType] = useState('espresso');
+
+    // Статус кофемашины
     const [status, setStatus] = useState('idle'); // Статус приготовления
-    const [isBerwing, setIsBerwing] = useState(false); // Триггер для начала варки
     const [message, setMessage] = useState('') // Контейнер для ошибки
     
-    // Иницилизуем эффект запуска кофеварки
+    // Рецепты с затратами ресурсов
+    const recipes = {
+        espresso: {
+            water: 20,
+            beans: 20, 
+            milk: 0
+        },
+        latte: {
+            water: 10,
+            beans: 20,
+            milk: 150
+        }
+    };
+    const currentRecipe = recipes[coffeeType];
+
+    // Проверка наличия ресурсов для рецепта
+    const hasEnoughResources = 
+        water >= currentRecipe.water &&
+        beans >= currentRecipe.beans &&
+        milk >= currentRecipe.milk;
+
+    // Отсматриваем состояние воды в резервуаре
     useEffect(() => {
-        console.log('эффект воды начало')
         if (water < 20) {
             setStatus('error');
             setMessage('Недостаточно воды');
-            return
-        }
-        console.log('эффект воды конец')
-    }, [water]);
+        };
 
+        if (water >= 20 && message === 'Недостаточно воды') {
+            setStatus('idle');
+            setMessage('');
+        }
+    }, [water, message]);
+
+    // Отсматрваем начало варки кофе
     useEffect(() => {
-        if (isBerwing === true) {
-            console.log('эффект варки начало')
-            // Проверям наличие ингридиентов для эспрессо
-            if (coffeeType === 'espresso') {
-                setWater(water - 20);
-                setBeans(beans - 20);
-            }
+        if (status !== 'brewing') return;
 
-            // Проверям наличие ингридиентов для латте
-            if (coffeeType === "latte") {
-                setWater(water - 10); 
-                setBeans(beans - 20);
-                setMilk(milk - 150);
-            }
-            
-            // Ставим статус варки кофе
-            setStatus('brewing');
-
-            // Имитируем приготовление кофе
-            setTimeout(() => {
-                setStatus('ready');
-                console.log('Кофе готов!');
-            }, 3000);
-
-            // Имитируем готовность для повторной варки
-            setTimeout(() => {
-                setStatus('idle');
-            }, 5000)
-            
-            // Сбрасываем статус начала варки
-            setIsBerwing(false);
-            console.log('эффект варки конец')
-        }
+        // Создаем таймер
+        const timer = setTimeout(() => {
+            setWater((prev) => prev - currentRecipe.water);
+            setBeans((prev) => prev - currentRecipe.beans);
+            setMilk((prev) => prev - currentRecipe.milk)
         
-    }, [isBerwing]);
+            // Передаем новый статус
+            console.log('Кофе готов!')
+            setStatus('ready');
+        }, 3000);
 
-    // Эффект на изменениен выбора типа кофе
-    useEffect (() => {
-        console.log('эффект типа кофе начало')
-        // Проверям выбор типа кофе
-        if (!coffeeType) {
-            setStatus('error');
-            setMessage('Выберите тип кофе');
-            return
-        }
+        return () => clearTimeout(timer);
+    }, [status, coffeeType]);
 
-        if (coffeeType === 'espresso') {
-            if (water < 20 || beans < 20) {
-                setStatus('error');
-                setMessage('Недостаточно ресурсов для эспрессо')
-                return
-            }
-        }
+    // Отсматриваем завершение варкеи кофе
+    useEffect(() => {
+        if (status !== 'ready') return;
 
-        // Проверям наличие ингридиентов для латте
-        if (coffeeType === "latte") {
-            if (water < 10 || beans < 20 || milk < 150) {
-                setStatus('error');
-                setMessage('Недостаточно ресурсов для латте')
-                return
-            }
-        }
-        console.log('эффект типа кофе конец')
-        setStatus('idle');
-        setMessage('');
-    }, [coffeeType])
+        // Устанавливаем таймер готовности 
+        const timer = setTimeout(() => {
+            setStatus('idle');
+        }, 5000);
 
-    // Профентный расчет уровня воды и зерен
+        return () => clearTimeout(timer)
+    }, [status]);
+
+    // Процентный расчет уровня воды, зерен и молока
     const waterPercent = Math.min((water / 100) * 100, 100);
     const beansPercent = Math.min((beans / 200) * 100, 100);
     const milkPercent = Math.min((milk / 1000) * 100, 100);
 
+    // Функция для начала варки кофе
     const handleBrewing = () => {
-        setIsBerwing(true);
-        setMessage('');
-    };
+        if (!hasEnoughResources) {
+            setStatus("error")
+            setMessage('Недостаточно ресурсов');
+        };
+        
+        setStatus('brewing');
+    };  
     
     return (
         <div className={styles.coffeeMaker}>
@@ -191,6 +184,7 @@ function CoffeeMaker() {
                         name="coffeeType"
                         id="espresso"
                         value="espresso"
+                        checked={coffeeType === "espresso"}
                         onChange={() => setCoffeeType('espresso')}
                     />
                     Espresso
@@ -248,7 +242,7 @@ function CoffeeMaker() {
                 </button>
                 <button
                     className={styles.controlBtn}
-                    onClick={() => handleBrewing()}
+                    onClick={handleBrewing}
                     disabled={status !== 'idle'}
                 >
                     Start
