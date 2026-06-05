@@ -192,7 +192,12 @@
 }
 
 .coffeeTypeSelect:has(input:checked) {
-    color: lightgreen;
+    color: gold;
+}
+
+.coffeeTypeSelect:has(input:disabled) {
+    background: var(--buttons-bg-color-disabled);
+    cursor: default;
 }
 
 .coffeeTypeSelect input {
