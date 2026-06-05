@@ -36,9 +36,29 @@ function CoffeeMaker() {
 
     // Проверка наличия ресурсов для рецепта
     const hasEnoughResources = 
-        water >= currentRecipe.water &&
-        beans >= currentRecipe.beans &&
-        milk >= currentRecipe.milk;
+            water >= currentRecipe.water &&
+            beans >= currentRecipe.beans &&
+            milk >= currentRecipe.milk;
+    
+    useEffect(() => {        
+        if (!hasEnoughResources) {
+            setStatus("error")
+            setMessage('Недостаточно ресурсов');
+            return;
+        };
+
+        if (water < 20) {
+            setStatus("error")
+            setMessage('Недостаточно воды');
+            return;
+        };
+
+        if (status === 'error') {
+            setStatus('idle');
+            setMessage('');
+        };
+    }, [coffeeType, water, beans, milk])
+    
 
     // Отсматриваем состояние воды в резервуаре
     useEffect(() => {
@@ -90,12 +110,9 @@ function CoffeeMaker() {
 
     // Функция для начала варки кофе
     const handleBrewing = () => {
-        if (!hasEnoughResources) {
-            setStatus("error")
-            setMessage('Недостаточно ресурсов');
+        if (status === 'idle') {
+            setStatus('brewing');
         };
-        
-        setStatus('brewing');
     };  
     
     return (
@@ -244,6 +261,10 @@ function CoffeeMaker() {
                     className={styles.controlBtn}
                     onClick={handleBrewing}
                     disabled={status !== 'idle'}
+                    style={status === "error" ? 
+                        {background: "red"} :
+                        {background: ''}
+                    }
                 >
                     Start
                 </button>
