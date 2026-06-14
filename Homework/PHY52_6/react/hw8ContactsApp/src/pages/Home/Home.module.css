@@ -1,0 +1,10 @@
+.description {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.contactsCounter {
+    font-size: 1rem;
+    font-weight: 600;
+}
