@@ -6,13 +6,13 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      showQoute: true
+      showQuote: true
     };
   }
 
   toggleQuote = () => {
     this.setState({
-      showQoute: !this.state.showQoute
+      showQuote: !this.state.showQuote
     });
   };
 
@@ -24,15 +24,15 @@ class App extends React.Component {
           onClick={this.toggleQuote}
           style={{ marginBottom: "10px" }}
         >
-          {this.state.showQoute
+          {this.state.showQuote
             ? "Скрыть цитатут"
             : "Показать цитату"
           }
         </button>
-        {this.state.showQoute && <QuoteViewer />}
+        {this.state.showQuote && <QuoteViewer />}
       </div>
     );
   };
 }
 
-export default App
+export default App;
