@@ -1,0 +1,371 @@
+:root {
+    --accent: #ff9d00;
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #f8f8f8;
+    --text-muted: #94a3b8;
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+    --sidebar-width: 350px;
+    --sidebar-bg: rgba(15, 23, 41, 0.70);
+    --radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    width: 100vw;
+    height: fit-content;
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.fav-toggle-btn {
+    background: var(--card-bg);
+    color: var(--accent);
+    border: 2px solid (--accent);
+    padding: 10px 20px;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.fav-toggle-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* SEARTCH STYLE */
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.search-box input, 
+.search-box select {
+    background: var(--card-bg);
+    border: 2px solid #334151;
+    color: var(--text);
+    padding: 12px;
+    border-radius: var(--radius);
+    outline: none;
+}
+
+.search-box button {
+    background: var(--accent);
+    border: 2px solid (--accent);
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* MOVIE CARDS STYLE */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.movie-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+/* ACTION BATTONS */
+.action-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    border: 2px solid var(--accent);
+    background-color: var(--card-bg);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.action-btn:hover {
+    background-color: var(--accent);
+    color: var(--card-bg);
+}
+
+/* MOVIE CARD BUTTONS STYLE */
+.btn-fav-add {
+    right: 20px;
+    top: 20px;
+}
+
+.btn-fav-add.active svg {
+    fill: var(--accent);
+}
+
+.btn-fav-add.active:hover svg {
+    fill: var(--card-bg);
+    stroke: var(--card-bg);
+}
+
+.get-details-btn {
+    justify-self: flex-end;
+    width: 100%;
+    margin-top: 12px;
+    padding: 6px;
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.get-details-btn:hover {
+    background-color: var(--accent);
+    color: var(--card-bg);
+}
+
+/* SIDEBAR STYLE */
+.sidebar {
+    position: fixed;
+    right: calc(var(--sidebar-width)* -1);
+    top: 0;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--sidebar-width);
+    height: 100%;
+    padding: 20px;
+    transition: 0.5s;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    background-color: var(--sidebar-bg);
+    backdrop-filter: blur(15px);
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-header {
+    position: relative;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 10px 0 30px 0;
+}
+
+.sidebar-header h3 {
+    text-align: center;
+}
+
+/* SIDEBAR BUTTONS */
+.close-fav {
+    right: 15px;
+    top: 15px;
+}
+
+.close-modal {
+    z-index: 9999;
+    right: 15px;
+    top: 15px;
+}
+
+.remove-fav {
+    right: 15px;
+    bottom: 15px;
+}
+
+/* FAV ITEMS CONTENT STYLE */
+.fav-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-color: var(--text-muted) var(--sidebar-bg);
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.fav-item {
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: var(--radius);
+    position: relative;
+    gap: 5px;
+}
+
+.fav-item img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.fav-item-details {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 30px);
+    font-size: 1rem;
+    gap: 5px;
+    cursor:pointer;
+}
+
+/* MODAL STYLE */
+.modal {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-overlay);
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "poster details"
+        "plot plot";
+    max-width: 800px;
+    max-height: 90vh;
+    padding: 20px;
+    gap: 20px;
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    flex-grow: 0;
+    overflow-y: auto;
+    scrollbar-color: var(--accent) var(--card-bg);
+}
+
+.modal-container img {
+    grid-area: poster;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.modal-details {
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-details h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.modal-details p {
+    font-size: 1rem;
+}
+
+.modal-plot-container {
+    grid-row: span 2;
+    grid-area: plot;
+}
+
+.modal-plot-container h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.modal-plot {
+    font-size: 1rem;
+} 
+
+/* PAGINATION STYLE */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.nav-btn,
+.page-btn {
+    padding: 5px 10px;
+    background-color: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.nav-btn:hover,
+.page-btn:hover {
+    transform: scale(1.2);
+}
+
+.page-btn.active {
+    background-color: var(--accent);
+    color: var(--bg);
+    transform: scale(1.2);
+}

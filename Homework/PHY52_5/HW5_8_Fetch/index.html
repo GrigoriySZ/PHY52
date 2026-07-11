@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wather-Native</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/weather-icons.min.css"/>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <i id="logo" class="wi wi-day-cloudy"></i>
+            <h1 id="title">Wather-Native</h1>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <!-- INPUTS CONTAINER -->
+            <div class="inputs-container">
+
+                <!-- INPUT ROW -->
+                <div class="input-row">
+                    <label for="location-input">Местоположение:</label>
+                    <input type="text" id="location-input" name="location-input" placeholder="Введите местоположение">
+                </div>
+
+                <!-- INPUT ROW -->
+                <div class="input-row">
+                    <label for="forecast-days-input">Выбор периода:</label>
+                    <select name="forecast-days-input" id="forecast-days-input">
+                        <option value="1">1 день</option>
+                        <option value="3" selected>3 дня</option>
+                        <option value="7">7 дней</option>
+                    </select>
+                </div>
+                <button id="request-btn" class="input-row" onclick="loadWeather()">Узнать погоду</button>
+            </div>
+
+            <!-- RESULT CONTAINERS -->
+            <div id="result-container">
+                <!-- CURRENT WEATHER CONTAINER -->
+                <div id="current-weather" class="current-container"></div>
+                <!-- DAILY WEATHER CONTAINER -->
+                <div id="daily-weather" class="weather-container"></div>
+            </div>
+
+            <div id="error-msg-container"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

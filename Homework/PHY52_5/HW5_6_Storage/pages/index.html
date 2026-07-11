@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Журнал | Vault</title>
+    <title>Авторизация | Vault</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
@@ -32,50 +32,48 @@
             <div id="alarm-container" class="glass">
                 <span id="alarm-signal">ALARM</span>
             </div>
-
-            <div class="navigation-container">
-                <nav class="nav-btns">
-                    <a href="control.html" id="control-panel" class="nav-btn stripperd-border">Control Panel</a>
-                    <a href="journal.html" id="journal" class="nav-btn stripperd-border">Journal</a>
-                    <a href="index.html" id="log-out" class="nav-btn stripperd-border" onclick="logout()">Log Out</a>
-                </nav>
-            </div>
-
         </div>
     </header>
-
+    
     <main>
         <div class="wrapper">
             <h1>Бункер</h1>
-            <div class="journal-container">
-                <h2>Журнал действий</h2>
-                <div id="notes-container"></div>
-                <table id="journal-table">
-                    <thead>
-                        <tr>
-                            <th class="num-col journal-col">Номер</th>
-                            <th class="data-col journal-col">Запись</th>
-                            <th class="date-col journal-col">Дата</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-                <textarea 
-                    name="note-input" 
-                    id="note-input"
-                    placeholder="Введите вашу заметку"
-                    rows="3"
-                ></textarea>
-                <div class="journal-btns-container">
-                    <button class="journal-btn stripperd-border" onclick="handleClearNote()">Очистить</button>
-                    <button class="journal-btn stripperd-border" onclick="handleAddNote()">Записать</button>
+            <form id="login-form">
+                <h2>Авторизация</h2>
+                <div class="form-row">
+                    <label for="user-name">Ваше имя:</label>
+                    <input 
+                        type="text" 
+                        id="user-name" 
+                        name="user-name" 
+                        placeholder="Введите ваше имя"
+                    >
                 </div>
-            </div>
+                <div class="form-row">
+                    <select name="access-lvl" id="access-lvl">
+                        <option value="">-- Уровень доступа --</option>
+                        <option value="employee">Работник</option>
+                        <option value="admin">Администрация</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="access-code">Код доступа:</label>
+                    <input 
+                        type="password" 
+                        id="access-code" 
+                        name="access-code" 
+                        placeholder="Введите код доступа"
+                    >
+                </div>
+                <button type="button" id="form-btn" class="stripperd-border" onclick="login()">
+                    Подвердить личность
+                </button>
+            </form>
+            <div id="login-error"></div>
         </div>
     </main>
     <script src="../scripts/script.js"></script>
-    <script>loadJournal()</script>
+    <script>checkAuth()</script>
+    <script>applyAlarm()</script>
 </body>
 </html>

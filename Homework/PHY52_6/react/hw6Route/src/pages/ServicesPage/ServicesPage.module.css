@@ -1,0 +1,33 @@
+.serviceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    transition: transform 0.4s ease-in-out, border-color 0.2s linear;
+
+    &:hover {
+        transform: scale(1.05);
+        border-color: var(--accent);
+    }
+}
+
+.serviceLink {
+    text-decoration: none;
+    width: fit-content;
+    padding: 5px 20px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    cursor: pointer;
+    transition: color 0.3s linear, border-color 0.5s ease-out, box-shadow 0.2s ease-in;
+
+    &:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        box-shadow: inset 0 3px 10px 0 #000, inset 0 0 5px -3px var(--accent);
+    }
+}
