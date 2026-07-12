@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Журнал | Vault</title>
+    <title>Главная | Vault</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 
@@ -47,35 +47,25 @@
     <main>
         <div class="wrapper">
             <h1>Бункер</h1>
-            <div class="journal-container">
-                <h2>Журнал действий</h2>
-                <div id="notes-container"></div>
-                <table id="journal-table">
-                    <thead>
-                        <tr>
-                            <th class="num-col journal-col">Номер</th>
-                            <th class="data-col journal-col">Запись</th>
-                            <th class="date-col journal-col">Дата</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-                <textarea 
-                    name="note-input" 
-                    id="note-input"
-                    placeholder="Введите вашу заметку"
-                    rows="3"
-                ></textarea>
-                <div class="journal-btns-container">
-                    <button class="journal-btn stripperd-border" onclick="handleClearNote()">Очистить</button>
-                    <button class="journal-btn stripperd-border" onclick="handleAddNote()">Записать</button>
+            <div id="user-display" class="glass">
+                Сотрудник:
+                <span id="user-placeholder"></span>
+            </div>
+            <div class="control-panel-container">
+                <h2>Панель управления</h2>
+                <span>Включение тревоги</span>
+                
+                <div id="alarm-controller">
+                    <button 
+                        id="alarm-handle"
+                    ></button>
                 </div>
             </div>
         </div>
     </main>
+
     <script src="../scripts/script.js"></script>
-    <script>loadJournal()</script>
+    <script>loadControlPanel()</script>
 </body>
+
 </html>
