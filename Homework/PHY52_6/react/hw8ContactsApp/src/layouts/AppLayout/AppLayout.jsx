@@ -2,7 +2,7 @@ import { NavLink, Link, Outlet, useNavigate } from 'react-router-dom';
 import { IoIosContacts } from "react-icons/io";
 import styles from './AppLayout.module.css';
 
-export default function AppLayout () {
+export default function Header () {
     // Класс стилей для активной ссылки
     const setNavClass = ({ isActive }) => isActive ? 
         `${styles.navLink} ${styles.active}` : 
@@ -11,7 +11,7 @@ export default function AppLayout () {
     const navigate = useNavigate();
 
     return (
-        <>
+        <div className={styles.appLayout}>
             {/* HEADER */}
             <header>
                 <div className={styles.wrapper}>
@@ -44,6 +44,6 @@ export default function AppLayout () {
                     <Outlet />
                 </div>
             </main>
-        </>
+        </div>
     )
 }

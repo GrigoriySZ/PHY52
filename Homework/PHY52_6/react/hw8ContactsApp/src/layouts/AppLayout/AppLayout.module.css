@@ -1,3 +1,8 @@
+.appLayout {
+    min-height: 100vh;
+    background-color: var(--bg);
+}
+
 .wrapper {
     margin: 0 auto;
     width: 70%;
@@ -79,3 +84,7 @@ header {
     }
 } 
 
+main {
+    padding: 20px;
+    margin: 30px auto;
+}

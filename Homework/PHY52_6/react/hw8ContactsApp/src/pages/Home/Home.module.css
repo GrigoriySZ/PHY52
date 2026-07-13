@@ -1,10 +1,41 @@
-.description {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    color: var(--text);
+h1 {
+
+    span {
+
+    }
 }
 
-.contactsCounter {
-    font-size: 1rem;
-    font-weight: 600;
+h2 {
+
+}
+
+.description {
+    
+}
+
+.storageBarContainer {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    height: 20px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.storageBar {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--accent);
+}
+
+.btnContainer {
+
+
+    .routeBtn {
+
+    }
 }

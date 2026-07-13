@@ -1,64 +1,48 @@
-import { useState, useReducer, act } from 'react'
+import { useState, useEffect, useReducer } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { contactReducer } from "./reducer/contactsReducer";
 
-const loadContactsStorage = () => {
-  try {
-    const savedData = localStorage.getItem('contacts');
-    if (savedData) return JSON.parse(savedData);
-  } catch (e) {
-    console.error('Ошибка чтения localStorage', e)
-  }
+// PAGES
+import Home from './pages/Home/Home';
+import Contacnts from './pages/Contacts';
+import AddContact from './pages/AddContact';
+import NotFound from './pages/NotFound';
+import AppLayout from './layouts/AppLayout';
 
-  return {
-    contacts: [
-      {id: Date.now(), 
-      name: '',
-      phone: ''},
-    ]
-  }
-};
+// STYLES
+import styles from "./App.module.css";
 
-export function contactReducer(state, action) {
-  switch (action.type) {
-    case 'ADD_CONTACT': 
-      return {
-        ...state,
-        contacts: [
-          ...state.contacts, 
-          {
-            id: Date.now(),
-            name: '',
-            phone: ''
-          }
-        ]
-      }
-    
-    case 'UPDATE_CONTACT': 
-      return {
-        ...state,
-        contacts: state.contacts.map((con) => con.id === action.payload.id
-        ? {...con, [action.payload.field]: action.payload.value}
-        : con
-      )
-      }
-    
-    case 'REMOVE_CONTACT':
-      return {
-        ...state, 
-        contacts: state.contacts.filter((cont) => cont.id !== action.payload)
-      }
-    
-    default: 
-      return state;
-  }
+const initialState = {
+  contacts: [
+    {id: 1, name: "Иванов Иван", phone: "+7(999)777-55-33"},
+    {id: 2, name: "Петрова Анна", phone: "+7(913)766-51-66"},
+    {id: 3, name: "Балагуров Афанасий", phone: "+7(901)765-52-12"},
+    {id: 4, name: "Таврова Ульяна", phone: "+7(921)684-10-98"},
+    {id: 5, name: "Ильниа Ульяна", phone: "+7(910)456-16-14"}
+  ],
 };
 
 export function App() {
-
+  const [contacts, setContacts] = useState([]);
+  const initialState = loadContactsStorage();
+  const [state, dispatch] = useReducer(contactReducer, initialState);
 
 
   return (
     <>
-
+      <Router>
+        <Routes>
+          <Route path='/' element={<Navigate to="/home" replace/>} />
+          {/* PAGE LAYOUT */}
+          <Route path='/' element={<AppLayout />}>
+            <Route path='home' element={<Home />} />
+            <Route path='contacts' element={<Contacnts />} />
+            <Route path='add-contact' element={<AddContact />} />
+          </Route>
+          {/* PAGE NOT FOUND */}
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </Router>
     </>
   )
 };

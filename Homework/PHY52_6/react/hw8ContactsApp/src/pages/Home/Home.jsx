@@ -1,16 +1,43 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 
-export default function Home({ counter }) {
+export default function Home({ contacts, contactsLimit }) {
+
+    const contactPercent = (contacts / contactsLimit) * 100;
 
     return (
-        <>
-            <h1>Книга контактов</h1>
+        <div>
+            <h1>
+                Добро пожаловать в вашу <span>Книгу контактов</span>
+            </h1>
             <p className={styles.description}>
-                В этом сервисе вы сможете хранить все необходимые контакты и 
-                    иметь к ним легкий и удобный доступ.
+                Это простое SPA-приложение для хранение списка ваших контактов
             </p>
-            <p className={styles.contactsCounter}>В записной книжке контактов: {counter}</p>
-        </>
-    )
+            <h2>Всего контактов: {contacts.length}</h2>
+            <div className={styles.storageBarContainer} 
+                style={{
+                
+            }}>
+                <div 
+                    className={styles.storageBar} 
+                    style={{width: `${contactPercent}%`}}
+                ></div>
+            </div>
+            <div className={styles.btnContainer}>
+                <Link to="/contacts">
+                    <button className={styles.routeBtn}>
+                        Список контактов
+                    </button>
+                    
+                </Link>
+                <Link to="/add-contact">
+                    <button className={styles.routeBtn}>
+                        Добавить контакт
+                    </button>
+                </Link>
+            </div>
+            
+        </div>
+    );
 }
