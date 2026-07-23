@@ -21,7 +21,7 @@ const initialState = {
 
 export default function App() {
   const [state, dispatch] = useReducer(contactReducer, initialState);
-  const [sorageLimit, setStorageLimit] = useState(20);
+  const [storageLimit, setStorageLimit] = useState(20);
 
   return (
     <>
@@ -31,12 +31,17 @@ export default function App() {
           {/* PAGE LAYOUT */}
           <Route path='/' element={<AppLayout />}>
             <Route path='home' element={
-              <Home contacts={state.contacts} contactsLimit={sorageLimit}/>
+              <Home contacts={state.contacts} contactsLimit={storageLimit}/>
             } />
-            <Route path='contacts' element={
+            <Route path='/contacts' element={
               <Contacnts contacts={state.contacts} dispatch={dispatch}/>
             } />
-            <Route path='add-contact' element={<AddContact />} />
+            <Route path='add-contact' element={
+              <AddContact dispatch={dispatch}
+                contactsCount={state.contacts.length}
+                storageLimit={storageLimit}
+              />
+            } />
           </Route>
           {/* PAGE NOT FOUND */}
           <Route path='*' element={<NotFound />} />

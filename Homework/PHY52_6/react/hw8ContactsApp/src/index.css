@@ -7,9 +7,11 @@
   --accent: #4e63db;
   --accent-bg: #4e63db1a;
   --accent-border: #4e63db80;
-  --button-text: #fff;
-  --button-bg: #c62828;
-  --button-bg-focus: #e53935;
+  --error-text: #dd2525;
+  --error-border: #971c1c;
+  --button-accent: #4e63db;
+  --button-white: #fff;
+  --button-red: #dd2525;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;

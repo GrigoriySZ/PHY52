@@ -5,21 +5,8 @@ export function contactReducer(state, action) {
                 ...state,
                 contacts: [
                     ...state.contacts, 
-                    {
-                        id: Date.now(),
-                        name: '',
-                        phone: ''
-                    }
+                    action.payload
                 ]
-            }
-    
-        case 'UPDATE_CONTACT': 
-            return {
-                ...state,
-                contacts: state.contacts.map((con) => con.id === action.payload.id
-                    ? {...con, [action.payload.field]: action.payload.value}
-                    : con
-                )
             }
     
         case 'REMOVE_CONTACT':

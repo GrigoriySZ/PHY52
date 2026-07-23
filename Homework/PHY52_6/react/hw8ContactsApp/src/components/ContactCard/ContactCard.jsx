@@ -6,7 +6,7 @@ export default function ContactCard({ contact, dispatch }) {
 
     const handleDelete = () => {
         dispatch({
-            type: "DELETE_CONTACT",
+            type: "REMOVE_CONTACT",
             payload: contact.id 
         })
     };
@@ -20,9 +20,9 @@ export default function ContactCard({ contact, dispatch }) {
             <button
                 className={styles.delBtn}
                 style={{
-                    backgroundColor: isHovered
-                        ? "var(--button-bg-focus)"
-                        : "var(--button-bg)"
+                    backgroundColor: isHovered ? "var(--button-red)" : "var(--button-white)",
+                    color: isHovered ? "var(--button-white)" : "var(--button-red)",
+                    border: "2px solid var(--button-red)"
                 }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}

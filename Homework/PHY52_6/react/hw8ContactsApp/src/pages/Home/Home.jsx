@@ -21,7 +21,10 @@ export default function Home({ contacts, contactsLimit }) {
             }}>
                 <div 
                     className={styles.storageBar} 
-                    style={{width: `${contactPercent}%`}}
+                    style={{width: `${contactPercent}%`,
+                        backgroundColor: contactPercent > 95 ? "#dd2525" 
+                            : contactPercent > 90 ? "#f3db00" : "var(--accent)"
+                    }}
                 ></div>
             </div>
             <div className={styles.btnContainer}>

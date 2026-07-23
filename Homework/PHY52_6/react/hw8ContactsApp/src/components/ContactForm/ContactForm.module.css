@@ -1,0 +1,60 @@
+.form {
+    max-width: 500px;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formField{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.formField label {
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+.formInput {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: var(--accent-border);
+}
+
+.errorMessage {
+    padding: 8px;
+    margin: 12px 0;
+    background-color: var(--bg);
+    border: 1px solid var(--error-border);
+    border-radius: 8px;
+    color: var(--error-text);
+    transition: 0.3s;
+}
+
+.formBtn {
+    padding: 12px;
+    border: 2px solid var(--button-accent);
+    border-radius: 8px;
+    background-color: var(--bg);
+    color: var(--button-accent);
+    font-size: 16px;
+    transition: background-color 0.2s ease-out, 
+        color 0.3s ease-out;
+}
+
+.formBtn:hover {
+    background-color: var(--button-accent);
+    color: var(--button-white);
+}
