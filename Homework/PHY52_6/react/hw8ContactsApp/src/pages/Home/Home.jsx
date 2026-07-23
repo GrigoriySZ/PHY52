@@ -4,10 +4,10 @@ import styles from "./Home.module.css";
 
 export default function Home({ contacts, contactsLimit }) {
 
-    const contactPercent = (contacts / contactsLimit) * 100;
+    const contactPercent = (contacts.length / contactsLimit) * 100;
 
     return (
-        <div>
+        <div className={styles.homeContainer}>
             <h1>
                 Добро пожаловать в вашу <span>Книгу контактов</span>
             </h1>

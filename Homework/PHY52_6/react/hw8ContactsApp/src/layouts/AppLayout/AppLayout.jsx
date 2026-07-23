@@ -4,9 +4,9 @@ import styles from './AppLayout.module.css';
 
 export default function Header () {
     // Класс стилей для активной ссылки
-    const setNavClass = ({ isActive }) => isActive ? 
-        `${styles.navLink} ${styles.active}` : 
-        `${styles.navLink}`; 
+    const setNavClass = ({ isActive }) => isActive 
+        ? `${styles.navLink} ${styles.active}` 
+        : `${styles.navLink}`; 
 
     const navigate = useNavigate();
 

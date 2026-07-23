@@ -7,10 +7,7 @@ import Home from './pages/Home/Home';
 import Contacnts from './pages/Contacts';
 import AddContact from './pages/AddContact';
 import NotFound from './pages/NotFound';
-import AppLayout from './layouts/AppLayout';
-
-// STYLES
-import styles from "./App.module.css";
+import AppLayout from './layouts/AppLayout/AppLayout';
 
 const initialState = {
   contacts: [
@@ -22,11 +19,9 @@ const initialState = {
   ],
 };
 
-export function App() {
-  const [contacts, setContacts] = useState([]);
-  const initialState = loadContactsStorage();
+export default function App() {
   const [state, dispatch] = useReducer(contactReducer, initialState);
-
+  const [sorageLimit, setStorageLimit] = useState(20);
 
   return (
     <>
@@ -35,8 +30,12 @@ export function App() {
           <Route path='/' element={<Navigate to="/home" replace/>} />
           {/* PAGE LAYOUT */}
           <Route path='/' element={<AppLayout />}>
-            <Route path='home' element={<Home />} />
-            <Route path='contacts' element={<Contacnts />} />
+            <Route path='home' element={
+              <Home contacts={state.contacts} contactsLimit={sorageLimit}/>
+            } />
+            <Route path='contacts' element={
+              <Contacnts contacts={state.contacts} dispatch={dispatch}/>
+            } />
             <Route path='add-contact' element={<AddContact />} />
           </Route>
           {/* PAGE NOT FOUND */}

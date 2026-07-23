@@ -1,11 +1,15 @@
 :root {
   --text: #656375;
   --text-h: #08060d;
+  --text-muted: #6e6d74;
   --bg: #fff;
   --border: #e5e4e7;
   --accent: #4e63db;
-  --accent-bg: rgba(78, 99, 219, 0.1);
-  --accent-border: rgba(78, 99, 219, 0.5);
+  --accent-bg: #4e63db1a;
+  --accent-border: #4e63db80;
+  --button-text: #fff;
+  --button-bg: #c62828;
+  --button-bg-focus: #e53935;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -30,6 +34,7 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
+    --text-muted: #abaeb3;
     --bg: #16171d;
     --border: #2e303a;
     --accent: #4e63db;

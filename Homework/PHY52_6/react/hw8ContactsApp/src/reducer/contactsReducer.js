@@ -25,7 +25,7 @@ export function contactReducer(state, action) {
         case 'REMOVE_CONTACT':
             return {
                 ...state, 
-                contacts: state.contacts.filter((cont) => cont.id !== action.payload)
+                contacts: state.contacts.filter((con) => con.id !== action.payload)
             }
     
         default: 
